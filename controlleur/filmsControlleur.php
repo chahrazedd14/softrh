@@ -31,7 +31,7 @@ function detailAction()
         }
         
         require_once 'views/detailfilm.html.php';
-        }
+}
 
 
 $action = 'default';
