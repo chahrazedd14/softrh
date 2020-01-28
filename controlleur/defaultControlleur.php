@@ -1,4 +1,5 @@
 <?php
+require_once 'vendor/autoload.php';
 require_once 'core/db.php';
 require_once 'model/getUser.php';
 echo "default login";
@@ -7,35 +8,32 @@ print_r($_POST);
 function defaultAction()
 {
     $action = 'default';
-    
-    if(isset($_POST['identifiant'])){
+
+    if (isset($_POST['identifiant'])) {
         $user = getUser($_POST['identifiant']);
         print_r($user);
         $action = checkUser($user);
     }
-    
-    
+
+
     // require_once 'views/login-test.html.twig';
     return $action;
-    
 }
 
-function checkUser($user){
+function checkUser($user)
+{
     // print_r($user);
     //si getUser() ne trouve aucun utilisateur avec cette identifiant :
-    if($user == ""){
+    if ($user == "") {
         echo 'aucun utilisateur trouvé';
         return "default";
-    }
-    else if($user['mdp'] == $_POST['mdp'] && $user['admin'] == "true"){
+    } else if ($user['mdp'] == $_POST['mdp'] && $user['admin'] == "true") {
         echo 'Bon mot de passe admin!';
         return "admin";
-    }
-    else if($user['mdp'] == $_POST['mdp'] && $user['admin'] == "false"){
+    } else if ($user['mdp'] == $_POST['mdp'] && $user['admin'] == "false") {
         echo 'Bon mot de passe employe!';
         return "employe";
-    }
-    else{
+    } else {
         echo 'mauvais mdp';
         return "default";
     }
@@ -58,12 +56,18 @@ switch ($action) {
         break;
     case 'admin';
         // defaultAction();
-        require_once 'views/admin-test.html.twig';
+        
+
+        $loader = new \Twig\Loader\FilesystemLoader('views');
+        $twig = new \Twig\Environment($loader);
+        // $template = $twig->load('admin-test.html.twig');
+        echo $twig->render('admin-test.html.twig', ['var1' => 'variables', 'var2' => 'here']);
+        // require_once 'views/admin-test.html.twig';
         break;
     case 'employe';
         // defaultAction();
         require_once 'views/utilisateur.html.twig';
         break;
     default:
-    require_once 'views/404.html.php' ;
+        require_once 'views/404.html.php';
 }
