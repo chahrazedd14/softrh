@@ -34,6 +34,7 @@ switch ($controlleur) {
         break;
 
     default:
-    require_once 'views/404.html.php'  ;
+    // require_once 'views/404.html.php'  ;
+    require_once 'controlleur/defaultControlleur.php';
 }
 
