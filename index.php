@@ -23,9 +23,9 @@ switch ($controlleur) {
     require_once 'controlleur/filmsControlleur.php';
         // echo 'applle de controlleur film';
         break;
-    case "/genres";
-        require_once 'controlleur/genresControlleur.php';
-        echo 'applle de controlleur genres';
+    case "/humeur";
+        require_once 'controlleur/humeurControlleur.php';
+        echo 'applle de controlleur humeur';
         break;
     case "/realisateurs";
        
