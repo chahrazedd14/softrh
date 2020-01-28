@@ -23,9 +23,15 @@ switch ($controlleur) {
     require_once 'controlleur/filmsControlleur.php';
         // echo 'applle de controlleur film';
         break;
+<<<<<<< HEAD
     case "/humeur";
         require_once 'controlleur/humeurControlleur.php';
         echo 'applle de controlleur humeur';
+=======
+    case "/lol";
+        require_once 'controlleur/lolControlleur.php';
+        echo 'applle de controlleur lol';
+>>>>>>> b9a38fdf5ca9f078bc4b21bc060d1a6027e49183
         break;
     case "/realisateurs";
        
@@ -34,6 +40,8 @@ switch ($controlleur) {
         break;
 
     default:
-    require_once 'views/404.html.php'  ;
+    // require_once 'views/404.html.php'  ;
+    require_once 'controlleur/defaultControlleur.php';
 }
+
 

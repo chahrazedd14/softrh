@@ -1,18 +1,18 @@
 <!-- fonction par rapport requet  -->
 <?php
 
-function getFilmsAll(){
+function getAllUser(){
     global $pdo;
     $sql = "SELECT id,titre,annee,synopsis FROM films";
     $sth = $pdo->prepare($sql);
     $sth->execute();
     return $sth->fetchAll(pdo::FETCH_ASSOC);
 }
-function getFilmsById($id){
+function getUser($id){
     global $pdo;
-    $sql = "SELECT id,titre, annee, imagephoto,synopsis FROM films WHERE id =:id";
+    $sql = "SELECT * FROM Employe WHERE utilisateur =:id";
     $sth = $pdo->prepare($sql);
-    $sth->bindParam(':id',$id, PDO::PARAM_INT);
+    $sth->bindParam(':id',$id, PDO::PARAM_STR);
     $sth->execute();
     return $sth->fetch(pdo::FETCH_ASSOC);
 }
