@@ -1,2 +1,4 @@
 views/login-test.html.twig
 views/base-test.html.twig
+views/admin-test.html.twig
+views/employe-test.html.twig
