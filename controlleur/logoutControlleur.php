@@ -12,7 +12,7 @@
     //     session_destroy($_SESSION['logged']);
     // }
     session_unset();
-    echo 'LOGOUT';
+    // echo 'LOGOUT';
     // if (isset($_SESSION)) {
     //     print_r($_SESSION);
     //     print_r($_SESSION['admin_logged']);
