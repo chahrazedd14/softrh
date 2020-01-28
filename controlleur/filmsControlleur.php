@@ -5,7 +5,7 @@ require_once 'model/films.php';
 
 function defaultAction()
 {
-    $films = getFilmsAll();
+    // $films = getFilmsAll();
     require_once 'views/films.html.php';
 }
 
@@ -23,7 +23,7 @@ function detailAction()
         }
         
         $id = intval( substr( $matches[0], 1) );
-        $film = getFilmsById($id);
+        // $film = getFilmsById($id);
         
         if($film === false){
         require_once 'views/nofilm.html.php';
