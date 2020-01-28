@@ -52,16 +52,23 @@ switch ($action) {
     case 'default':
     case "";
         // defaultAction();
-        require_once 'views/login-test.html.twig';
-        break;
-    case 'admin';
-        // defaultAction();
-        
-
+        // require_once 'views/login-test.html.twig';
+        // require_once 'views/login.html';
         $loader = new \Twig\Loader\FilesystemLoader('views');
         $twig = new \Twig\Environment($loader);
         // $template = $twig->load('admin-test.html.twig');
-        echo $twig->render('admin-test.html.twig', ['var1' => 'variables', 'var2' => 'here']);
+        echo $twig->render('login-test.html.twig', ['var1' => 'variables', 'var2' => 'here']);
+        break;
+    case 'admin';
+        // defaultAction();
+        echo "admin start";
+        // header('Location: localhost:8080/admin');
+        // exit();
+
+        // $loader = new \Twig\Loader\FilesystemLoader('views');
+        // $twig = new \Twig\Environment($loader);
+        // // $template = $twig->load('admin-test.html.twig');
+        // echo $twig->render('admin-test.html.twig', ['var1' => 'variables', 'var2' => 'here']);
         // require_once 'views/admin-test.html.twig';
         break;
     case 'employe';
