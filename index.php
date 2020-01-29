@@ -28,7 +28,6 @@ switch ($controlleur) {
         break;
 
     case "/admin";
-
         if (isset($_SESSION['admin_logged']) && $_SESSION['admin_logged'] == true) {
             require_once 'controlleur/adminControlleur.php';
         } else {
@@ -38,8 +37,8 @@ switch ($controlleur) {
         }
         // echo 'applle de controlleur film';
         break;
-    case "/employe";
 
+    case "/employe";
         if (isset($_SESSION['employe_logged']) && $_SESSION['employe_logged'] == true) {
             require_once 'controlleur/employeControlleur.php';
         } else {
