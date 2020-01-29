@@ -14,4 +14,4 @@ VALUES('')";
 
 $dbco->exec($sql);
 echo 'Entrée ajoutée dans la table';
-}
+
