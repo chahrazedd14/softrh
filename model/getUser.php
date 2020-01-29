@@ -12,7 +12,7 @@ function getUser($id, $mdp){
     global $pdo;
     // $sql = "SELECT * FROM Employe WHERE utilisateur =:id";
     $sql = "SELECT * FROM `Employe` WHERE utilisateur = :id AND mdp = PASSWORD( :mdp )";
-    // SELECT * FROM `Employe` WHERE utilisateur = :id AND mdp = PASSWORD( :mdp )
+    // SELECT * FROM Vote INNER JOIN Humeur ON Vote.id_humeur = Humeur.id_humeur
     $sth = $pdo->prepare($sql);
     $sth->bindParam(':id',$id, PDO::PARAM_STR);
     $sth->bindParam(':mdp',$mdp, PDO::PARAM_STR);
