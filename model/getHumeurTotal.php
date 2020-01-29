@@ -52,5 +52,5 @@ function humeurAnneeTotal($annee)
     // $sth->bindParam(':id', $id, PDO::PARAM_STR);
     // $sth->bindParam(':mdp', $mdp, PDO::PARAM_STR);
     $sth->execute();
-    return $sth->fetch(pdo::FETCH_ASSOC);
+    return $sth->fetchAll(pdo::FETCH_ASSOC);
 }
