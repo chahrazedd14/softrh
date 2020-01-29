@@ -68,11 +68,11 @@ switch ($action) {
     case "";
         // defaultAction();
         // require_once 'views/login-test.html.twig';
-        // require_once 'views/login.html';
-        $loader = new \Twig\Loader\FilesystemLoader('views');
-        $twig = new \Twig\Environment($loader);
-        // $template = $twig->load('admin-test.html.twig');
-        echo $twig->render('login-test.html.twig', ['var1' => 'variables', 'var2' => 'here']);
+        require_once 'views/index.html';
+        // $loader = new \Twig\Loader\FilesystemLoader('views');
+        // $twig = new \Twig\Environment($loader);
+        // // $template = $twig->load('admin-test.html.twig');
+        // echo $twig->render('login-test.html.twig', ['var1' => 'variables', 'var2' => 'here']);
         break;
     case 'admin';
         // defaultAction();
