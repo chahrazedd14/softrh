@@ -10,5 +10,13 @@ print_r($_POST);
 // $twig = new \Twig\Environment($loader);
 // // $template = $twig->load('admin-test.html.twig');
 // echo $twig->render('admin-test.html.twig', ['var1' => 'variables', 'var2' => 'here']);
+$action = "default";
+switch ($action) {
+    case 'default':
+        require_once 'views/admin.html';
+        break;
 
-require_once 'views/admin.html';
+    default:
+        require_once 'views/admin.html';
+        break;
+}
