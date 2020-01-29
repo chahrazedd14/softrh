@@ -10,7 +10,9 @@ function getAllUser(){
 }
 function getUser($id){
     global $pdo;
-    $sql = "SELECT * FROM Employe WHERE utilisateur =:id";
+    // $sql = "SELECT * FROM Employe WHERE utilisateur =:id";
+    $sql = "SELECT * FROM Employe WHERE utilisateur = :id";
+    // SELECT * FROM `Employe` WHERE utilisateur = :id AND mdp = PASSWORD( :mdp )
     $sth = $pdo->prepare($sql);
     $sth->bindParam(':id',$id, PDO::PARAM_STR);
     $sth->execute();
