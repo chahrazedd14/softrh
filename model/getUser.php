@@ -14,7 +14,13 @@ function getUser($id, $mdp)
     // $sql = "SELECT * FROM Employe WHERE utilisateur =:id";
     $sql = "SELECT * FROM `Employe` WHERE utilisateur = :id AND mdp = PASSWORD( :mdp )";
     // SELECT * FROM Vote INNER JOIN Humeur ON Vote.id_humeur = Humeur.id_humeur
-    // SELECT *, count(nom_humeur) AS vote_total FROM Vote INNER JOIN Humeur ON Vote.id_humeur = Humeur.id_humeur GROUP BY nom_humeur
+    //count number of same humeurs : 
+    // SELECT *, count(nom_humeur) AS vote_total FROM Vote INNER JOIN Humeur ON Vote.id_humeur = Humeur.id_humeur
+    // GROUP BY nom_humeur 
+    //select by month : 
+    //SELECT *, MONTH(DATE_FORMAT(vote_date, "%Y/%m/%d")) AS month FROM Vote
+    //select by day : 
+    // SELECT *, DAY(DATE_FORMAT(vote_date, "%Y/%m/%d")) AS day FROM Vote 
     $sth = $pdo->prepare($sql);
     $sth->bindParam(':id', $id, PDO::PARAM_STR);
     $sth->bindParam(':mdp', $mdp, PDO::PARAM_STR);
