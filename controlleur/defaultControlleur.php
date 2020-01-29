@@ -4,10 +4,10 @@ require_once 'core/db.php';
 require_once 'model/getUser.php';
 echo "default login";
 
-// $_POST['identifiant'] = "admintest";
-// $_POST['mdp'] = "1234";
-$_POST['identifiant'] = "person1";
-$_POST['mdp'] = "123456789";
+$_POST['identifiant'] = "admintest";
+$_POST['mdp'] = "1234";
+// $_POST['identifiant'] = "person1";
+// $_POST['mdp'] = "123456789";
 
 // session_start();
 // $_SESSION['logged'] = true;
