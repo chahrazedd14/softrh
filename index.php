@@ -28,22 +28,32 @@ switch ($controlleur) {
         break;
 
     case "/admin";
-        if (isset($_SESSION) && $_SESSION['admin_logged'] == true) {
+
+        if (isset($_SESSION['admin_logged']) && $_SESSION['admin_logged'] == true) {
             require_once 'controlleur/adminControlleur.php';
-        }
-        else{
-            require_once 'controlleur/defaultControlleur.php';
+        } else {
+            // require_once 'controlleur/defaultControlleur.php';
+            header('Location: /');
+            exit();
         }
         // echo 'applle de controlleur film';
         break;
     case "/employe";
-        require_once 'controlleur/employeControlleur.php';
-        echo 'applle de controlleur employe';
+
+        if (isset($_SESSION['employe_logged']) && $_SESSION['employe_logged'] == true) {
+            require_once 'controlleur/employeControlleur.php';
+        } else {
+            // require_once 'controlleur/defaultControlleur.php';
+            header('Location: /');
+            exit();
+        }
+        // require_once 'controlleur/employeControlleur.php';
+        // echo 'applle de controlleur employe';
         break;
 
     case "/logout";
         require_once 'controlleur/logoutControlleur.php';
-        echo 'applle de controlleur logout';
+        // echo 'applle de controlleur logout';
         break;
 
     default:
