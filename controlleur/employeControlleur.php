@@ -1,2 +1,4 @@
 <?php
-echo 'ENTER PAPGE Employe';
+require_once 'views/employe.html';
+exit;
+?>
