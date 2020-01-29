@@ -1,13 +1,13 @@
 <!-- fonction par rapport requet  -->
 <?php
 
-function getAllUser(){
-    global $pdo;
-    $sql = "SELECT * FROM Employe";
-    $sth = $pdo->prepare($sql);
-    $sth->execute();
-    return $sth->fetchAll(pdo::FETCH_ASSOC);
-}
+// function getAllUser(){
+//     global $pdo;
+    // $sql = "INSERT INTO Humeur (nom_humeur, date) VALUES ($clickedHumeur, $getDate)";
+//     $sth = $pdo->prepare($sql);
+//     $sth->execute();
+//     return $sth->fetchAll(pdo::FETCH_ASSOC);
+// }
 function getUser($id){
     global $pdo;
     // $sql = "SELECT * FROM Employe WHERE utilisateur =:id";
