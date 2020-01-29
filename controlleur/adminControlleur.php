@@ -2,7 +2,7 @@
 require_once 'vendor/autoload.php';
 // require_once 'core/db.php';
 // require_once 'model/getUser.php';
-echo "default login";
+echo "ENTER ADMIN";
 print_r($_POST);
 
 $loader = new \Twig\Loader\FilesystemLoader('views');

@@ -8,4 +8,5 @@ print_r($_POST);
 $loader = new \Twig\Loader\FilesystemLoader('views');
 $twig = new \Twig\Environment($loader);
 // $template = $twig->load('admin-test.html.twig');
-echo $twig->render('admin-test.html.twig', ['var1' => 'variables', 'var2' => 'here']);
+echo $twig->render('employe-test.html.twig', ['bonjour' => 'sa marche employe', 'var2' => 'here']);
+echo 'ENTER PAPGE Employe';

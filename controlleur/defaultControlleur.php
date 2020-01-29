@@ -3,7 +3,15 @@ require_once 'vendor/autoload.php';
 require_once 'core/db.php';
 require_once 'model/getUser.php';
 echo "default login";
+
+// $_POST['identifiant'] = "admintest";
+// $_POST['mdp'] = "1234";
+$_POST['identifiant'] = "person1";
+$_POST['mdp'] = "123456789";
+
+
 print_r($_POST);
+
 
 function defaultAction()
 {
@@ -42,7 +50,7 @@ function checkUser($user)
 
 
 $action = defaultAction();
-echo $action;
+echo "ACTION = " . $action . " ";
 
 if (strpos($uri, '/', 1) !== false) {
     $action = (strpos($uri, '/', strlen($controlleur) + 1)  === false) ? substr($uri, strpos($uri, '/', strlen($controlleur))) : substr($uri,  strlen($controlleur) + 1, (strpos($uri, '/', strlen($controlleur) + 1) - 1) - (strlen($controlleur) - 1) - 1);
@@ -62,8 +70,8 @@ switch ($action) {
     case 'admin';
         // defaultAction();
         echo "admin start";
-        // header('Location: localhost:8080/admin');
-        // exit();
+        header('Location: /admin');
+        exit();
 
         // $loader = new \Twig\Loader\FilesystemLoader('views');
         // $twig = new \Twig\Environment($loader);
@@ -73,7 +81,9 @@ switch ($action) {
         break;
     case 'employe';
         // defaultAction();
-        require_once 'views/utilisateur.html.twig';
+        // require_once 'views/utilisateur.html.twig';
+        header('Location: /employe');
+        exit();
         break;
     default:
         require_once 'views/404.html.php';

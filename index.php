@@ -23,16 +23,11 @@ switch ($controlleur) {
         require_once 'controlleur/adminControlleur.php';
         // echo 'applle de controlleur film';
         break;
-    case "/humeur";
-        require_once 'controlleur/humeurControlleur.php';
-        echo 'applle de controlleur humeur';
+    case "/employe";
+        require_once 'controlleur/employeControlleur.php';
+        echo 'applle de controlleur employe';
         break;
-    case "/realisateurs";
-
-        require_once 'controlleur/realisateursControlleur.php';
-        // echo 'applle de controlleur realisateurs';
-        break;
-
+        
     default:
         // require_once 'views/404.html.php'  ;
         require_once 'controlleur/defaultControlleur.php';
