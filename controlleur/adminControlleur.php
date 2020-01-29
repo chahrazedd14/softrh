@@ -4,6 +4,7 @@ require_once 'vendor/autoload.php';
 // require_once 'model/getUser.php';
 echo "ENTER ADMIN";
 print_r($_POST);
+// print_r($_SESSION);
 
 $loader = new \Twig\Loader\FilesystemLoader('views');
 $twig = new \Twig\Environment($loader);
