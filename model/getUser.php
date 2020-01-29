@@ -3,7 +3,7 @@
 
 function getAllUser(){
     global $pdo;
-    $sql = "SELECT id,titre,annee,synopsis FROM films";
+    $sql = "SELECT * FROM Employe";
     $sth = $pdo->prepare($sql);
     $sth->execute();
     return $sth->fetchAll(pdo::FETCH_ASSOC);
