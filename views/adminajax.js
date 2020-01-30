@@ -1,7 +1,9 @@
 function ajaxCallAsynch() {
     // console.dir(myForm);
     console.log('myForm');
-
+    var buttonService = event.target;
+    var service_id = event.target.dataset.service;
+    console.log(service_id);
     var formData = new FormData();
 
     var paramAjax = {
@@ -9,7 +11,7 @@ function ajaxCallAsynch() {
         // body: formData
     };
 
-    fetch('/admin', paramAjax).then(function (response) {
+    fetch(`/admin/show/${service_id}`, paramAjax).then(function (response) {
 
         console.dir(response);
         return response.json();
@@ -29,7 +31,7 @@ var buttonService = document.querySelector('#button-service1');
 buttonService.addEventListener("click", function (event) {
     // event.preventDefault();
 
-    ajaxCallAsynch();
+    ajaxCallAsynch(event);
 
 
 });

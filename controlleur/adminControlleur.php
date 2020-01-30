@@ -56,13 +56,17 @@ switch ($action) {
         break;
 
 
-    case 'service1':
-        $humeurMoisParJourTotal = humeurMoisParJourTotal();
-        echo "humeurMoisParJourTotal";
-        print_r($humeurMoisParJourTotal);
+    case 'show':
+        // $humeurMoisParJourTotal = humeurMoisParJourTotal();
+        // // echo "humeurMoisParJourTotal";
+        // // print_r($humeurMoisParJourTotal);
 
-        echo json_encode($humeurMoisParJourTotal);
-        require_once 'views/admin.html';
+        // echo json_encode($humeurMoisParJourTotal);
+        // require_once 'views/admin.html';
+
+
+        //REQUIRE PAGE AVEC UNIQUEMENT JSON
+        require_once 'controlleur/showService.php';
         break;
 
     default:
