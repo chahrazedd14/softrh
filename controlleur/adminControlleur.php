@@ -10,11 +10,19 @@ print_r($_POST);
 // $twig = new \Twig\Environment($loader);
 // // $template = $twig->load('admin-test.html.twig');
 // echo $twig->render('admin-test.html.twig', ['var1' => 'variables', 'var2' => 'here']);
-$allyeardata = humeurAnneeTotal(2020);
+$currDate = explode("-", date("Y-m-d"));
+print_r($currDate);
+
+$allyeardata = humeurAnneeTotal("2020");
+$allMonthData = humeurMoisTotal("1","2020");
+$allJourData = humeurJourTotal($currDate[2],$currDate[1],$currDate[0]);
+ 
 $action = "default";
 switch ($action) {
     case 'default':
         // print_r($allyeardata);
+        print_r($allMonthData);
+        print_r($allJourData);
         // echo $allyeardata[0]['vote_total'];
         // echo $allyeardata[1]['vote_total'];
         // echo $allyeardata[2]['vote_total'];
