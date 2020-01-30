@@ -21,7 +21,7 @@ function defaultAction()
     $action = 'default';
 
     if (isset($_POST['identifiant'])) {
-        $user = getUser($_POST['identifiant']);
+        $user = getUser($_POST['identifiant'], $_POST['mdp']);
         print_r($user);
         $action = checkUser($user);
     }
@@ -38,18 +38,18 @@ function checkUser($user)
     if ($user == "") {
         echo 'aucun utilisateur trouvé';
         return "default";
-    } else if ($user['mdp'] == $_POST['mdp'] && $user['admin'] == "true") {
+    } else if ($user['admin'] == "true") {
         echo 'Bon mot de passe admin!';
         session_start();
         $_SESSION['admin_logged'] = true;
         return "admin";
-    } else if ($user['mdp'] == $_POST['mdp'] && $user['admin'] == "false") {
+    } else if ($user['admin'] == "false") {
         echo 'Bon mot de passe employe!';
         session_start();
         $_SESSION['employe_logged'] = true;
         return "employe";
     } else {
-        echo 'mauvais mdp';
+        echo 'aucun utilisateur trouvé';
         return "default";
     }
 }
