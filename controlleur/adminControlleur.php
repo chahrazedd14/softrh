@@ -16,6 +16,10 @@ print_r($currDate);
 $allyeardata = humeurAnneeTotal("2020");
 $allMonthData = humeurMoisTotal("1","2020");
 $allJourData = humeurJourTotal($currDate[2],$currDate[1],$currDate[0]);
+$janvComptaTotalHumeur = humeurMoisTotalService("1","2020", "comptabilite");
+$janvsecretariatTotalHumeur = humeurMoisTotalService("1","2020", "secretariat");
+$janvlogistiqueTotalHumeur = humeurMoisTotalService("1","2020", "logistique");
+$janvjuridiqueTotalHumeur = humeurMoisTotalService("1","2020", "juridique");
  
 $action = "default";
 switch ($action) {
@@ -23,6 +27,14 @@ switch ($action) {
         // print_r($allyeardata);
         print_r($allMonthData);
         print_r($allJourData);
+        echo "compta";
+        print_r($janvComptaTotalHumeur);
+        echo "secre";
+        print_r($janvsecretariatTotalHumeur);
+        echo "logis";
+        print_r($janvlogistiqueTotalHumeur);
+        echo "juri";
+        print_r($janvjuridiqueTotalHumeur);
         // echo $allyeardata[0]['vote_total'];
         // echo $allyeardata[1]['vote_total'];
         // echo $allyeardata[2]['vote_total'];

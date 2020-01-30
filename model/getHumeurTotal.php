@@ -30,6 +30,22 @@ function humeurMoisTotal($mois = "1", $annee = "2020")
     return $sth->fetchAll(pdo::FETCH_ASSOC);
 }
 
+function humeurMoisTotalService($mois = "1", $annee = "2020", $service = "comptabilite")
+{
+    global $pdo;
+    // $sql = "SELECT * FROM Employe WHERE utilisateur =:id";
+    $sql = "SELECT nom_humeur, count(nom_humeur) AS vote_total, nom_service FROM Vote INNER JOIN Humeur ON Vote.id_humeur = Humeur.id_humeur INNER JOIN Service ON Vote.id_service = Service.id_service WHERE vote_date LIKE :date AND nom_service = :service GROUP BY nom_humeur";
+    // SELECT nom_humeur, count(nom_humeur) AS vote_total, nom_service FROM Vote INNER JOIN Humeur ON Vote.id_humeur = Humeur.id_humeur INNER JOIN Service ON Vote.id_service = Service.id_service WHERE vote_date LIKE '%-01-%' AND nom_service = 'comptabilite' GROUP BY nom_humeur
+    
+    $selectedDate = "".$annee."-%".$mois."-%";
+    $sth = $pdo->prepare($sql);
+    $sth->bindParam(':date', $selectedDate, PDO::PARAM_STR);
+    $sth->bindParam(':service', $service, PDO::PARAM_STR);
+    $sth->execute();
+    return $sth->fetchAll(pdo::FETCH_ASSOC);
+}
+
+
 function humeurAnneeTotal($annee = "2020")
 {
     global $pdo;
