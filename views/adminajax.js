@@ -9,7 +9,7 @@ function ajaxCallAsynch() {
         // body: formData
     };
 
-    fetch('/controlleur/adminControlleur.php', paramAjax).then(function (response) {
+    fetch('/admin', paramAjax).then(function (response) {
 
         console.dir(response);
         return response.json();
