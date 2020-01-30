@@ -7,7 +7,6 @@
 }
 
 html, body {
-  font-size: 62.5%;
   height: 100%;
 }
 @media (max-width: 768px) {
@@ -34,6 +33,10 @@ svg {
 
 .font-text-dark {
   font-family: "Indie Flower", sans-serif;
+}
+
+.lagout_button {
+  margin-left: 25px;
 }
 
 input, button {
@@ -557,7 +560,7 @@ body {
 
 .side-nav .heading {
   background-color: #252636;
-  padding: 15px 15px 15px 30px;
+  padding: 86px 15px 15px 30px;
   overflow: hidden;
   border-bottom: 1px solid #2a2b3c;
 }
@@ -757,6 +760,7 @@ body {
   background-color: #313348;
   padding: 15px;
   overflow: hidden;
+  height: 110px;
 }
 
 .statistics .box > i {
@@ -773,11 +777,17 @@ body {
   float: left;
   width: auto;
   margin-left: 10px;
+  margin-top: 20px;
 }
 
 .statistics .box .info h3 {
+  margin-top: 25px;
   margin: 5px 0 5px;
   display: inline-block;
+}
+
+.mon_logoadmin {
+  margin-left: 189px;
 }
 
 .statistics .box .info p {
@@ -806,6 +816,13 @@ body {
   margin-top: 25px;
 }
 
+.taille-logo {
+  height: 96.391px;
+  width: 96.391px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 .admins .box > h3 {
   color: #ccc;
   font-family: Calibri;
@@ -814,7 +831,7 @@ body {
 }
 
 .admins .box .admin {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   overflow: hidden;
   background-color: #313348;
   padding: 10px;

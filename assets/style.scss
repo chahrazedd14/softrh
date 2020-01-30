@@ -8,7 +8,7 @@
 }
 $openSans: 'Open Sans', Helvetica, Arial, sans-serif;
 html, body {
-  font-size: 62.5%;
+  // font-size: 62.5%;
   height: 100%;
   // overflow: hidden;
   
@@ -35,7 +35,9 @@ svg {
   font-family: 'Indie Flower', sans-serif;
 }
 
-
+.lagout_button{
+  margin-left: 25px;
+}
 
 input, button {
   outline: none;
@@ -588,7 +590,7 @@ body {background-color: #2a2b3d}
 }
 .side-nav .heading {
   background-color: #252636;
-  padding: 15px 15px 15px 30px;
+  padding: 86px 15px 15px 30px;
   overflow: hidden;
   border-bottom: 1px solid #2a2b3c
 }
@@ -759,6 +761,7 @@ body {background-color: #2a2b3d}
   background-color: #313348;
   padding: 15px;
   overflow: hidden;
+  height: 110px;
 }
 .statistics .box > i {
   float: left;
@@ -773,10 +776,17 @@ body {background-color: #2a2b3d}
   float: left;
   width: auto;
   margin-left: 10px;
+  margin-top: 20px;
 }
 .statistics .box .info h3 {
+  margin-top: 25px;
   margin: 5px 0 5px;
   display: inline-block;
+}
+
+
+.mon_logoadmin{
+  margin-left: 189px;
 }
 .statistics .box .info p {color:#BBB}
 
@@ -800,6 +810,12 @@ body {background-color: #2a2b3d}
 .admins {
   margin-top: 25px;
 }
+.taille-logo{
+ height: 96.391px;
+ width: 96.391px;
+ border-radius: 50%;
+ object-fit: cover;
+}
 
 .admins .box > h3 {
   color: #ccc;
@@ -808,7 +824,7 @@ body {background-color: #2a2b3d}
   margin-top: 0;
 }
 .admins .box .admin {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   overflow: hidden;
   background-color: #313348;
   padding: 10px;
