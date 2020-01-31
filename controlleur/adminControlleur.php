@@ -25,12 +25,29 @@ $humeurMoisParJourTotal = humeurMoisParJourTotal();
 
 $action = "default";
 
-if (!isset($_POST['selectedService'])) {
-    $action = "default";
-} else {
-    $action = "service" . $humeurMoisParJourTotal;
-}
+// if (!isset($_POST['selectedService'])) {
+//     $action = "default";
+// } else {
+//     $action = "service" . $humeurMoisParJourTotal;
+// }
 
+// if( strpos( $uri, '/', 1 ) !== false ){
+//     // $action = ( strpos($uri, "/", strlen($controller) +1) === false )? substr($uri, strpos($uri, '/', strlen($controller) ) ) : substr($uri, strlen($controller) -1, strpos( $uri, '/', strlen( $controller ) +1 ) -1 );
+//     // var_dump(substr($uri, strpos($uri, '/', strlen($controller)));
+
+//     $action = ( strpos( $uri, '/', strlen( $controller ) + 1 )  === false )? substr( $uri, strpos( $uri, '/', strlen( $controller ))+1) : substr( $uri,  strlen( $controller ) + 1, ( strpos( $uri, '/', strlen( $controller ) + 1 ) -1 ) - ( strlen( $controller ) - 1 ) -1    );
+
+//     // var_dump($action);
+//     // var_dump(substr($uri, strlen($controller) -1, strpos( $uri, '/', strlen( $controller ) +1 ) -1 ));
+//     // $action = 'lol';
+// }
+
+$expUri = explode("/",$uri);
+
+echo "loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooool ".$expUri[2];
+// print_r($expUri);
+
+$action = $expUri[2];
 
 switch ($action) {
     case 'default':
@@ -66,7 +83,10 @@ switch ($action) {
 
 
         //REQUIRE PAGE AVEC UNIQUEMENT JSON
-        require_once 'controlleur/showService.php';
+        // require_once 'controlleur/showServiceController.php';
+        require_once 'views/admin.html';
+        $service_id = $_SERVER['REQUEST_URI'];
+        echo $service_id;
         break;
 
     default:
