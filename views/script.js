@@ -42,6 +42,7 @@ $(document).ready(function() {
     });
     
     $(document).on("click", ".app__logout", function(e) {
+      console.log("lol");
       if (animating) return;
       $(".ripple").remove();
       animating = true;
