@@ -235,3 +235,16 @@ $(function () {
     });
   
   });
+
+
+  var nomjour = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi ", "Dimanche"];
+var months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Decembre"];
+var data = document.querySelector('.datetime');
+window.addEventListener('load',function() {
+data.innerText= date;
+
+})
+var today = new Date();
+var dayindex=today.getDay();
+var monthsindex=today.getMonth();
+var date =nomjour[dayindex-1]+' '+today.getDate()+' '+months[monthsindex]+' '+today.getFullYear();
