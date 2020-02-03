@@ -8,8 +8,9 @@
 }
 $openSans: 'Open Sans', Helvetica, Arial, sans-serif;
 html, body {
-  font-size: 62.5%;
-  height: 100%;
+  font-size: 72.5%;
+  
+  // height: 100%;
   // overflow: hidden;
   
   @media (max-width: 768px) {
@@ -36,7 +37,6 @@ svg {
 }
 
 
-
 input, button {
   outline: none;
   border: none;
@@ -48,6 +48,8 @@ input, button {
   background-size: cover;
   overflow: auto;
   font-family: $openSans;
+  font-size: 52.5%;
+overflow: hidden;
 }
 .demo {
   position: absolute;
@@ -61,11 +63,12 @@ input, button {
 }
 .login {
   position: relative;
-  height: 100%;
+  height: 93%;
   background: linear-gradient(to bottom, #4b6569, rgba(0,0,0,0.6) 100%);
   transition: opacity 0.1s, transform 0.3s cubic-bezier(0.17, -0.65, 0.665, 1.25);
   border-radius: 5px;
   transform: scale(1);
+    font-size: 52.5%;
   
   &.inactive {
     opacity: 0;
@@ -109,6 +112,9 @@ input, button {
     padding-top: 1rem;
     border-bottom: 1px solid rgba(255,255,255,0.2);
     width: 426px;
+    margin-top: 20px;
+    margin-left: 40px;
+    
   }
   
   &__icon {
@@ -140,7 +146,8 @@ input, button {
   }
   
   .position-button{
-    padding-right: 122px;
+    padding-right: 139px;
+    margin-top: 20px;
 }
   &__submit {
     position: relative;
@@ -208,18 +215,29 @@ input, button {
   
 }
 
+.margin-monlogoadmin{
+  margin-left: 256px;
+}
+
+// .margin-textmonlogo{
+
+// }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: rgb(209, 181, 181);
     opacity: 1; /* Firefox */
+    font-size: 72.5%;
+
   }
   
   :-ms-input-placeholder { /* Internet Explorer 10-11 */
     color: (209, 181, 181);
+    font-size: 72.5%;
   }
   
   ::-ms-input-placeholder { /* Microsoft Edge */
     color: (209, 181, 181);
+    font-size: 72.5%;
   }
 
 
@@ -527,6 +545,11 @@ input, button {
     stroke-dashoffset: 0;
   }
 }
+.logo-softrh{
+  height: 200px;
+  width: auto;
+  margin-top: 120px;
+}
 
 /*******************************page admin*****************************************/
 * {
@@ -537,6 +560,7 @@ input, button {
   box-sizing: border-box;
   font-family: 'Droid Sans', sans-serif;
   outline: none;
+  font-size: 1.5rem;
 }
 ::-webkit-scrollbar {
   background: transparent;
@@ -590,7 +614,9 @@ body {background-color: #2a2b3d}
   background-color: #252636;
   padding: 15px 15px 15px 30px;
   overflow: hidden;
-  border-bottom: 1px solid #2a2b3c
+  border-bottom: 1px solid #2a2b3c;
+  margin-top: 70px;
+  
 }
 .side-nav .heading > img {
   border-radius: 50%;
@@ -827,7 +853,7 @@ body {background-color: #2a2b3d}
   float: left;
 }
 .admins .box .info h3 {font-size: 19px}
-.admins .box .info p {color: #BBB}
+// .admins .box .info p {color: #BBB}
 
 /* End users */
 /* Start statis */
