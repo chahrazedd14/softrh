@@ -1,4 +1,5 @@
 <?php
+$action = 'default';
 // require_once 'vendor/autoload.php';
 require_once 'core/db.php';
 require_once 'model/getUser.php';
