@@ -54,6 +54,9 @@ $(function () {
         }
   
       });
+
+
+      
   
       $('.side-nav .close-aside').on('click', function () {
   
