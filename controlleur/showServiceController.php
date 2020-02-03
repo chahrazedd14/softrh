@@ -1,5 +1,5 @@
 <?php
-    $service_id = $_SERVER['REQUEST_URI'];
-    echo $service_id;
-    
+    echo 'COUCOUUUUUUUUUUUUUUUUUUUUUUUU SERVICE ';
+    // $humeurMoisParJourTotal = humeurMoisParJourTotal($expUri[3]);
+    // print json_encode($humeurMoisParJourTotal);
 ?>
