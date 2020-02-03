@@ -10,8 +10,5 @@ $sth->bindParam(':id_humeur', $selectedHumeur, PDO::PARAM_INT);
 $sth->bindParam(':id_service', $selectedService,PDO::PARAM_INT);
 $sth->execute();
 return $sth->fetchAll(pdo::FETCH_ASSOC);
+
 ?>
-
-
-
-
