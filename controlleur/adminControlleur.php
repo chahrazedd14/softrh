@@ -82,7 +82,9 @@ switch ($action) {
         getServiceIndex();
         break;
     case 'ajax':
-        require_once 'controlleur/showServiceController.php';
+        // require_once 'controlleur/showServiceController.php';
+        echo 'COUCOUUUUUUUUUUUUUUUUUUUUUUUU SERVICE ';
+        echo $_SERVER['REQUEST_URI'];
         break;
     default:
         require_once 'views/404.html.php';
