@@ -8,7 +8,11 @@
 }
 $openSans: 'Open Sans', Helvetica, Arial, sans-serif;
 html, body {
+<<<<<<< HEAD
   // font-size: 62.5%;
+=======
+  font-size: 62.5%;
+>>>>>>> b5dfa773a2c98d1ea5b58fbef9cc72d7a06f5977
   height: 100%;
   // overflow: hidden;
   
@@ -35,9 +39,13 @@ svg {
   font-family: 'Indie Flower', sans-serif;
 }
 
+<<<<<<< HEAD
 .lagout_button{
   margin-left: 25px;
 }
+=======
+
+>>>>>>> b5dfa773a2c98d1ea5b58fbef9cc72d7a06f5977
 
 input, button {
   outline: none;
@@ -590,7 +598,11 @@ body {background-color: #2a2b3d}
 }
 .side-nav .heading {
   background-color: #252636;
+<<<<<<< HEAD
   padding: 86px 15px 15px 30px;
+=======
+  padding: 15px 15px 15px 30px;
+>>>>>>> b5dfa773a2c98d1ea5b58fbef9cc72d7a06f5977
   overflow: hidden;
   border-bottom: 1px solid #2a2b3c
 }
@@ -761,7 +773,10 @@ body {background-color: #2a2b3d}
   background-color: #313348;
   padding: 15px;
   overflow: hidden;
+<<<<<<< HEAD
   height: 110px;
+=======
+>>>>>>> b5dfa773a2c98d1ea5b58fbef9cc72d7a06f5977
 }
 .statistics .box > i {
   float: left;
@@ -776,6 +791,7 @@ body {background-color: #2a2b3d}
   float: left;
   width: auto;
   margin-left: 10px;
+<<<<<<< HEAD
   margin-top: 20px;
 }
 .statistics .box .info h3 {
@@ -788,6 +804,13 @@ body {background-color: #2a2b3d}
 .mon_logoadmin{
   margin-left: 189px;
 }
+=======
+}
+.statistics .box .info h3 {
+  margin: 5px 0 5px;
+  display: inline-block;
+}
+>>>>>>> b5dfa773a2c98d1ea5b58fbef9cc72d7a06f5977
 .statistics .box .info p {color:#BBB}
 
 /* End statistics */
@@ -810,12 +833,15 @@ body {background-color: #2a2b3d}
 .admins {
   margin-top: 25px;
 }
+<<<<<<< HEAD
 .taille-logo{
  height: 96.391px;
  width: 96.391px;
  border-radius: 50%;
  object-fit: cover;
 }
+=======
+>>>>>>> b5dfa773a2c98d1ea5b58fbef9cc72d7a06f5977
 
 .admins .box > h3 {
   color: #ccc;
@@ -824,7 +850,11 @@ body {background-color: #2a2b3d}
   margin-top: 0;
 }
 .admins .box .admin {
+<<<<<<< HEAD
   margin-bottom: 10px;
+=======
+  margin-bottom: 20px;
+>>>>>>> b5dfa773a2c98d1ea5b58fbef9cc72d7a06f5977
   overflow: hidden;
   background-color: #313348;
   padding: 10px;
