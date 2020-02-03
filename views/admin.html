@@ -1,0 +1,256 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+
+<body>
+    <aside class="side-nav" id="show-side-navigation1">
+        <i class="fa fa-bars close-aside hidden-sm hidden-md hidden-lg" data-close="show-side-navigation1"></i>
+        <div class="heading">
+            <img src="../media/Administrateur de bien.png" alt="">
+            <div class="info ">
+                <h3><a href="#">Administrateur </a></h3>
+            </div>
+        </div>
+        <div class="search">
+            <input type="text" placeholder="Type here"><i class="fa fa-search"></i>
+        </div>
+        <ul class="categories">
+            <li><i class="fa fa-home fa-fw" aria-hidden="true"></i><a href="#">Home</a>
+                <ul class="side-nav-dropdown">
+                    <!-- <li><a href="#"></a></li>
+                    <li><a href="#">dolor ipsum</a></li>
+                    <li><a href="#">amet consectetur</a></li>
+                    <li><a href="#">ipsum dolor sit</a></li> -->
+                </ul>
+            </li>
+            <li><i class="fa fa-support fa-fw"></i><a href="#"> Services</a>
+                <ul class="side-nav-dropdown">
+                    <li id="button-service1" data-service="1"><a href="/admin/show/1"></a>Comptabilité</li>
+                    <li id="button-service2" data-service="2"><a href="#">Juridique</a></li>
+                    <li id="button-service3" data-service="3"><a href="#">Secrétariat</a></li>
+                    <li id="button-service4" data-service="4"><a href="#">Logistique</a></li>
+                  
+                </ul> 
+            </li>
+            <p>Example:</p>
+            <li><i class="fa fa-envelope-open-o fa-fw"></i><a href="#"> Messages <span class="num dang">56</span></a>
+            </li>
+            <li><i class="fa fa-wrench fa-fw"></i><a href="#"> Settings <span class="num prim">6</span></a>
+                <ul class="side-nav-dropdown">
+                    <li><a href="#">Lorem ipsum</a></li>
+                    <li><a href="#">ipsum dolor</a></li>
+                    <li><a href="#">dolor ipsum</a></li>
+                    <li><a href="#">amet consectetur</a></li>
+                    <li><a href="#">ipsum dolor sit</a></li>
+                </ul>
+            </li>
+            <li><i class="fa fa-laptop fa-fw"></i><a href="#"> About UI &amp; UX <span class="num succ">43</span></a>
+            </li>
+            <li><i class="fa fa-comments-o fa-fw"></i><a href="#"> Something else</a></li>
+        </ul>
+    </aside>
+
+
+<!-- 
+    <section id="contents  d-lg-none d-xl-none d-md-none">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <i class="fa fa-align-right"></i>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#"><i data-show="show-side-navigation1" class="fa fa-bars show-side-btn"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav> -->
+        <div class="welcome">
+            <div class="container-fluid">
+                <div class="row content">
+                    <div class=" col-10 col-sm-6 col-md-10 col-lg-10 col-xl-10">
+                        <div class="content">
+                            <h2 class="text-white datetime">date </h2>
+                            <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p> -->
+                        </div>
+                    </div>
+                    <div class=" col-2 col-sm-6 col-md-2 col-lg-2 col-xl-2">
+                        <div class="content">
+                            <h2 class="h5">Logout</h2>
+                            <a class="logo text-center " href="/logout">
+                                <img class="lagout_button" src="../media/ui.png" alt="" width="35" height="35">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="statistics">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class=" col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                        <div class="box">
+                            <img class="mon_logoadmin " src="../media/heureuxadmin.png" alt="" width="80" height="80">
+                            <div class="info">
+                                <h3>Heureux</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                        <div class="box">
+                            <img class="mon_logoadmin " src="../media/fatiguéadmin.png" alt="" width="80" height="80">
+                            <div class="info">
+                                <h3>Fatigué</h3>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                        <div class="box">
+                            <img class="mon_logoadmin " src="../media/stresséadmin.png" alt="" width="80" height="80">
+                            <div class="info">
+                                <h3>Stressé</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="charts">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="chart-container">
+                            <h3>Humeur du jour</h3>
+                            <canvas id="myChart2"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="chart-container">
+                            <h3>Humeur du mois</h3>
+                            <canvas id="myChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- <section class="admins">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class=" col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                    
+                        <p class=" text-white datetime">Rafraîchissement de l'affichage à chaque seconde !</p>
+                       
+                      -->
+
+        <!-- <div class="admin">
+                                <div class=" img">
+                                    <img class="img-responsive taille-logo" src="../media/WL133548950_1.png"
+                                        alt="admin">
+                                </div>
+                                <div class="info">
+                                    <h3>Service Secrétariat </h3>
+                                    <p>Lorem ipsum dolor sit amet.</p>
+                                </div>
+                            </div>
+                            <div class="admin">
+                                <div class="img">
+                                    <img class="img-responsive taille-logo"
+                                        src="../media/6-astuces-pour-optimiser-la-logistique-de-mon-e-commerce.png"
+                                        alt="admin">
+                                </div>
+                                <div class="info">
+                                    <h3>Services Logestique</h3>
+                                    <p>Lorem ipsum dolor sit amet.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="col-md-6">
+                        <div class="box">
+                            <h3>Admins:</h3>
+                            <div class="admin">
+                                <div class="img">
+                                    <img class="img-responsive taille-logo" src="../media/admin2.png" alt="admin">
+                                </div>
+                                <div class="info">
+                                    <h3>Admin 1</h3>
+                                    <p>Lorem ipsum dolor sit amet.</p>
+                                </div>
+                            </div>
+                            <div class="admin">
+                                <div class="img">
+                                    <img class="img-responsive taille-logo" src="../media/admin1.png" alt="admin">
+                                </div>
+                                <div class="info">
+                                    <h3>Admin 2</h3>
+                                    <p>Lorem ipsum dolor sit amet.</p>
+                                </div>
+                            </div>
+                            <div class="admin">
+                                <div class="img">
+                                    <img class="img-responsive taille-logo" src="../media/admin3.png" alt="admin">
+                                </div>
+                                <div class="info">
+                                    <h3>Admin 3</h3>
+                                    <p>Lorem ipsum dolor sit amet.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section> -->
+    </section>
+    <!-- <div class="container-fluid bg-white 100vh">
+        <div class="row">
+            <div class="col-md-3">
+                <p> text</p>
+            </div>
+        </div>
+    </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src='http://code.jquery.com/jquery-latest.js'></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
+    <script src="views/admin.js"></script>
+    <!-- <script src="views/adminajax.js"></script> -->
+
+
+
+
+
+
+</body>
+
+</html>
