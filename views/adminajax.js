@@ -1,6 +1,6 @@
 function ajaxCallAsynch() {
     // console.dir(myForm);
-    console.log('myForm');
+    console.log('myForm ',event.target.dataset);
     var buttonService = event.target;
     var service_id = event.target.dataset.service;
     console.log(service_id);
@@ -29,7 +29,7 @@ function ajaxCallAsynch() {
 var buttonService = document.querySelector('#button-service1');
 
 buttonService.addEventListener("click", function (event) {
-    // event.preventDefault();
+    event.preventDefault();
 
     ajaxCallAsynch(event);
 
