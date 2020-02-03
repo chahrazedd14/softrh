@@ -74,6 +74,7 @@ switch ($action) {
 
 
     case 'show':
+        echo "SWITCH SHOW";
         // $humeurMoisParJourTotal = humeurMoisParJourTotal();
         // // echo "humeurMoisParJourTotal";
         // // print_r($humeurMoisParJourTotal);
@@ -83,10 +84,10 @@ switch ($action) {
 
 
         //REQUIRE PAGE AVEC UNIQUEMENT JSON
-        // require_once 'controlleur/showServiceController.php';
+        require_once 'controlleur/showServiceController.php';
         require_once 'views/admin.html';
-        $service_id = $_SERVER['REQUEST_URI'];
-        echo $service_id;
+        // $service_id = $_SERVER['REQUEST_URI'];
+        // echo $service_id;
         break;
 
     default:
