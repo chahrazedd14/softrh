@@ -1,3 +1,130 @@
+//ajax
+function ajaxCallAsynch(service_id) {
+  // console.dir(myForm);
+  console.log('myForm');
+  // var buttonService = lol;
+  // var service_id = lol.dataset.service;
+  console.log(service_id);
+  var formData = new FormData();
+  if (service_id === undefined) {
+    console.log("coucou ajax default ", service_id);
+    // var id = service_id;
+  }
+  else {
+    console.log("coucou ajax SPECIFIK");
+    var id = service_id;
+  }
+
+
+  // `/admin/show/${service_id}`
+  fetch(`/admin/ajax/${id}`).then(function (response) {
+
+    console.dir(response);
+    return response.json();
+
+  }).then(function (data) {
+    console.log("data : ", data);
+    
+    let jsonData = data['data1'];
+    console.log("jsonData : ", jsonData['labels']);
+
+    //génère jour du mois en cours a partir des jours reçu par php
+    let jourArray = [];
+    let jsonDataLen = Object.keys(jsonData['labels']).length;
+    for (let i = 0; i <= jsonDataLen; i++) {
+      if (i < 10) {
+        jourArray.push("0"+i);
+      }
+      else{
+        jourArray.push(i);
+      }
+      // console.log("element : ", i);
+      // jourArray.push(element);
+      
+    }
+    console.log("jourArray : ", jourArray);
+
+
+
+    //  Chart ( 2 )
+    var Chart2 = document.getElementById('myChart2').getContext('2d');
+    var chart = new Chart(Chart2, {
+      type: 'line',
+      data: {
+        labels: jourArray,
+        datasets: [{
+          label: jsonData['datasets'][0]['label'],
+          backgroundColor: jsonData['datasets'][0]['backgroundColor'],
+          borderColor: jsonData['datasets'][0]['borderColor'],
+          borderWidth: jsonData['datasets'][0]['borderWidth'],
+          pointBorderColor: jsonData['datasets'][0]['pointBorderColor'],
+          data: jsonData['datasets'][0]['data'],
+          fill: jsonData['datasets'][0]['fill'],
+          lineTension: jsonData['datasets'][0]['lineTension'],
+        }, {
+          label: "Month",
+          fill: false,
+          lineTension: .4,
+          startAngle: 2,
+          data: jsonData['datasets'][1]['data'],
+          // , '#ff6384', '#4bc0c0', '#ffcd56', '#457ba1'
+          backgroundColor: "transparent",
+          pointBorderColor: "#4bc0c0",
+          borderColor: '#4bc0c0',
+          borderWidth: 2,
+          showLine: true,
+        }, {
+          label: "Month",
+          fill: false,
+          lineTension: .4,
+          startAngle: 2,
+          data: jsonData['datasets'][2]['data'],
+          // , '#ff6384', '#4bc0c0', '#ffcd56', '#457ba1'
+          backgroundColor: "transparent",
+          pointBorderColor: "#ffcd56",
+          borderColor: '#ffcd56',
+          borderWidth: 2,
+          showLine: true,
+        }]
+      },
+
+      // Configuration options
+      options: {
+        title: {
+          display: false
+        }
+      }
+    });
+
+  });
+
+
+}
+
+
+var buttonService1 = document.querySelector('.comptabutton');
+var buttonService2 = document.querySelector('.juributton');
+var buttonService3 = document.querySelector('.secretbutton');
+var buttonService4 = document.querySelector('.logibutton');
+
+console.log(buttonService1.dataset['service'], buttonService2.dataset['service'], buttonService3.dataset['service'], buttonService4.dataset['service'])
+
+// buttonService.addEventListener("click", function (event) {
+//     // event.preventDefault();
+
+//     ajaxCallAsynch(event);
+
+
+// });
+
+//au chargement de la page, charger l' ajax pour afficher au moins des infos par defaut
+window.addEventListener('load', () => {
+  ajaxCallAsynch();
+  // console.log("jsonData : ", jsonData);
+});
+//end ajax
+// console.log("jsonData : ", jsonData);
+
 $(function () {
 
   'use strict';
@@ -128,54 +255,54 @@ $(function () {
   //  Chart ( 2 )
 
 
-  var Chart2 = document.getElementById('myChart2').getContext('2d');
-  var chart = new Chart(Chart2, {
-    type: 'line',
-    data: {
-      labels: ["Lundi", "Mardi", "Mercredi", "Jeudi", 'Vendredi', 'Samedi', 'Dimanche'],
-      datasets: [{
-        label: "My First dataset",
-        backgroundColor: 'rgb(255, 99, 132)',
-        borderColor: 'rgb(255, 79, 116)',
-        borderWidth: 2,
-        pointBorderColor: false,
-        data: [5, 10, 5, 8, 20, 30, 20, 10],
-        fill: false,
-        lineTension: .4,
-      }, {
-        label: "Month",
-        fill: false,
-        lineTension: .4,
-        startAngle: 2,
-        data: [20, 14, 20, 25, 10, 15, 25, 10],
-        // , '#ff6384', '#4bc0c0', '#ffcd56', '#457ba1'
-        backgroundColor: "transparent",
-        pointBorderColor: "#4bc0c0",
-        borderColor: '#4bc0c0',
-        borderWidth: 2,
-        showLine: true,
-      }, {
-        label: "Month",
-        fill: false,
-        lineTension: .4,
-        startAngle: 2,
-        data: [40, 20, 5, 10, 30, 15, 15, 10],
-        // , '#ff6384', '#4bc0c0', '#ffcd56', '#457ba1'
-        backgroundColor: "transparent",
-        pointBorderColor: "#ffcd56",
-        borderColor: '#ffcd56',
-        borderWidth: 2,
-        showLine: true,
-      }]
-    },
+  // var Chart2 = document.getElementById('myChart2').getContext('2d');
+  // var chart = new Chart(Chart2, {
+  //   type: 'line',
+  //   data: {
+  //     labels: ["Lundi", "Mardi", "LOOOOOOOOOOL", "Jeudi", 'Vendredi', 'Samedi', 'Dimanche'],
+  //     datasets: [{
+  //       label: "My First dataset",
+  //       backgroundColor: 'rgb(255, 99, 132)',
+  //       borderColor: 'rgb(255, 79, 116)',
+  //       borderWidth: 2,
+  //       pointBorderColor: false,
+  //       data: [5, 10, 5, 8, 20, 30, 20, 10],
+  //       fill: false,
+  //       lineTension: .4,
+  //     }, {
+  //       label: "Month",
+  //       fill: false,
+  //       lineTension: .4,
+  //       startAngle: 2,
+  //       data: [20, 14, 20, 25, 10, 15, 25, 10],
+  //       // , '#ff6384', '#4bc0c0', '#ffcd56', '#457ba1'
+  //       backgroundColor: "transparent",
+  //       pointBorderColor: "#4bc0c0",
+  //       borderColor: '#4bc0c0',
+  //       borderWidth: 2,
+  //       showLine: true,
+  //     }, {
+  //       label: "Month",
+  //       fill: false,
+  //       lineTension: .4,
+  //       startAngle: 2,
+  //       data: [20, 20, 5, 10, 30, 15, 15, 10],
+  //       // , '#ff6384', '#4bc0c0', '#ffcd56', '#457ba1'
+  //       backgroundColor: "transparent",
+  //       pointBorderColor: "#ffcd56",
+  //       borderColor: '#ffcd56',
+  //       borderWidth: 2,
+  //       showLine: true,
+  //     }]
+  //   },
 
-    // Configuration options
-    options: {
-      title: {
-        display: false
-      }
-    }
-  });
+  //   // Configuration options
+  //   options: {
+  //     title: {
+  //       display: false
+  //     }
+  //   }
+  // });
 
 
 
