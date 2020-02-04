@@ -85,6 +85,15 @@ switch ($action) {
         // require_once 'controlleur/showServiceController.php';
         // echo 'COUCOUUUUUUUUUUUUUUUUUUUUUUUU SERVICE ';
         // echo $_SERVER['REQUEST_URI'];
+        // $humeurMoisParJourTotal = humeurMoisParJourTotal(5);
+        $service_id = 1;
+        $humeurMoisParJourTotal = [];
+        //continue de chercher des infos sur le premier service qu'il trouve (limité à 5)(au cas ou qu'il y ai le service 1 en moins par ex)
+        while(count($humeurMoisParJourTotal) === 0 || $service_id > 5){
+            $humeurMoisParJourTotal = humeurMoisParJourTotal($service_id);
+            $service_id++;
+        }
+        echo json_encode($humeurMoisParJourTotal);
         break;
     default:
         require_once 'views/404.html.php';
