@@ -14,14 +14,11 @@ require_once 'model/getUser.php';
 // echo $twig->render('employe-test.html.twig', ['bonjour' => 'sa marche employe', 'var2' => 'here']);
 // echo 'ENTER PAPGE Employe';
 if( strpos( $uri, '/', 1 ) !== false ){
-    // $action = ( strpos($uri, "/", strlen($controller) +1) === false )? substr($uri, strpos($uri, '/', strlen($controller) ) ) : substr($uri, strlen($controller) -1, strpos( $uri, '/', strlen( $controller ) +1 ) -1 );
-    // var_dump(substr($uri, strpos($uri, '/', strlen($controller)));
+
     
     $action = ( strpos( $uri, '/', strlen( $controlleur ) + 1 ) === false )? substr( $uri, strpos( $uri, '/', strlen( $controlleur ))+1) : substr( $uri, strlen( $controlleur ) + 1, ( strpos( $uri, '/', strlen( $controlleur ) + 1 ) -1 ) - ( strlen( $controlleur ) - 1 ) -1 );
     
-    // var_dump($action);
-    // var_dump(substr($uri, strlen($controller) -1, strpos( $uri, '/', strlen( $controller ) +1 ) -1 ));
-    // $action = 'lol';
+
 }
 switch ($action) {
     case 'default':
@@ -29,8 +26,14 @@ switch ($action) {
         break;
 
     case 'humeur':
+        $uri = $_SERVER['REQUEST_URI'];
+        $expUri = explode("/",$uri);
+        print_r($_SESSION);
+        $selectedHumeur = $expUri[3];
+        $selectedService = $_SESSION['id_service'];
+        require_once 'model/insertHumeur.php';
         require_once 'controlleur/logoutControlleur.php';
-        echo 'employe humeur';
+        // echo 'employe humeur';
         break;
 
     default:

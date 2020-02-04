@@ -42,11 +42,13 @@ function checkUser($user)
         echo 'Bon mot de passe admin!';
         session_start();
         $_SESSION['admin_logged'] = true;
+        $_SESSION['id_service'] = $user['id_service'];
         return "admin";
     } else if ($user['admin'] == "false") {
         echo 'Bon mot de passe employe!';
         session_start();
         $_SESSION['employe_logged'] = true;
+        $_SESSION['id_service'] = $user['id_service'];
         return "employe";
     } else {
         echo 'aucun utilisateur trouvé';
