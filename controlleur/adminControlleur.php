@@ -36,7 +36,7 @@ if (strpos($uri, '/', 1) !== false) {
 
     $action = (strpos($uri, '/', strlen($controlleur) + 1)  === false) ? substr($uri, strpos($uri, '/', strlen($controlleur)) + 1) : substr($uri,  strlen($controlleur) + 1, (strpos($uri, '/', strlen($controlleur) + 1) - 1) - (strlen($controlleur) - 1) - 1);
 }
-echo "ACTION EST " . $action;
+// echo "ACTION EST " . $action;
 
 function getServiceIndex()
 {
@@ -48,7 +48,7 @@ function getServiceIndex()
     //recupérer id style "la-chèvre-2"
     // $exprReg = "#/[a-z\-]+-[0-9]+#";
     $position = preg_match($exprReg, $uri, $matches); //$postion = 1 if found; else 0
-    var_dump($matches);
+    // var_dump($matches);
 
     if (count($matches) === 0) {
         require_once 'views/404.html.php';
@@ -56,14 +56,14 @@ function getServiceIndex()
     }
 
     if (count($expUri) === 4) {
-        echo "SERVICE INDEX IS : " . $expUri[3];
+        // echo "SERVICE INDEX IS : " . $expUri[3];
         // $humeurMoisParJourTotal = humeurMoisParJourTotal($expUri[3]);
         // print json_encode($humeurMoisParJourTotal);
         // require_once 'controlleur/showServiceContoller.php';
         require_once 'views/admin.html';
         return $expUri[3];
     } else {
-        echo "SMALL URL; NO SERVICE INDEX OR TOO LONG";
+        // echo "SMALL URL; NO SERVICE INDEX OR TOO LONG";
         require_once 'views/404.html.php';
         return 1;
     }
@@ -83,8 +83,8 @@ switch ($action) {
         break;
     case 'ajax':
         // require_once 'controlleur/showServiceController.php';
-        echo 'COUCOUUUUUUUUUUUUUUUUUUUUUUUU SERVICE ';
-        echo $_SERVER['REQUEST_URI'];
+        // echo 'COUCOUUUUUUUUUUUUUUUUUUUUUUUU SERVICE ';
+        // echo $_SERVER['REQUEST_URI'];
         break;
     default:
         require_once 'views/404.html.php';
