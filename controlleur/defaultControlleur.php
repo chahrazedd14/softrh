@@ -11,7 +11,7 @@ echo "default login";
 
 // session_start();
 // $_SESSION['logged'] = true;
-print_r($_POST);
+// print_r($_POST);
 // print_r($_SESSION);
 
 
