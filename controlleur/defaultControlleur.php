@@ -2,7 +2,7 @@
 require_once 'vendor/autoload.php';
 require_once 'core/db.php';
 require_once 'model/getUser.php';
-echo "default login";
+// echo "default login";
 
 // $_POST['identifiant'] = "admintest";
 // $_POST['mdp'] = "1234";
