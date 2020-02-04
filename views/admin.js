@@ -6,9 +6,9 @@ $(function () {
 
     var aside = $('.side-nav'),
 
-        showAsideBtn = $('.show-side-btn'),
+      showAsideBtn = $('.show-side-btn'),
 
-        contents = $('#contents');
+      contents = $('#contents');
 
     showAsideBtn.on("click", function () {
 
@@ -111,18 +111,18 @@ $(function () {
         borderWidth: 2,
         showLine: true,
       }, {
-          label: "Succes",
-          fill: false,
-          lineTension: 0,
-          startAngle: 2,
-          data: [30, 40, 20, 60, 10, 45],
-          // , '#ff6384', '#4bc0c0', '#ffcd56', '#457ba1'
-          backgroundColor: "transparent",
-          pointBorderColor: "#ffcd56",
-          borderColor: '#ffcd56',
-          borderWidth: 2,
-          showLine: true,
-        }]
+        label: "Succes",
+        fill: false,
+        lineTension: 0,
+        startAngle: 2,
+        data: [30, 40, 20, 60, 10, 45],
+        // , '#ff6384', '#4bc0c0', '#ffcd56', '#457ba1'
+        backgroundColor: "transparent",
+        pointBorderColor: "#ffcd56",
+        borderColor: '#ffcd56',
+        borderWidth: 2,
+        showLine: true,
+      }]
     },
   });
   //  Chart ( 2 )
@@ -197,7 +197,7 @@ $(function () {
         showLine: true,
         data: [0, 40, 10, 30, 10, 20, 15, 20],
         pointBackgroundColor: 'transparent',
-      },{
+      }, {
         label: "Lost",
         fill: false,
         lineTension: .5,
@@ -208,28 +208,28 @@ $(function () {
         data: [40, 0, 20, 10, 25, 15, 30, 0],
         pointBackgroundColor: 'transparent',
       },
-                 {
-                   label: "Lost",
-                   fill: false,
-                   lineTension: .5,
-                   pointColor: "white",
-                   borderColor: '#f0ad4e',
-                   borderWidth: 0,
-                   showLine: true,
-                   data: [10, 40, 20, 5, 35, 15, 35, 0],
-                   pointBackgroundColor: 'transparent',
-                 },
-                 {
-                   label: "Lost",
-                   fill: false,
-                   lineTension: .5,
-                   pointColor: "white",
-                   borderColor: '#337ab7',
-                   borderWidth: 0,
-                   showLine: true,
-                   data: [0, 30, 10, 25, 10, 40, 20, 0],
-                   pointBackgroundColor: 'transparent',
-                 }]
+      {
+        label: "Lost",
+        fill: false,
+        lineTension: .5,
+        pointColor: "white",
+        borderColor: '#f0ad4e',
+        borderWidth: 0,
+        showLine: true,
+        data: [10, 40, 20, 5, 35, 15, 35, 0],
+        pointBackgroundColor: 'transparent',
+      },
+      {
+        label: "Lost",
+        fill: false,
+        lineTension: .5,
+        pointColor: "white",
+        borderColor: '#337ab7',
+        borderWidth: 0,
+        showLine: true,
+        data: [0, 30, 10, 25, 10, 40, 20, 0],
+        pointBackgroundColor: 'transparent',
+      }]
     },
   });
 
@@ -239,11 +239,11 @@ $(function () {
 var nomjour = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi ", "Dimanche"];
 var months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Decembre"];
 var data = document.querySelector('.datetime');
-window.addEventListener('load',function() {
-data.innerText= date;
+window.addEventListener('load', function () {
+  data.innerText = date;
 
 })
 var today = new Date();
-var dayindex=today.getDay();
-var monthsindex=today.getMonth();
-var date =nomjour[dayindex-1]+' '+today.getDate()+' '+months[monthsindex]+' '+today.getFullYear();
+var dayindex = today.getDay();
+var monthsindex = today.getMonth();
+var date = nomjour[dayindex - 1] + ' ' + today.getDate() + ' ' + months[monthsindex] + ' ' + today.getFullYear();

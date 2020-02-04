@@ -20,8 +20,8 @@ $allJourData = humeurJourTotal($currDate[2], $currDate[1], $currDate[0]);
 // $janvsecretariatTotalHumeur = humeurMoisTotalService("1","2020", "secretariat");
 // $janvlogistiqueTotalHumeur = humeurMoisTotalService("1","2020", "logistique");
 // $janvjuridiqueTotalHumeur = humeurMoisTotalService("1","2020", "juridique");
-$allMonthDataParService = humeurMoisTotalParService();
-$humeurMoisParJourTotal = humeurMoisParJourTotal();
+// $allMonthDataParService = humeurMoisTotalParService();
+// $humeurMoisParJourTotal = humeurMoisParJourTotal();
 
 $action = "default";
 
@@ -31,66 +31,62 @@ $action = "default";
 //     $action = "service" . $humeurMoisParJourTotal;
 // }
 
-// if( strpos( $uri, '/', 1 ) !== false ){
-//     // $action = ( strpos($uri, "/", strlen($controller) +1) === false )? substr($uri, strpos($uri, '/', strlen($controller) ) ) : substr($uri, strlen($controller) -1, strpos( $uri, '/', strlen( $controller ) +1 ) -1 );
-//     // var_dump(substr($uri, strpos($uri, '/', strlen($controller)));
+if (strpos($uri, '/', 1) !== false) {
 
-//     $action = ( strpos( $uri, '/', strlen( $controller ) + 1 )  === false )? substr( $uri, strpos( $uri, '/', strlen( $controller ))+1) : substr( $uri,  strlen( $controller ) + 1, ( strpos( $uri, '/', strlen( $controller ) + 1 ) -1 ) - ( strlen( $controller ) - 1 ) -1    );
 
-//     // var_dump($action);
-//     // var_dump(substr($uri, strlen($controller) -1, strpos( $uri, '/', strlen( $controller ) +1 ) -1 ));
-//     // $action = 'lol';
-// }
+    $action = (strpos($uri, '/', strlen($controlleur) + 1)  === false) ? substr($uri, strpos($uri, '/', strlen($controlleur)) + 1) : substr($uri,  strlen($controlleur) + 1, (strpos($uri, '/', strlen($controlleur) + 1) - 1) - (strlen($controlleur) - 1) - 1);
+}
+echo "ACTION EST " . $action;
 
-$expUri = explode("/",$uri);
+function getServiceIndex()
+{
+    $uri = $_SERVER['REQUEST_URI'];
+    $expUri = explode("/", $uri);
 
-echo "loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooool ".$expUri[2];
-// print_r($expUri);
+    $exprReg = "#/[0-9]+#";
 
-$action = $expUri[2];
+    //recupérer id style "la-chèvre-2"
+    // $exprReg = "#/[a-z\-]+-[0-9]+#";
+    $position = preg_match($exprReg, $uri, $matches); //$postion = 1 if found; else 0
+    var_dump($matches);
+
+    if (count($matches) === 0) {
+        require_once 'views/404.html.php';
+        return 1;
+    }
+
+    if (count($expUri) === 4) {
+        echo "SERVICE INDEX IS : " . $expUri[3];
+        // $humeurMoisParJourTotal = humeurMoisParJourTotal($expUri[3]);
+        // print json_encode($humeurMoisParJourTotal);
+        // require_once 'controlleur/showServiceContoller.php';
+        require_once 'views/admin.html';
+        return $expUri[3];
+    } else {
+        echo "SMALL URL; NO SERVICE INDEX OR TOO LONG";
+        require_once 'views/404.html.php';
+        return 1;
+    }
+}
+
+
 
 switch ($action) {
     case 'default':
-        // print_r($allyeardata);
-        // print_r($allMonthData);
-        // print_r($allJourData);
-        // echo "compta";
-        // print_r($janvComptaTotalHumeur);
-        // echo "secre";
-        // print_r($janvsecretariatTotalHumeur);
-        // echo "logis";
-        // print_r($janvlogistiqueTotalHumeur);
-        // echo "juri";
-        // print_r($janvjuridiqueTotalHumeur);
-        // echo "allMonthDataParService";
-        // print_r($allMonthDataParService);
-
-        // echo "humeurMoisParJourTotal";
-        // print_r($humeurMoisParJourTotal);
-
-        echo json_encode($humeurMoisParJourTotal);
-        require_once 'views/admin.html';
-        break;
-
-
-    case 'show':
-        echo "SWITCH SHOW";
-        // $humeurMoisParJourTotal = humeurMoisParJourTotal();
-        // // echo "humeurMoisParJourTotal";
-        // // print_r($humeurMoisParJourTotal);
-
         // echo json_encode($humeurMoisParJourTotal);
-        // require_once 'views/admin.html';
-
-
-        //REQUIRE PAGE AVEC UNIQUEMENT JSON
-        require_once 'controlleur/showServiceController.php';
         require_once 'views/admin.html';
-        // $service_id = $_SERVER['REQUEST_URI'];
-        // echo $service_id;
         break;
 
+
+    case 'service':
+        getServiceIndex();
+        break;
+    case 'ajax':
+        // require_once 'controlleur/showServiceController.php';
+        echo 'COUCOUUUUUUUUUUUUUUUUUUUUUUUU SERVICE ';
+        echo $_SERVER['REQUEST_URI'];
+        break;
     default:
-        require_once 'views/admin.html';
+        require_once 'views/404.html.php';
         break;
 }
