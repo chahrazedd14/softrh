@@ -22,7 +22,7 @@ function defaultAction()
 
     if (isset($_POST['identifiant'])) {
         $user = getUser($_POST['identifiant'], $_POST['mdp']);
-        print_r($user);
+        // print_r($user);
         $action = checkUser($user);
     }
 
@@ -36,20 +36,20 @@ function checkUser($user)
     // print_r($user);
     //si getUser() ne trouve aucun utilisateur avec cette identifiant :
     if ($user == "") {
-        echo 'aucun utilisateur trouvé';
+        // echo 'aucun utilisateur trouvé';
         return "default";
     } else if ($user['admin'] == "true") {
-        echo 'Bon mot de passe admin!';
+        // echo 'Bon mot de passe admin!';
         session_start();
         $_SESSION['admin_logged'] = true;
         return "admin";
     } else if ($user['admin'] == "false") {
-        echo 'Bon mot de passe employe!';
+        // echo 'Bon mot de passe employe!';
         session_start();
         $_SESSION['employe_logged'] = true;
         return "employe";
     } else {
-        echo 'aucun utilisateur trouvé';
+        // echo 'aucun utilisateur trouvé';
         return "default";
     }
 }
@@ -61,7 +61,7 @@ echo "ACTION = " . $action . " ";
 
 if (strpos($uri, '/', 1) !== false) {
     $action = (strpos($uri, '/', strlen($controlleur) + 1)  === false) ? substr($uri, strpos($uri, '/', strlen($controlleur))) : substr($uri,  strlen($controlleur) + 1, (strpos($uri, '/', strlen($controlleur) + 1) - 1) - (strlen($controlleur) - 1) - 1);
-    var_dump($action);
+    // var_dump($action);
 }
 switch ($action) {
     case 'default':
@@ -76,7 +76,7 @@ switch ($action) {
         break;
     case 'admin';
         // defaultAction();
-        echo "admin start";
+        // echo "admin start";
         header('Location: /admin');
         exit();
 
