@@ -1,4 +1,3 @@
-<!-- // (roteur) -->
 
 <?php
 session_start();
