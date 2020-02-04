@@ -95,8 +95,22 @@ switch ($action) {
         }
 
         //recup jour du mois (aide aussi pour savoir si c'est un jour avec 31/30/28 jours)
+        //recup aussi votes pour chaques humeurs
         $joursArray = array();
+        $voteHeureux = array();
+        $voteStresse = array();
+        $voteFatigue = array();
+        // "nom_humeur":"stresse","vote_total":"2","vote_date":"2020-01-01"
         foreach ($humeurMoisParJourTotal as $value) {
+            if($value['nom_humeur'] == "heureux"){
+                array_push($voteHeureux, $value['vote_total']);
+            }
+            elseif($value['nom_humeur'] == "stresse"){
+                array_push($voteStresse, $value['vote_total']);
+            }
+            elseif($value['nom_humeur'] == "fatigue"){
+                array_push($voteFatigue, $value['vote_total']);
+            }
             $jour = substr($value['vote_date'], -2);
             array_push($joursArray, $jour);
             // echo $value['vote_date'];
@@ -116,7 +130,7 @@ switch ($action) {
                         "borderColor" => 'rgb(255, 79, 116)',
                         "borderWidth" => 2,
                         "pointBorderColor" => false,
-                        "data" => [55, 10, 5, 8, 20, 30, 20, 10],
+                        "data" => $voteStresse,
                         "fill" => false,
                         "lineTension" => .4,
                     ],
@@ -125,7 +139,7 @@ switch ($action) {
                         "fill" => false,
                         "lineTension" => .4,
                         "startAngle" => 2,
-                        "data" => [30, 14, 20, 25, 10, 15, 25, 10],
+                        "data" => $voteHeureux,
                         "backgroundColor" => "transparent",
                         "pointBorderColor" => "#4bc0c0",
                         "borderColor" => '#4bc0c0',
@@ -137,7 +151,7 @@ switch ($action) {
                         "fill" => false,
                         "lineTension" => .4,
                         "startAngle" => 2,
-                        "data" => [20, 20, 5, 10, 30, 15, 15, 10],
+                        "data" => $voteFatigue,
                         "backgroundColor" => "transparent",
                         "pointBorderColor" => "#ffcd56",
                         "borderColor" => '#ffcd56',
