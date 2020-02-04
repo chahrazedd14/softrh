@@ -1,20 +1,25 @@
-function ajaxCallAsynch() {
+function ajaxCallAsynch(service_id) {
     // console.dir(myForm);
-    console.log('myForm ',event.target.dataset);
-    var buttonService = event.target;
-    var service_id = event.target.dataset.service;
+    console.log('myForm');
+    // var buttonService = lol;
+    // var service_id = lol.dataset.service;
     console.log(service_id);
     var formData = new FormData();
-
-    var paramAjax = {
-        method: "POST",
-        // body: formData
-    };
-
-    fetch(`/admin/show/${service_id}`, paramAjax).then(function (response) {
+    if(service_id === undefined){
+        console.log("coucou ajax default ", service_id);
+        // var id = service_id;
+    }
+    else{
+        console.log("coucou ajax SPECIFIK");
+        var id = service_id;
+    }
+   
+    
+    // `/admin/show/${service_id}`
+    fetch(`/admin/ajax/${id}`).then(function (response) {
 
         console.dir(response);
-        return response.json();
+        return response.text();
 
     }).then(function (data) {
 
@@ -28,11 +33,15 @@ function ajaxCallAsynch() {
 
 var buttonService = document.querySelector('#button-service1');
 
-buttonService.addEventListener("click", function (event) {
-    event.preventDefault();
+// buttonService.addEventListener("click", function (event) {
+//     // event.preventDefault();
 
-    ajaxCallAsynch(event);
+//     ajaxCallAsynch(event);
 
 
+// });
+
+//au chargement de la page, charger l' ajax pour afficher au moins des infos par defaut
+window.addEventListener('load', () => {
+    ajaxCallAsynch();
 });
-
