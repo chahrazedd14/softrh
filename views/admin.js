@@ -26,14 +26,14 @@ function ajaxCallAsynch(service_id) {
     console.log("data : ", data);
 
     let jsonDataJours = data['data1'];
-    console.log("jsonDataJours : ", jsonDataJours['labels']);
+    console.log("jsonDataJours : ", jsonDataJours);
     let jsonDataMois = data['dataMois'];
-    console.log("jsonDataJours : ", jsonDataMois);
+    console.log("jsonDataMois : ", jsonDataMois);
 
     //génère jour du mois en cours a partir des jours reçu par php
     let jourArray = [];
     let jsonDataJoursLen = Object.keys(jsonDataJours['labels']).length;
-    for (let i = 0; i <= jsonDataJoursLen; i++) {
+    for (let i = 1; i <= jsonDataJoursLen; i++) {
       if (i < 10) {
         jourArray.push("0" + i);
       }
