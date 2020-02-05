@@ -49,6 +49,7 @@ function checkUser($user)
         session_start();
         $_SESSION['employe_logged'] = true;
         $_SESSION['id_service'] = $user['id_service'];
+        $_SESSION['id_employe'] = $user['id_Employe'];
         return "employe";
     } else {
         echo 'aucun utilisateur trouvé';
