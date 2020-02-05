@@ -84,8 +84,10 @@ switch ($action) {
     case 'ajax':
         $service_id = 1;
 
-        //recup votes total humeur pour chaque services et chaque humeur
+        $today = getdate();
         $allMonthDataParService = humeurMoisTotalParService();
+        //recup votes total humeur pour chaque services et chaque humeur du MOIS en cours
+        // $allMonthDataParService = humeurMoisTotalParService($today['mday'], $today['year']);
         $voteHeureuxMois = array();
         $voteStresseMois = array();
         $voteFatigueMois = array();
@@ -105,6 +107,7 @@ switch ($action) {
         $humeurMoisParJourTotal = [];
         //continue de chercher des infos sur le premier service qu'il trouve (limité à 5)(au cas ou qu'il y ai le service 1 en moins par ex)
         while (count($humeurMoisParJourTotal) === 0 || $service_id > 5) {
+            // $today = getdate();
             $humeurMoisParJourTotal = humeurMoisParJourTotal($service_id);
             $service_id++;
         }
