@@ -82,11 +82,26 @@ switch ($action) {
         getServiceIndex();
         break;
     case 'ajax':
-        // require_once 'controlleur/showServiceController.php';
-        // echo 'COUCOUUUUUUUUUUUUUUUUUUUUUUUU SERVICE ';
-        // echo $_SERVER['REQUEST_URI'];
-        // $humeurMoisParJourTotal = humeurMoisParJourTotal(5);
         $service_id = 1;
+
+        //recup votes total humeur pour chaque services et chaque humeur
+        $allMonthDataParService = humeurMoisTotalParService();
+        $voteHeureuxMois = array();
+        $voteStresseMois = array();
+        $voteFatigueMois = array();
+
+        // nom_humeur vote_total nom_service
+        foreach ($allMonthDataParService as $value) {
+            if ($value['nom_humeur'] == "heureux") {
+                array_push($voteHeureuxMois, $value['vote_total']);
+            } elseif ($value['nom_humeur'] == "stresse") {
+                array_push($voteStresseMois, $value['vote_total']);
+            } elseif ($value['nom_humeur'] == "fatigue") {
+                array_push($voteFatigueMois, $value['vote_total']);
+            }
+            
+        }
+
         $humeurMoisParJourTotal = [];
         //continue de chercher des infos sur le premier service qu'il trouve (limité à 5)(au cas ou qu'il y ai le service 1 en moins par ex)
         while (count($humeurMoisParJourTotal) === 0 || $service_id > 5) {
@@ -102,13 +117,11 @@ switch ($action) {
         $voteFatigue = array();
         // "nom_humeur":"stresse","vote_total":"2","vote_date":"2020-01-01"
         foreach ($humeurMoisParJourTotal as $value) {
-            if($value['nom_humeur'] == "heureux"){
+            if ($value['nom_humeur'] == "heureux") {
                 array_push($voteHeureux, $value['vote_total']);
-            }
-            elseif($value['nom_humeur'] == "stresse"){
+            } elseif ($value['nom_humeur'] == "stresse") {
                 array_push($voteStresse, $value['vote_total']);
-            }
-            elseif($value['nom_humeur'] == "fatigue"){
+            } elseif ($value['nom_humeur'] == "fatigue") {
                 array_push($voteFatigue, $value['vote_total']);
             }
             $jour = substr($value['vote_date'], -2);
@@ -125,7 +138,7 @@ switch ($action) {
                 "labels" => $joursArray,
                 "datasets" => [
                     0 => [
-                        "label" => "my first dataset",
+                        "label" => "Heureux",
                         "backgroundColor" => 'rgb(255, 99, 132)',
                         "borderColor" => 'rgb(255, 79, 116)',
                         "borderWidth" => 2,
@@ -135,7 +148,7 @@ switch ($action) {
                         "lineTension" => .4,
                     ],
                     1 => [
-                        "label" => "Month",
+                        "label" => "Stressé",
                         "fill" => false,
                         "lineTension" => .4,
                         "startAngle" => 2,
@@ -147,7 +160,7 @@ switch ($action) {
                         "showLine" => true,
                     ],
                     2 => [
-                        "label" => "Month",
+                        "label" => "Fatigué",
                         "fill" => false,
                         "lineTension" => .4,
                         "startAngle" => 2,
@@ -159,6 +172,49 @@ switch ($action) {
                         "showLine" => true,
                     ]
                 ]
+            ],
+            "dataMois" => [
+                "type" => 'bar',
+                "data" => [
+                    "labels" => ["Comptabilité", "Juridique", "Logistique", "Secretariat"],
+                    "datasets" => [
+                        0 => [
+                            "label" => "Heureux",
+                            "fill" => false,
+                            "lineTension" => 0,
+                            "data" => $voteHeureuxMois,
+                            "pointBorderColor" => "#4bc0c0",
+                            "borderColor" => '#4bc0c0',
+                            "borderWidth" => 2,
+                            "showLine" => true,
+                        ],
+                        1 => [
+                            "label" => "Stressé",
+                            "fill" => false,
+                            "lineTension" => 0,
+                            "startAngle" => 2,
+                            "data" => $voteStresseMois,
+                            "backgroundColor" => "transparent",
+                            "pointBorderColor" => "#ff6384",
+                            "borderColor" => '#ff6384',
+                            "borderWidth" => 2,
+                            "showLine" => true,
+                        ],
+                        2 => [
+                            "label" => "Fatigué",
+                            "fill" => false,
+                            "lineTension" => 0,
+                            "startAngle" => 2,
+                            "data" => $voteFatigueMois,
+                            "backgroundColor" => "transparent",
+                            "pointBorderColor" => "#ff6384",
+                            "borderColor" => '#ff6384',
+                            "borderWidth" => 2,
+                            "showLine" => true,
+                        ]
+                    ]
+                ],
+
             ]
         );
         // echo json_encode($humeurMoisParJourTotal);
