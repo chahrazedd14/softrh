@@ -16,14 +16,14 @@ function humeurJourTotal($jour = "01", $mois = "1", $annee = "2020")
     return $sth->fetchAll(pdo::FETCH_ASSOC);
 }
 
-function humeurMoisParJourTotal($service = 1, $mois = "1", $annee = "2020")
+function humeurMoisParJourTotal($service = 1, $mois = "01", $annee = "2020")
 {
     global $pdo;
     // $sql = "SELECT * FROM Employe WHERE utilisateur =:id";
     $sql = "SELECT nom_humeur, count(nom_humeur) AS vote_total, vote_date FROM Vote INNER JOIN Humeur ON Vote.id_humeur = Humeur.id_humeur INNER JOIN Service ON Vote.id_service = Service.id_service WHERE Service.id_service = :serviceNum AND vote_date LIKE :date GROUP BY nom_humeur, vote_date ORDER BY `Vote`.`vote_date` ASC";
     // $sql = "SELECT nom_humeur, count(nom_humeur) AS vote_total FROM Vote INNER JOIN Humeur ON Vote.id_humeur = Humeur.id_humeur WHERE vote_date LIKE '%-%1-%' GROUP BY nom_humeur";
 
-    $selectedDate = "" . $annee . "-%" . $mois . "-%";
+    $selectedDate = "" . $annee . "-" . $mois . "-%";
     $sth = $pdo->prepare($sql);
     $sth->bindParam(':date', $selectedDate, PDO::PARAM_STR);
     $sth->bindParam(':serviceNum', $service, PDO::PARAM_INT);
