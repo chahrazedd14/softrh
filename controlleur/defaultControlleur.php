@@ -7,7 +7,7 @@ require_once 'model/getUser.php';
 // $_POST['identifiant'] = "admintest";
 // $_POST['mdp'] = "1234";
 // $_POST['identifiant'] = "person1";
-// $_POST['mdp'] = "*00A51F3F48415C7D4E8908980D443C29C69B60C9";
+// $_POST['mdp'] = "123456789";
 
 // session_start();
 // $_SESSION['logged'] = true;
@@ -49,6 +49,7 @@ function checkUser($user)
         session_start();
         $_SESSION['employe_logged'] = true;
         $_SESSION['id_service'] = $user['id_service'];
+        $_SESSION['id_employe'] = $user['id_Employe'];
         return "employe";
     } else {
         // echo 'aucun utilisateur trouvé';
