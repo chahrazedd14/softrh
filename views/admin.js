@@ -8,7 +8,7 @@ function ajaxCallAsynch(service_id) {
   var formData = new FormData();
   if (service_id === undefined) {
     console.log("coucou ajax default ", service_id);
-    // var id = service_id;
+    var id = 1;
   }
   else {
     console.log("coucou ajax SPECIFIK");
@@ -158,14 +158,25 @@ var buttonService4 = document.querySelector('.logibutton');
 
 console.log(buttonService1.dataset['service'], buttonService2.dataset['service'], buttonService3.dataset['service'], buttonService4.dataset['service'])
 
-// buttonService.addEventListener("click", function (event) {
-//     // event.preventDefault();
+buttonService1.addEventListener("click", function (event) {
+    event.preventDefault();
+    ajaxCallAsynch(1);
+});
 
-//     ajaxCallAsynch(event);
+buttonService2.addEventListener("click", function (event) {
+  event.preventDefault();
+  ajaxCallAsynch(2);
+});
 
+buttonService3.addEventListener("click", function (event) {
+  event.preventDefault();
+  ajaxCallAsynch(3);
+});
 
-// });
-
+buttonService4.addEventListener("click", function (event) {
+  event.preventDefault();
+  ajaxCallAsynch(4);
+});
 //au chargement de la page, charger l' ajax pour afficher au moins des infos par defaut
 window.addEventListener('load', () => {
   ajaxCallAsynch();
