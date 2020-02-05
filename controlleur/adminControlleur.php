@@ -85,9 +85,9 @@ switch ($action) {
         $service_id = 1;
 
         $today = getdate();
-        $allMonthDataParService = humeurMoisTotalParService();
+        // $allMonthDataParService = humeurMoisTotalParService();
         //recup votes total humeur pour chaque services et chaque humeur du MOIS en cours
-        // $allMonthDataParService = humeurMoisTotalParService($today['mday'], $today['year']);
+        $allMonthDataParService = humeurMoisTotalParService($today['mday'], $today['year']);
         $voteHeureuxMois = array();
         $voteStresseMois = array();
         $voteFatigueMois = array();
@@ -105,12 +105,14 @@ switch ($action) {
         }
 
         $humeurMoisParJourTotal = [];
+        $humeurMoisParJourTotal = humeurMoisParJourTotal($service_id);
+        // $humeurMoisParJourTotal = humeurMoisParJourTotal($service_id, $today['mday'], $today['year']);
         //continue de chercher des infos sur le premier service qu'il trouve (limité à 5)(au cas ou qu'il y ai le service 1 en moins par ex)
-        while (count($humeurMoisParJourTotal) === 0 || $service_id > 5) {
-            // $today = getdate();
-            $humeurMoisParJourTotal = humeurMoisParJourTotal($service_id);
-            $service_id++;
-        }
+        // while (count($humeurMoisParJourTotal) === 0 || $service_id > 5) {
+        //     // $today = getdate();
+        //     $humeurMoisParJourTotal = humeurMoisParJourTotal($service_id);
+        //     $service_id++;
+        // }
 
         //recup jour du mois (aide aussi pour savoir si c'est un jour avec 31/30/28 jours)
         //recup aussi votes pour chaques humeurs
