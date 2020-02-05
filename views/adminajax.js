@@ -31,7 +31,12 @@ function ajaxCallAsynch(service_id) {
 }
 
 
-var buttonService = document.querySelector('#button-service1');
+var buttonService1 = document.querySelector('.comptabutton');
+var buttonService2 = document.querySelector('.juributton');
+var buttonService3 = document.querySelector('.secretbutton');
+var buttonService4 = document.querySelector('.logibutton');
+
+console.log(buttonService1.dataset['service'], buttonService2.dataset['service'], buttonService3.dataset['service'], buttonService4.dataset['service'])
 
 // buttonService.addEventListener("click", function (event) {
 //     // event.preventDefault();
