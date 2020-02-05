@@ -69,6 +69,30 @@ function getServiceIndex()
     }
 }
 
+function getServiceIndex2()
+{
+    $uri = $_SERVER['REQUEST_URI'];
+    $expUri = explode("/", $uri);
+
+    $exprReg = "#/[0-9]+#";
+
+    //recupérer id style "la-chèvre-2"
+    // $exprReg = "#/[a-z\-]+-[0-9]+#";
+    $position = preg_match($exprReg, $uri, $matches); //$postion = 1 if found; else 0
+    // var_dump($matches);
+
+    if (count($matches) === 0) {
+        require_once 'views/404.html.php';
+        return 1;
+    }
+
+    if (count($expUri) === 4) {
+        return $expUri[3];
+    } else {
+        return 1;
+    }
+}
+
 
 
 switch ($action) {
@@ -83,7 +107,15 @@ switch ($action) {
         break;
 
     case 'ajax':
-        $service_id = 1;
+        // $exploadUri = explode("/", $_SERVER['REQUEST_URI']);
+        // if(count($exploadUri) == 4){
+        //     $service_id = $exploadUri[3];
+        // }
+        // else{
+        //     $service_id = 1;
+        // }
+        $service_id = getServiceIndex2();
+        
 
         $today = getdate();
         $annee = $today['year'];
