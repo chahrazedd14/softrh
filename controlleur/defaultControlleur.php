@@ -102,7 +102,7 @@ switch ($action) {
         $loader = new \Twig\Loader\FilesystemLoader('views');
         $twig = new \Twig\Environment($loader);
         // $template = $twig->load('admin-test.html.twig');
-        echo $twig->render('index.html.twig', ['erreurMsg' => 'Problème ID ou Mot De Passe']);
+        echo $twig->render('index.html.twig', ['erreurMsg' => 'Votre username et/ou votre mot de passe ne correspondent pas.']);
         break;
     default:
         require_once 'views/404.html.php';
