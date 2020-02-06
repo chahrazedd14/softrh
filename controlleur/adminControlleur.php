@@ -60,11 +60,19 @@ function getServiceIndex()
         // $humeurMoisParJourTotal = humeurMoisParJourTotal($expUri[3]);
         // print json_encode($humeurMoisParJourTotal);
         // require_once 'controlleur/showServiceContoller.php';
-        require_once 'views/admin.html';
+        // require_once 'views/admin.html';
+        $loader = new \Twig\Loader\FilesystemLoader('views');
+        $twig = new \Twig\Environment($loader);
+        // $template = $twig->load('admin-test.html.twig');
+        echo $twig->render('admin.html', ['var1' => 'variables', 'var2' => 'here']);
         return $expUri[3];
     } else {
         // echo "SMALL URL; NO SERVICE INDEX OR TOO LONG";
-        require_once 'views/404.html.php';
+        // require_once 'views/404.html.php';
+        $loader = new \Twig\Loader\FilesystemLoader('views');
+        $twig = new \Twig\Environment($loader);
+        // $template = $twig->load('admin-test.html.twig');
+        echo $twig->render('404.html.php', ['var1' => 'variables', 'var2' => 'here']);
         return 1;
     }
 }
@@ -98,7 +106,11 @@ function getServiceIndex2()
 switch ($action) {
     case 'default':
         // echo json_encode($humeurMoisParJourTotal);
-        require_once 'views/admin.html';
+        // require_once 'views/admin.html';
+        $loader = new \Twig\Loader\FilesystemLoader('views');
+        $twig = new \Twig\Environment($loader);
+        // $template = $twig->load('admin-test.html.twig');
+        echo $twig->render('admin.html', ['var1' => 'variables', 'var2' => 'here']);
         break;
 
 
