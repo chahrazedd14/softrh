@@ -355,7 +355,8 @@ switch ($action) {
                     ]
                 ],
 
-            ]
+            ],
+            "id_service" => $service_id,
         );
         // echo json_encode($humeurMoisParJourTotal);
         echo json_encode($jsonify);
