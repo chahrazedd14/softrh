@@ -41,7 +41,7 @@ switch ($action) {
         // print_r($today);
         $uri = $_SERVER['REQUEST_URI'];
         $expUri = explode("/", $uri);
-        print_r($_SESSION);
+        // print_r($_SESSION);
         $selectedHumeur = $expUri[3];
         $selectedService = $_SESSION['id_service'];
         $idEmploye = $_SESSION['id_employe'];
