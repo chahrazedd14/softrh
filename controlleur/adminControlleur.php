@@ -172,6 +172,10 @@ switch ($action) {
         $voteStresseMois = array();
         $voteFatigueMois = array();
 
+        
+        // array_push($voteHeureuxMois, $allMonthDataCompta);
+        // array_push($voteHeureuxMois, property_exists($allMonthDataCompta, 'heureux'));
+
         for ($j=0; $j < count($allMonthDataArr); $j++) { 
             //si vote fatigue est vide == 0
             if(!isset($allMonthDataArr[$j][0]['vote_total'])){
