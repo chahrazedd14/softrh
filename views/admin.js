@@ -54,7 +54,7 @@ function ajaxCallAsynch(service_id) {
       data: {
         labels: jsonDataMois['data']['labels'],
         datasets: [{
-          label: "Lost",
+          label: "Heureux",
           fill: false,
           lineTension: 0,
           data: jsonDataMois['data']['datasets'][0]['data'],
@@ -63,7 +63,7 @@ function ajaxCallAsynch(service_id) {
           borderWidth: 2,
           showLine: true,
         }, {
-          label: "Succes",
+          label: "Stressé",
           fill: false,
           lineTension: 0,
           startAngle: 2,
@@ -75,7 +75,7 @@ function ajaxCallAsynch(service_id) {
           borderWidth: 2,
           showLine: true,
         }, {
-          label: "Succes",
+          label: "Fatigué",
           fill: false,
           lineTension: 0,
           startAngle: 2,
