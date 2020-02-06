@@ -37,7 +37,7 @@ function checkUser($user)
     //si getUser() ne trouve aucun utilisateur avec cette identifiant :
     if ($user == "") {
         // echo 'aucun utilisateur trouvé';
-        return "default";
+        return "erreur";
     } else if ($user['admin'] == "true") {
         // echo 'Bon mot de passe admin!';
         session_start();
@@ -75,7 +75,7 @@ switch ($action) {
         $loader = new \Twig\Loader\FilesystemLoader('views');
         $twig = new \Twig\Environment($loader);
         // $template = $twig->load('admin-test.html.twig');
-        echo $twig->render('index.html', ['var1' => 'variables', 'var2' => 'here']);
+        echo $twig->render('index.html.twig', ['var1' => 'variables', 'var2' => 'here']);
         break;
     case 'admin';
         // defaultAction();
@@ -94,6 +94,15 @@ switch ($action) {
         // require_once 'views/utilisateur.html.twig';
         header('Location: /employe');
         exit();
+        break;
+    case "erreur";
+        // defaultAction();
+        // require_once 'views/login-test.html.twig';
+        // require_once 'views/index.html';
+        $loader = new \Twig\Loader\FilesystemLoader('views');
+        $twig = new \Twig\Environment($loader);
+        // $template = $twig->load('admin-test.html.twig');
+        echo $twig->render('index.html.twig', ['erreurMsg' => 'Problème ID ou Mot De Passe']);
         break;
     default:
         require_once 'views/404.html.php';

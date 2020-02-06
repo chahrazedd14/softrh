@@ -51,7 +51,7 @@ switch ($action) {
         $loader = new \Twig\Loader\FilesystemLoader('views');
         $twig = new \Twig\Environment($loader);
         // $template = $twig->load('admin-test.html.twig');
-        echo $twig->render('employe.html', ['hasVoted' => "Merci d'avoir voté!"]);
+        echo $twig->render('message.html', ['hasVoted' => "Merci d'avoir voté!"]);
         // require_once 'controlleur/logoutControlleur.php';
         // echo 'employe humeur';
         break;
@@ -61,7 +61,7 @@ switch ($action) {
         $loader = new \Twig\Loader\FilesystemLoader('views');
         $twig = new \Twig\Environment($loader);
         // $template = $twig->load('admin-test.html.twig');
-        echo $twig->render('employe.html', ['hasVoted' => "Merci d'avoir voté!"]);
+        echo $twig->render('message.html', ['hasVoted' => "Merci d'avoir voté!"]);
         break;
 
     default:
@@ -69,7 +69,7 @@ switch ($action) {
         $loader = new \Twig\Loader\FilesystemLoader('views');
         $twig = new \Twig\Environment($loader);
         // $template = $twig->load('admin-test.html.twig');
-        echo $twig->render('employe.html', ['hasVoted' => "Merci d'avoir voté!"]);
+        echo $twig->render('404.html.php', ['hasVoted' => "Merci d'avoir voté!"]);
         break;
 }
 
