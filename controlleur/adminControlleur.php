@@ -60,11 +60,43 @@ function getServiceIndex()
         // $humeurMoisParJourTotal = humeurMoisParJourTotal($expUri[3]);
         // print json_encode($humeurMoisParJourTotal);
         // require_once 'controlleur/showServiceContoller.php';
-        require_once 'views/admin.html';
+        // require_once 'views/admin.html';
+        $loader = new \Twig\Loader\FilesystemLoader('views');
+        $twig = new \Twig\Environment($loader);
+        // $template = $twig->load('admin-test.html.twig');
+        echo $twig->render('admin.html', ['var1' => 'variables', 'var2' => 'here']);
         return $expUri[3];
     } else {
         // echo "SMALL URL; NO SERVICE INDEX OR TOO LONG";
+        // require_once 'views/404.html.php';
+        $loader = new \Twig\Loader\FilesystemLoader('views');
+        $twig = new \Twig\Environment($loader);
+        // $template = $twig->load('admin-test.html.twig');
+        echo $twig->render('404.html.php', ['var1' => 'variables', 'var2' => 'here']);
+        return 1;
+    }
+}
+
+function getServiceIndex2()
+{
+    $uri = $_SERVER['REQUEST_URI'];
+    $expUri = explode("/", $uri);
+
+    $exprReg = "#/[0-9]+#";
+
+    //recupérer id style "la-chèvre-2"
+    // $exprReg = "#/[a-z\-]+-[0-9]+#";
+    $position = preg_match($exprReg, $uri, $matches); //$postion = 1 if found; else 0
+    // var_dump($matches);
+
+    if (count($matches) === 0) {
         require_once 'views/404.html.php';
+        return 1;
+    }
+
+    if (count($expUri) === 4) {
+        return $expUri[3];
+    } else {
         return 1;
     }
 }
@@ -74,35 +106,118 @@ function getServiceIndex()
 switch ($action) {
     case 'default':
         // echo json_encode($humeurMoisParJourTotal);
-        require_once 'views/admin.html';
+        // require_once 'views/admin.html';
+        $loader = new \Twig\Loader\FilesystemLoader('views');
+        $twig = new \Twig\Environment($loader);
+        // $template = $twig->load('admin-test.html.twig');
+        echo $twig->render('admin.html', ['var1' => 'variables', 'var2' => 'here']);
         break;
 
 
     case 'service':
         getServiceIndex();
         break;
+
     case 'ajax':
-        $service_id = 1;
+        // $exploadUri = explode("/", $_SERVER['REQUEST_URI']);
+        // if(count($exploadUri) == 4){
+        //     $service_id = $exploadUri[3];
+        // }
+        // else{
+        //     $service_id = 1;
+        // }
+        $service_id = getServiceIndex2();
+        
 
         $today = getdate();
-        // $allMonthDataParService = humeurMoisTotalParService();
-        //recup votes total humeur pour chaque services et chaque humeur du MOIS en cours
-        $allMonthDataParService = humeurMoisTotalParService($today['mday'], $today['year']);
-        $voteHeureuxMois = array();
+        $annee = $today['year'];
+        if($today['mon'] < 10){
+            $mois = "0".$today['mon'];
+        }
+        else{
+            $mois = $today['mon'];
+        }
+
+        if($today['mday'] < 10){
+            $jour = "0".$today['mday'];
+        }
+        else{
+            $jour = $today['mday'];
+        }
+
+        //section humeur de chaques service du jour 
+        $nomServices = ["Comptabilité", "Juridique", "Logistique", "Secretariat"];
+        // for ($i=0; $i < 4; $i++) { 
+        //     $humeurJourService = humeurJourTotal("comptabilite", $jour, $mois, $annee);
+        // }
+        $humeurJourComptabilité = humeurJourTotal("comptabilite", $jour, $mois, $annee);
+        $humeurJourJuridique = humeurJourTotal("juridique", $jour, $mois, $annee);
+        $humeurJourLogistique = humeurJourTotal("logistique", $jour, $mois, $annee);
+        $humeurJourSecretariat = humeurJourTotal("secretariat", $jour, $mois, $annee);
+        
+        
+
+
+
+            // $mois = "01";
+        //!!!alternative recherche humeurs MOIS par service!!!
+        $allMonthDataCompta = humeurMoisTotalService("comptabilite", $mois, $annee);
+        $allMonthDataJuri = humeurMoisTotalService("juridique", $mois, $annee);
+        $allMonthDataLogis = humeurMoisTotalService("logistique", $mois, $annee);
+        $allMonthDataSecret = humeurMoisTotalService("secretariat", $mois, $annee);
+        $allMonthDataArr = [$allMonthDataCompta, $allMonthDataJuri, $allMonthDataLogis, $allMonthDataSecret];
+        // $lol = in_array("heureux", $allMonthDataArr[0][1]);
+        // $lol = isset($allMonthDataArr[0][1]['vote_total']);
+        $voteHeureuxMois = [];
         $voteStresseMois = array();
         $voteFatigueMois = array();
 
-        // nom_humeur vote_total nom_service
-        foreach ($allMonthDataParService as $value) {
-            if ($value['nom_humeur'] == "heureux") {
-                array_push($voteHeureuxMois, $value['vote_total']);
-            } elseif ($value['nom_humeur'] == "stresse") {
-                array_push($voteStresseMois, $value['vote_total']);
-            } elseif ($value['nom_humeur'] == "fatigue") {
-                array_push($voteFatigueMois, $value['vote_total']);
+        for ($j=0; $j < count($allMonthDataArr); $j++) { 
+            //si vote fatigue est vide == 0
+            if(!isset($allMonthDataArr[$j][0]['vote_total'])){
+                array_push($voteFatigueMois, 0);
+            }
+            else{
+                array_push($voteFatigueMois, $allMonthDataArr[$j][0]['vote_total']);
+            }
+
+            //si vote heureux est vide == 0
+            if(!isset($allMonthDataArr[$j][1]['vote_total'])){
+                array_push($voteHeureuxMois, 0);
+            }
+            else{
+                array_push($voteHeureuxMois, $allMonthDataArr[$j][1]['vote_total']);
+            }
+
+            //si vote stresse est vide == 0
+            if(!isset($allMonthDataArr[$j][2]['vote_total'])){
+                array_push($voteStresseMois, 0);
+            }
+            else{
+                array_push($voteStresseMois, $allMonthDataArr[$j][2]['vote_total']);
             }
             
+            
+            
         }
+        // $allMonthDataParService = humeurMoisTotalParService();
+        //recup votes total humeur pour chaque services et chaque humeur du MOIS en cours
+        // $allMonthDataParService = humeurMoisTotalParService($mois, $annee);
+        // $voteHeureuxMois = array();
+        // $voteStresseMois = array();
+        // $voteFatigueMois = array();
+
+        // nom_humeur vote_total nom_service
+        // foreach ($allMonthDataParService as $value) {
+        //     if ($value['nom_humeur'] == "heureux") {
+        //         array_push($voteHeureuxMois, $value['vote_total']);
+        //     } elseif ($value['nom_humeur'] == "stresse") {
+        //         array_push($voteStresseMois, $value['vote_total']);
+        //     } elseif ($value['nom_humeur'] == "fatigue") {
+        //         array_push($voteFatigueMois, $value['vote_total']);
+        //     }
+            
+        // }
 
         $humeurMoisParJourTotal = [];
         $humeurMoisParJourTotal = humeurMoisParJourTotal($service_id);
@@ -120,18 +235,38 @@ switch ($action) {
         $voteHeureux = array();
         $voteStresse = array();
         $voteFatigue = array();
+        $addedHumeur = [];
+        $currJour = "01";
         // "nom_humeur":"stresse","vote_total":"2","vote_date":"2020-01-01"
         foreach ($humeurMoisParJourTotal as $value) {
+            $oldJour = $currJour;
+            $currJour = substr($value['vote_date'], -2);
+            if($oldJour != $currJour){
+                if(!in_array("heureux", $addedHumeur)){
+                    array_push($voteHeureux, 0);
+                }
+                if(!in_array("stresse", $addedHumeur)){
+                    array_push($voteStresse, 0);
+                }
+                if(!in_array("fatigue", $addedHumeur)){
+                    array_push($voteFatigue, 0);
+                }
+                $addedHumeur = [];
+            }
             if ($value['nom_humeur'] == "heureux") {
                 array_push($voteHeureux, $value['vote_total']);
+                array_push($addedHumeur, "heureux");
             } elseif ($value['nom_humeur'] == "stresse") {
                 array_push($voteStresse, $value['vote_total']);
+                array_push($addedHumeur, "stresse");
             } elseif ($value['nom_humeur'] == "fatigue") {
                 array_push($voteFatigue, $value['vote_total']);
+                array_push($addedHumeur, "fatigue");
             }
             $jour = substr($value['vote_date'], -2);
             array_push($joursArray, $jour);
             // echo $value['vote_date'];
+            
         }
         $joursArray = array_unique($joursArray);
         // print_r($joursArray);
@@ -143,7 +278,7 @@ switch ($action) {
                 "labels" => $joursArray,
                 "datasets" => [
                     0 => [
-                        "label" => "Heureux",
+                        "label" => "Stressé",
                         "backgroundColor" => 'rgb(255, 99, 132)',
                         "borderColor" => 'rgb(255, 79, 116)',
                         "borderWidth" => 2,
@@ -153,7 +288,7 @@ switch ($action) {
                         "lineTension" => .4,
                     ],
                     1 => [
-                        "label" => "Stressé",
+                        "label" => "Heureux",
                         "fill" => false,
                         "lineTension" => .4,
                         "startAngle" => 2,

@@ -1,6 +1,6 @@
 <?php
 $action = 'default';
-// require_once 'vendor/autoload.php';
+require_once 'vendor/autoload.php';
 require_once 'core/db.php';
 require_once 'model/getUser.php';
 require_once 'model/checkHasVoted.php';
@@ -29,7 +29,11 @@ if ($userHasVoted == "") {
 
 switch ($action) {
     case 'default':
-        require_once 'views/employe.html';
+        // require_once 'views/employe.html';
+        $loader = new \Twig\Loader\FilesystemLoader('views');
+        $twig = new \Twig\Environment($loader);
+        // $template = $twig->load('admin-test.html.twig');
+        echo $twig->render('employe.html', ['emoticons' => "emoticons"]);
         break;
 
     case 'humeur':
@@ -43,17 +47,29 @@ switch ($action) {
         $idEmploye = $_SESSION['id_employe'];
         require_once 'model/insertHumeur.php';
         require_once 'model/insertHasVoted.php';
-        require_once 'views/hasVoted.html';
+        // require_once 'views/hasVoted.html';
+        $loader = new \Twig\Loader\FilesystemLoader('views');
+        $twig = new \Twig\Environment($loader);
+        // $template = $twig->load('admin-test.html.twig');
+        echo $twig->render('employe.html', ['hasVoted' => "Merci d'avoir voté!"]);
         // require_once 'controlleur/logoutControlleur.php';
         // echo 'employe humeur';
         break;
 
     case 'has voted':
-        require_once 'views/hasVoted.html';
+        // require_once 'views/hasVoted.html';
+        $loader = new \Twig\Loader\FilesystemLoader('views');
+        $twig = new \Twig\Environment($loader);
+        // $template = $twig->load('admin-test.html.twig');
+        echo $twig->render('employe.html', ['hasVoted' => "Merci d'avoir voté!"]);
         break;
 
     default:
-        require_once 'views/404.html.php';
+        // require_once 'views/404.html.php';
+        $loader = new \Twig\Loader\FilesystemLoader('views');
+        $twig = new \Twig\Environment($loader);
+        // $template = $twig->load('admin-test.html.twig');
+        echo $twig->render('employe.html', ['hasVoted' => "Merci d'avoir voté!"]);
         break;
 }
 
