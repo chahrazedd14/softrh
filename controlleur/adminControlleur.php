@@ -127,101 +127,119 @@ switch ($action) {
         //     $service_id = 1;
         // }
         $service_id = getServiceIndex2();
-        
+
 
         $today = getdate();
         $annee = $today['year'];
-        if($today['mon'] < 10){
-            $mois = "0".$today['mon'];
-        }
-        else{
+        if ($today['mon'] < 10) {
+            $mois = "0" . $today['mon'];
+        } else {
             $mois = $today['mon'];
         }
 
-        if($today['mday'] < 10){
-            $jour = "0".$today['mday'];
-        }
-        else{
+        if ($today['mday'] < 10) {
+            $jour = "0" . $today['mday'];
+        } else {
             $jour = $today['mday'];
         }
 
         //section humeur de chaques service du jour 
-        $nomServices = ["Comptabilité", "Juridique", "Logistique", "Secretariat"];
+        // $nomServices = ["Comptabilité", "Juridique", "Logistique", "Secretariat"];
         // for ($i=0; $i < 4; $i++) { 
         //     $humeurJourService = humeurJourTotal("comptabilite", $jour, $mois, $annee);
         // }
-        $humeurJourComptabilité = humeurJourTotal("comptabilite", $jour, $mois, $annee);
-        $humeurJourJuridique = humeurJourTotal("juridique", $jour, $mois, $annee);
-        $humeurJourLogistique = humeurJourTotal("logistique", $jour, $mois, $annee);
-        $humeurJourSecretariat = humeurJourTotal("secretariat", $jour, $mois, $annee);
-        
-        
+        // $humeurJourComptabilité = humeurJourTotal("comptabilite", $jour, $mois, $annee);
+        // $humeurJourJuridique = humeurJourTotal("juridique", $jour, $mois, $annee);
+        // $humeurJourLogistique = humeurJourTotal("logistique", $jour, $mois, $annee);
+        // $humeurJourSecretariat = humeurJourTotal("secretariat", $jour, $mois, $annee);
 
 
 
-            // $mois = "01";
+
+
+        // $mois = "01";
         //!!!alternative recherche humeurs MOIS par service!!!
-        $allMonthDataCompta = humeurMoisTotalService("comptabilite", $mois, $annee);
-        $allMonthDataJuri = humeurMoisTotalService("juridique", $mois, $annee);
-        $allMonthDataLogis = humeurMoisTotalService("logistique", $mois, $annee);
-        $allMonthDataSecret = humeurMoisTotalService("secretariat", $mois, $annee);
-        $allMonthDataArr = [$allMonthDataCompta, $allMonthDataJuri, $allMonthDataLogis, $allMonthDataSecret];
+        // $allMonthDataCompta = humeurMoisTotalService("comptabilite", $mois, $annee);
+        // $allMonthDataJuri = humeurMoisTotalService("juridique", $mois, $annee);
+        // $allMonthDataLogis = humeurMoisTotalService("logistique", $mois, $annee);
+        // $allMonthDataSecret = humeurMoisTotalService("secretariat", $mois, $annee);
+        // $allMonthDataArr = [$allMonthDataCompta, $allMonthDataJuri, $allMonthDataLogis, $allMonthDataSecret];
         // $lol = in_array("heureux", $allMonthDataArr[0][1]);
         // $lol = isset($allMonthDataArr[0][1]['vote_total']);
         $voteHeureuxMois = [];
         $voteStresseMois = array();
         $voteFatigueMois = array();
 
-        for ($j=0; $j < count($allMonthDataArr); $j++) { 
-            //si vote fatigue est vide == 0
-            if(!isset($allMonthDataArr[$j][0]['vote_total'])){
-                array_push($voteFatigueMois, 0);
-            }
-            else{
-                array_push($voteFatigueMois, $allMonthDataArr[$j][0]['vote_total']);
-            }
 
-            //si vote heureux est vide == 0
-            if(!isset($allMonthDataArr[$j][1]['vote_total'])){
-                array_push($voteHeureuxMois, 0);
-            }
-            else{
-                array_push($voteHeureuxMois, $allMonthDataArr[$j][1]['vote_total']);
-            }
+        // array_push($voteHeureuxMois, $allMonthDataCompta);
+        // array_push($voteHeureuxMois, property_exists($allMonthDataCompta, 'heureux'));
 
-            //si vote stresse est vide == 0
-            if(!isset($allMonthDataArr[$j][2]['vote_total'])){
-                array_push($voteStresseMois, 0);
-            }
-            else{
-                array_push($voteStresseMois, $allMonthDataArr[$j][2]['vote_total']);
-            }
-            
-            
-            
-        }
-        // $allMonthDataParService = humeurMoisTotalParService();
-        //recup votes total humeur pour chaque services et chaque humeur du MOIS en cours
-        // $allMonthDataParService = humeurMoisTotalParService($mois, $annee);
-        // $voteHeureuxMois = array();
-        // $voteStresseMois = array();
-        // $voteFatigueMois = array();
-
-        // nom_humeur vote_total nom_service
-        // foreach ($allMonthDataParService as $value) {
-        //     if ($value['nom_humeur'] == "heureux") {
-        //         array_push($voteHeureuxMois, $value['vote_total']);
-        //     } elseif ($value['nom_humeur'] == "stresse") {
-        //         array_push($voteStresseMois, $value['vote_total']);
-        //     } elseif ($value['nom_humeur'] == "fatigue") {
-        //         array_push($voteFatigueMois, $value['vote_total']);
+        // for ($j=0; $j < count($allMonthDataArr); $j++) { 
+        //     //si vote fatigue est vide == 0
+        //     if(!isset($allMonthDataArr[$j][0]['vote_total'])){
+        //         array_push($voteFatigueMois, 0);
         //     }
-            
+        //     else{
+        //         array_push($voteFatigueMois, $allMonthDataArr[$j][0]['vote_total']);
+        //     }
+
+        //     //si vote heureux est vide == 0
+        //     if(!isset($allMonthDataArr[$j][1]['vote_total'])){
+        //         array_push($voteHeureuxMois, 0);
+        //     }
+        //     else{
+        //         array_push($voteHeureuxMois, $allMonthDataArr[$j][1]['vote_total']);
+        //     }
+
+        //     //si vote stresse est vide == 0
+        //     if(!isset($allMonthDataArr[$j][2]['vote_total'])){
+        //         array_push($voteStresseMois, 0);
+        //     }
+        //     else{
+        //         array_push($voteStresseMois, $allMonthDataArr[$j][2]['vote_total']);
+        //     }
+
+
+
         // }
 
+
+
+
+
+
+        //!!!alternative ALTERNATIVE recherche humeurs MOIS par service C EST LA BONNE ?!!!
+        $allMonthData = goodHumeursMoisService($mois, $annee);
+        // array_push($voteHeureuxMois, $allMonthData);
+        for ($j = 0; $j < count($allMonthData); $j++) {
+
+            array_push($voteHeureuxMois, $allMonthData[$j]['vote_tot_heureux']);
+            array_push($voteStresseMois, $allMonthData[$j]['vote_tot_stresse']);
+            array_push($voteFatigueMois, $allMonthData[$j]['vote_tot_fatigue']);
+        }
+
         $humeurMoisParJourTotal = [];
-        $humeurMoisParJourTotal = humeurMoisParJourTotal($service_id);
-        // $humeurMoisParJourTotal = humeurMoisParJourTotal($service_id, $today['mday'], $today['year']);
+        $humeurMoisParJourTotal = humeurMoisParJourTotal($service_id, $mois, $annee);
+        //!!!alternative ALTERNATIVE recherche humeurs JOUR par service C EST LA BONNE ?!!!
+        $humeurJourService = goodHumeursJourService($service_id, $jour, $mois, $annee);
+        $voteHeureuxJour = array();
+        $voteStresseJour = array();
+        $voteFatigueJour = array();
+
+        // array_push($voteHeureuxMois, $allMonthData);
+        // array_push($voteHeureuxJour, $humeurJourService);
+        if ($humeurJourService == false) {
+
+            array_push($voteHeureuxJour, 0);
+            array_push($voteHeureuxJour, 0);
+            array_push($voteHeureuxJour, 0);
+        } else {
+
+            array_push($voteHeureuxJour, $humeurJourService['vote_tot_heureux']);
+            array_push($voteHeureuxJour, $humeurJourService['vote_tot_fatigue']);
+            array_push($voteHeureuxJour, $humeurJourService['vote_tot_stresse']);
+        }
+
         //continue de chercher des infos sur le premier service qu'il trouve (limité à 5)(au cas ou qu'il y ai le service 1 en moins par ex)
         // while (count($humeurMoisParJourTotal) === 0 || $service_id > 5) {
         //     // $today = getdate();
@@ -241,14 +259,14 @@ switch ($action) {
         foreach ($humeurMoisParJourTotal as $value) {
             $oldJour = $currJour;
             $currJour = substr($value['vote_date'], -2);
-            if($oldJour != $currJour){
-                if(!in_array("heureux", $addedHumeur)){
+            if ($oldJour != $currJour) {
+                if (!in_array("heureux", $addedHumeur)) {
                     array_push($voteHeureux, 0);
                 }
-                if(!in_array("stresse", $addedHumeur)){
+                if (!in_array("stresse", $addedHumeur)) {
                     array_push($voteStresse, 0);
                 }
-                if(!in_array("fatigue", $addedHumeur)){
+                if (!in_array("fatigue", $addedHumeur)) {
                     array_push($voteFatigue, 0);
                 }
                 $addedHumeur = [];
@@ -266,7 +284,7 @@ switch ($action) {
             $jour = substr($value['vote_date'], -2);
             array_push($joursArray, $jour);
             // echo $value['vote_date'];
-            
+
         }
         $joursArray = array_unique($joursArray);
         // print_r($joursArray);
@@ -329,18 +347,6 @@ switch ($action) {
                             "showLine" => true,
                         ],
                         1 => [
-                            "label" => "Stressé",
-                            "fill" => false,
-                            "lineTension" => 0,
-                            "startAngle" => 2,
-                            "data" => $voteStresseMois,
-                            "backgroundColor" => "transparent",
-                            "pointBorderColor" => "#ff6384",
-                            "borderColor" => '#ff6384',
-                            "borderWidth" => 2,
-                            "showLine" => true,
-                        ],
-                        2 => [
                             "label" => "Fatigué",
                             "fill" => false,
                             "lineTension" => 0,
@@ -351,11 +357,43 @@ switch ($action) {
                             "borderColor" => '#ff6384',
                             "borderWidth" => 2,
                             "showLine" => true,
+                        ],
+                        2 => [
+                            "label" => "Stressé",
+                            "fill" => false,
+                            "lineTension" => 0,
+                            "startAngle" => 2,
+                            "data" => $voteStresseMois,
+                            "backgroundColor" => "transparent",
+                            "pointBorderColor" => "#ff6384",
+                            "borderColor" => '#ff6384',
+                            "borderWidth" => 2,
+                            "showLine" => true,
                         ]
                     ]
                 ],
 
-            ]
+            ],
+            "id_service" => $service_id, 
+            "goodDataJour" => [
+                "type" => 'bar',
+                "data" => [
+                    "labels" => ["Heureux", "Fatigué", "Stressé"],
+                    "datasets" => [
+                        0 => [
+                            "label" => "Votes",
+                            "fill" => false,
+                            "lineTension" => 0,
+                            "data" => $voteHeureuxJour,
+                            "pointBorderColor" => ["#4bc0c0","#ffcd56","#ff6384"],
+                            "borderColor" => ['#4bc0c0', "#ffcd56", '#ff6384'],
+                            "borderWidth" => 2,
+                            "showLine" => true,
+                        ],
+                    ]
+                ],
+
+            ],
         );
         // echo json_encode($humeurMoisParJourTotal);
         echo json_encode($jsonify);

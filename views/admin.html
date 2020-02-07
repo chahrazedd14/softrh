@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/assets/styleadmin.css">
 </head>
 
-<body >
+<body>
     <aside class="side-nav" id="show-side-navigation1">
         <i class="fa fa-bars close-aside hidden-sm hidden-md hidden-lg" data-close="show-side-navigation1"></i>
         <div class="heading">
@@ -97,16 +97,26 @@
             <section class="charts">
                 <div class="container-fluid">
                     <div class="row">
+                        <!-- humeur du jour - bar -->
                         <div class="col-md-6">
                             <div class="chart-container">
-                                <h3>Humeur du jour</h3>
-                                <canvas id="myChart2"></canvas>
+                                <h3>Humeur du jour <span class="nom-service"></span></h3>
+                                <canvas id="myChart3"></canvas>
                             </div>
                         </div>
+
                         <div class="col-md-6">
                             <div class="chart-container">
                                 <h3>Humeur du mois</h3>
                                 <canvas id="myChart"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- humeur par jour dans le mois / crise cardiaque -->
+                        <div class="col-md-6">
+                            <div class="chart-container">
+                                <h3>Humeur du jour <span class=""></span></h3>
+                                <canvas id="myChart2"></canvas>
                             </div>
                         </div>
                     </div>
@@ -121,7 +131,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
         <!-- <script src="/views/adminajax.js"></script> -->
         <script src="/views/admin.js"></script>
-        
+
 
 
 
