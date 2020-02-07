@@ -9,17 +9,13 @@ margin: 0;
 padding: 0;
 }
 
-.padding-container{
-    padding-top: 10vh;;
-  }
-
 $openSans: 'Open Sans', Helvetica, Arial, sans-serif;
  body {
  font-size: 62.5%;
  min-height: 100vh;
  background-image: url('../media/background.jpg');
   background-size: cover;
-  background-repeat: no-repeat;
+
  
  
  
@@ -29,6 +25,9 @@ font-size: 50%;
 .padding-container{
     padding-top: 10vh;
   }
+}
+.padding-container{
+  padding-top: 5vh;;
 }
 
 svg {
@@ -48,6 +47,10 @@ stroke-width: 1;
 }
 .font-text-dark {
 font-family: 'Indie Flower', sans-serif;
+margin-top: 0px;
+margin-bottom: 80px;
+margin-top: 40px;
+
 }
 
 
@@ -165,7 +168,7 @@ width: 33%;
 height: 4rem;
 margin: 5rem 0 2.2rem;
 color: rgba(255,255,255,0.8);
-background: #FF3366;
+// background: rgba(255, 51, 102, 0);
 font-size: 1.5rem;
 border-radius: 3rem;
 cursor: pointer;
@@ -254,11 +257,8 @@ transform: scale(1.2);
 
 .app {
 
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
 opacity: 0;
+text-align: center;
 display: none;
 transition: opacity 0.1s, transform 0.3s cubic-bezier(0.68, -0.45, 0.465, 1.25);
 transform: scale(1.2);
@@ -340,7 +340,7 @@ animation: animatePath 0.5s 0.5s forwards;
 }
 
 &__hello {
-font-size: 4.2rem;
+font-size: 3.2rem;
 color: #FFF;
 font-weight: normal;
 margin-bottom: 3rem;
@@ -351,11 +351,11 @@ position: relative;
 display: inline-block;
 width: 9rem;
 height: 9rem;
-margin-bottom: 3rem;
+// margin-bottom: 3rem;
 }
 &__user-photo {
-width: 100%;
-height: 100%;
+width: 60%;
+height: 60%;
 border-radius: 50%;
 transition: transform 0.3s 0.2s cubic-bezier(.62,.35,.56,1.55);
 transform: scale(0);
@@ -467,10 +467,10 @@ font-size: 1.1rem;
 position: absolute;
 top:10px;
 right: 4.3rem;
-width: 1.6rem;
-height: 1.6rem;
+width: 0.6rem;
+height: 0.6rem;
 margin-right: -2.3rem;
-background: #FC3768;
+background: rgba(252, 55, 104, 0.924);
 color: #FFF;
 font-size: 1rem;
 border-radius: 50%;
@@ -510,9 +510,12 @@ animation: animatePath 0.5s 0.5s forwards;
 }
 }
 }
-
+.h-60px{
+  min-height: 50px;
+}
 .vote{
 border-radius: 5px;
+height: 50%;
 
 }
 .ripple {
@@ -551,3 +554,11 @@ margin-right: 80px;
 
 }
 
+@media (min-width: 768px) and (max-width: 991.98px) { 
+  .app__user-photo {
+    width: 100px;
+  }
+  .padding-container {
+    padding-top: 5vh;
+ }
+}

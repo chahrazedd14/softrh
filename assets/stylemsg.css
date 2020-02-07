@@ -5,6 +5,27 @@
   padding: 0;
 }
 
+.ml10 {
+  position: relative;
+  font-weight: 900;
+  font-size: 4em;
+}
+
+.ml10 .text-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-top: 0.2em;
+  padding-right: 0.05em;
+  padding-bottom: 0.1em;
+  overflow: hidden;
+}
+
+.ml10 .letter {
+  display: inline-block;
+  line-height: 1em;
+  transform-origin: 0 0;
+}
+
 .padding-container {
   padding-top: 10vh;
 }
@@ -134,53 +155,12 @@ input, button {
   background: transparent;
   color: #FDFCFD;
 }
-.login .position-button {
-  padding-right: 122px;
-}
-.login__submit {
-  position: relative;
-  width: 33%;
-  height: 4rem;
-  margin: 5rem 0 2.2rem;
-  color: rgba(255, 255, 255, 0.8);
-  background: #FF3366;
-  font-size: 1.5rem;
-  border-radius: 3rem;
-  cursor: pointer;
-  overflow: hidden;
-  transition: width 0.3s 0.15s, font-size 0.1s 0.15s;
-  width: 200px;
-}
-.login__submit:after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-left: -1.5rem;
-  margin-top: -1.5rem;
-  width: 3rem;
-  height: 3rem;
-  border: 2px dotted #FFF;
-  border-radius: 50%;
-  border-left: none;
-  border-bottom: none;
-  transition: opacity 0.1s 0.4s;
-  opacity: 0;
-}
-.login__submit.processing {
-  width: 4rem;
-  font-size: 0;
-}
-.login__submit.processing:after {
-  opacity: 1;
-  animation: rotate 0.5s 0.4s infinite linear;
-}
-.login__submit.success {
+.login.success {
   transition: transform 0.3s 0.1s ease-out, opacity 0.1s 0.3s, background-color 0.1s 0.3s;
   transform: scale(30);
   opacity: 0.9;
 }
-.login__submit.success:after {
+.login.success:after {
   transition: opacity 0.1s 0s;
   opacity: 0;
   animation: none;
@@ -193,25 +173,21 @@ input, button {
   color: #FFF;
   cursor: pointer;
 }
-
-::placeholder {
+.login ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #d1b5b5;
   opacity: 1;
   /* Firefox */
 }
-
-:-ms-input-placeholder {
+.login :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
   color: 209, 181, 181;
 }
-
-::-ms-input-placeholder {
+.login ::-ms-input-placeholder {
   /* Microsoft Edge */
   color: 209, 181, 181;
 }
-
-.app-employe {
+.login .app-employe {
   position: absolute;
   top: 0;
   left: 0;
@@ -222,41 +198,39 @@ input, button {
   transition: opacity 0.1s, transform 0.3s cubic-bezier(0.68, -0.45, 0.465, 1.25);
   transform: scale(1.2);
 }
-
-.app {
+.login .app {
   top: 0;
   left: 0;
-  width: 100%;
   height: 100%;
   opacity: 0;
   display: none;
   transition: opacity 0.1s, transform 0.3s cubic-bezier(0.68, -0.45, 0.465, 1.25);
   transform: scale(1.2);
 }
-.app.active {
+.login .app.active {
   opacity: 1;
   transform: scale(1);
   background: rgba(0, 0, 0, 0.5);
   text-align: center;
   border-radius: 5px;
 }
-.app.active .app__user-photo {
+.login .app.active .app__user-photo {
   transform: scale(1);
 }
-.app.active .app__meeting {
+.login .app.active .app__meeting {
   transform: translateY(0);
   opacity: 1;
 }
-.app.active .app__logout {
+.login .app.active .app__logout {
   transform: scale(1);
 }
-.app__bot {
+.login .app__bot {
   position: relative;
   height: 45rem;
   background: #FFF;
   border-radius: 5px;
 }
-.app__menu-btn {
+.login .app__menu-btn {
   position: absolute;
   top: 2rem;
   left: 1.5rem;
@@ -264,55 +238,55 @@ input, button {
   height: 1.7rem;
   cursor: pointer;
 }
-.app__menu-btn span, .app__menu-btn:before, .app__menu-btn:after {
+.login .app__menu-btn span, .login .app__menu-btn:before, .login .app__menu-btn:after {
   position: absolute;
   left: 0;
   width: 100%;
   height: 1px;
   background: rgba(255, 255, 255, 0.6);
 }
-.app__menu-btn span {
+.login .app__menu-btn span {
   top: 0.8rem;
 }
-.app__menu-btn:before {
+.login .app__menu-btn:before {
   content: "";
   top: 0;
 }
-.app__menu-btn:after {
+.login .app__menu-btn:after {
   content: "";
   bottom: 0;
 }
-.app__icon {
+.login .app__icon {
   position: absolute;
   top: 1rem;
 }
-.app__icon.search {
+.login .app__icon.search {
   right: 1.5rem;
   stroke-dasharray: 61.8471374512;
   stroke-dashoffset: 61.8471374512;
   animation: animatePath 0.5s 0.5s forwards;
 }
-.app__hello {
+.login .app__hello {
   font-size: 4.2rem;
   color: #FFF;
   font-weight: normal;
   margin-bottom: 3rem;
 }
-.app__user {
+.login .app__user {
   position: relative;
   display: inline-block;
   width: 9rem;
   height: 9rem;
   margin-bottom: 3rem;
 }
-.app__user-photo {
+.login .app__user-photo {
   width: 100%;
   height: 100%;
   border-radius: 50%;
   transition: transform 0.3s 0.2s cubic-bezier(0.62, 0.35, 0.56, 1.55);
   transform: scale(0);
 }
-.app__user-notif {
+.login .app__user-notif {
   position: absolute;
   top: 0;
   right: 0;
@@ -325,18 +299,18 @@ input, button {
   color: #FFF;
   font-size: 1.5rem;
 }
-.app__month:after {
+.login .app__month:after {
   content: "";
   display: table;
   clear: both;
 }
-.app__month-name {
+.login .app__month-name {
   display: inline-block;
   color: rgba(255, 255, 255, 0.6);
   font-size: 10.2rem;
   text-transform: uppercase;
 }
-.app__month-btn {
+.login .app__month-btn {
   display: inline-block;
   width: 1.2rem;
   height: 1.2rem;
@@ -345,36 +319,36 @@ input, button {
   border-bottom: none;
   cursor: pointer;
 }
-.app__month-btn.left {
+.login .app__month-btn.left {
   float: left;
   transform: rotate(-135deg);
 }
-.app__month-btn.right {
+.login .app__month-btn.right {
   float: right;
   transform: rotate(45deg);
 }
-.app__days {
+.login .app__days {
   height: 7rem;
   padding: 1.5rem 2rem;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
-.app__day {
+.login .app__day {
   width: 14%;
   text-align: center;
   font-size: 1.2rem;
 }
-.app__day.weekday {
+.login .app__day.weekday {
   color: #919197;
   text-transform: uppercase;
 }
-.app__day.date {
+.login .app__day.date {
   font-size: 1.2rem;
   font-weight: bold;
   color: #3C3C43;
 }
-.app__meeting {
+.login .app__meeting {
   position: relative;
   height: 6rem;
   border-top: 1px solid #EEEEEF;
@@ -383,44 +357,43 @@ input, button {
   transform: translateY(-50%);
   opacity: 0;
 }
-.app__meeting:nth-child(1) {
+.login .app__meeting:nth-child(1) {
   transition-delay: 0.2s;
 }
-.app__meeting:nth-child(2) {
+.login .app__meeting:nth-child(2) {
   transition-delay: 0.3s;
 }
-.app__meeting:nth-child(3) {
+.login .app__meeting:nth-child(3) {
   transition-delay: 0.4s;
 }
-.app__meeting:nth-child(4) {
+.login .app__meeting:nth-child(4) {
   transition-delay: 0.5s;
 }
-.app__meeting:nth-child(5) {
+.login .app__meeting:nth-child(5) {
   transition-delay: 0.6s;
 }
-.app__meeting-photo {
+.login .app__meeting-photo {
   position: absolute;
   left: 2rem;
   top: 1rem;
   width: 4rem;
   height: 4rem;
 }
-.app__meeting-name {
+.login .app__meeting-name {
   color: #000;
   font-size: 1.3rem;
 }
-.app__meeting-info {
+.login .app__meeting-info {
   color: #949498;
   font-size: 1.1rem;
 }
-.app__logout {
+.login .app__logout {
   position: absolute;
   top: 10px;
   right: 4.3rem;
   width: 1.6rem;
   height: 1.6rem;
   margin-right: -2.3rem;
-  background: #FC3768;
   color: #FFF;
   font-size: 1rem;
   border-radius: 50%;
@@ -428,16 +401,16 @@ input, button {
   transition: bottom 0.4s 0.1s, right 0.4s 0.1s, transform 0.4s 0.4s, opacity 0.1s 0.7s, background-color 0.1s 0.7s;
   transform: scale(0);
 }
-.app__logout.clicked {
+.login .app__logout.clicked {
   bottom: 50%;
   right: 50%;
   transform: scale(30) !important;
   opacity: 0.9;
 }
-.app__logout.clicked svg {
+.login .app__logout.clicked svg {
   opacity: 0;
 }
-.app__logout-icon {
+.login .app__logout-icon {
   position: absolute;
   width: 3rem;
   height: 3rem;
@@ -447,18 +420,16 @@ input, button {
   margin-top: -1.5rem;
   transition: opacity 0.1s;
 }
-.app__logout-icon path {
+.login .app__logout-icon path {
   stroke-width: 3px;
   stroke-dasharray: 64.3623504639;
   stroke-dashoffset: 64.3623504639;
   animation: animatePath 0.5s 0.5s forwards;
 }
-
-.vote {
+.login .vote {
   border-radius: 5px;
 }
-
-.ripple {
+.login .ripple {
   position: absolute;
   width: 15rem;
   height: 15rem;
@@ -469,7 +440,6 @@ input, button {
   animation: animRipple 0.4s;
   border-radius: 50%;
 }
-
 @keyframes animRipple {
   to {
     transform: scale(3.5);
@@ -486,7 +456,7 @@ input, button {
     stroke-dashoffset: 0;
   }
 }
-.logo-softrh {
+.login .logo-softrh {
   height: 200px;
   width: 200px;
   margin-top: 50px;

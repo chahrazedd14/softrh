@@ -40,7 +40,7 @@ input, button {
   border: none;
 }
 .padding-container{
-  padding-top: 10vh;;
+  padding-top: 10vh;
 }
 
 .container-login{
@@ -49,6 +49,10 @@ input, button {
   border-radius: 5px;
   transform: scale(1)
   
+}
+.text-font{
+  font-style: italic;
+  color: rgb(209, 181, 181)!important;
 }
 
 
@@ -121,10 +125,9 @@ input, button {
   &__input {
     // display: inline-block;
     width: 22rem;
-    height: 100%;
     padding-left: 0;
     padding-left: 0;
-    font-size: 2rem;
+    font-size: 1.5rem;
     background: transparent;
     color: #FDFCFD;
 
@@ -136,9 +139,9 @@ input, button {
   &__submit {
     
     position: relative;
-    width: 33%;
-    height: 4rem;
-    margin: 5rem 0 2.2rem;
+    width: 199px;
+    height: 58px;
+    margin: 2rem 0 2.2rem;
     color: rgba(255,255,255,0.8);
     background: #FF3366;
     font-size: 1.5rem;
@@ -492,7 +495,9 @@ input, button {
   }
   
 }
-
+button:focus {
+  outline: none;
+}
 .ripple {
   position: absolute;
   width: 15rem;
@@ -530,21 +535,14 @@ input, button {
 }
 
 /*******************************media*****************************************/
-// @media (max-width: 575.98px) { 
-//   .login__row{
-//     width: 280px;
-//   }
-//   .login__input{
-//     width: 100px;
-//     margin-left: 50px;
-// }
-// .login__icon {
+@media (max-width: 575.98px) { 
+  .login__ligne{
+    width: 350px;
+  }
 
-//   margin-right: 0px;
-// }
-// .login .position-button {
+ .login__icon {
+  margin-right: 0px;
+  margin-left: 25px;
+}
+}
 
-//   padding-right: 0px;
-//   padding-left: 61px;
-// }
-//   }
