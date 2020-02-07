@@ -221,7 +221,21 @@ switch ($action) {
 
         $humeurMoisParJourTotal = [];
         $humeurMoisParJourTotal = humeurMoisParJourTotal($service_id);
-        // $humeurMoisParJourTotal = humeurMoisParJourTotal($service_id, $today['mday'], $today['year']);
+        //!!!alternative ALTERNATIVE recherche humeurs JOUR par service C EST LA BONNE ?!!!
+        $humeurJourService = goodHumeursJourService($service_id, $jour, $mois, $annee);
+        $voteHeureuxJour = array();
+        $voteStresseJour = array();
+        $voteFatigueJour = array();
+        
+        // array_push($voteHeureuxMois, $allMonthData);
+        for ($j = 0; $j < count($allMonthData); $j++) {
+            
+            array_push($voteHeureuxJour, $allMonthData[$j]['vote_tot_heureux']);
+            array_push($voteStresseJour, $allMonthData[$j]['vote_tot_stresse']);
+            array_push($voteFatigueJour, $allMonthData[$j]['vote_tot_fatigue']);
+
+        }
+        
         //continue de chercher des infos sur le premier service qu'il trouve (limité à 5)(au cas ou qu'il y ai le service 1 en moins par ex)
         // while (count($humeurMoisParJourTotal) === 0 || $service_id > 5) {
         //     // $today = getdate();

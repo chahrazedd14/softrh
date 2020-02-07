@@ -118,3 +118,19 @@ function goodHumeursMoisService($mois = "01", $annee = "2020")
     $sth->execute();
     return $sth->fetchAll(pdo::FETCH_ASSOC);
 }
+
+
+function goodHumeursJourService($service = 1, $jour = "01", $mois = "01", $annee = "2020")
+{
+    global $pdo;
+
+    $sql = "SELECT Vote.id_service, COUNT(case when Humeur.nom_humeur = 'fatigue' then 1 end) AS vote_tot_fatigue, count(case when Humeur.nom_humeur = 'heureux' then 1 end) AS vote_tot_heureux, count(case when Humeur.nom_humeur = 'stresse' then 1 end) AS vote_tot_stresse FROM Humeur LEFT JOIN Vote ON Humeur.id_humeur = Vote.id_humeur WHERE vote_date LIKE :date AND id_service = :id_service GROUP BY Vote.id_service ORDER BY `Vote`.`id_service` ASC, `Vote`.`vote_date` DESC";
+    // SELECT Vote.id_service, Vote.vote_date, COUNT(case when Humeur.nom_humeur = 'fatigue' then 1 end) AS vote_tot_fatigue, count(case when Humeur.nom_humeur = 'heureux' then 1 end) AS vote_tot_heureux, count(case when Humeur.nom_humeur = 'stresse' then 1 end) AS vote_tot_stresse FROM Humeur LEFT JOIN Vote ON Humeur.id_humeur = Vote.id_humeur WHERE vote_date LIKE '%-02-%' AND Vote.id_service = 3 GROUP BY Vote.vote_date ORDER BY `Vote`.`id_service` ASC, `Vote`.`vote_date` DESC
+
+    $selectedDate = "" . $annee . "-" . $mois . "-" . $jour . "";
+    $sth = $pdo->prepare($sql);
+    $sth->bindParam(':date', $selectedDate, PDO::PARAM_STR);
+    $sth->bindParam(':id_service', $idService, PDO::PARAM_INT);
+    $sth->execute();
+    return $sth->fetchAll(pdo::FETCH_ASSOC);
+}
