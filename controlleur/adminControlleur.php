@@ -97,7 +97,7 @@ function getServiceIndex2()
     if (count($expUri) === 4) {
         return $expUri[3];
     } else {
-        return 1;
+        return 0;
     }
 }
 
@@ -219,7 +219,17 @@ switch ($action) {
         }
 
         $humeurMoisParJourTotal = [];
-        $humeurMoisParJourTotal = humeurMoisParJourTotal($service_id, $mois, $annee);
+
+        //si page $service_id == 0 c'est la page admin, donc :
+        if($service_id == 0){
+            $humeurMoisParJourTotal = humeurMoisParJourTotalAllService($mois, $annee);
+        }
+        else{
+            //sinon c'est une page service, donc :
+            $humeurMoisParJourTotal = humeurMoisParJourTotal($service_id, $mois, $annee);
+        }
+        
+        
         //!!!alternative ALTERNATIVE recherche humeurs JOUR par service C EST LA BONNE ?!!!
         $humeurJourService = goodHumeursJourService($service_id, $jour, $mois, $annee);
         $voteHeureuxJour = array();

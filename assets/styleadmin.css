@@ -243,6 +243,10 @@ body {
 }
 /* End side navigation bar  */
 /* Start welcome */
+.mon-d-none {
+  display: none;
+}
+
 .welcome {
   color: #CCC;
 }

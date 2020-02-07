@@ -24,9 +24,9 @@
             <input type="text" placeholder="Type here"><i class="fa fa-search"></i>
         </div>
         <ul class="categories">
-            <li><i class="fa fa-home fa-fw" aria-hidden="true"></i><a href="/"> Home</a>
+            <li><i class="fa fa-home fa-fw" aria-hidden="true"></i><a href="/admin"> Home</a>
             </li>
-            <li><i class="fa fa-support fa-fw"></i><a href="#"> Services</a>
+            <li class="service-menu-button"><i class="fa fa-support fa-fw"></i><a href="#"> Services</a>
                 <ul class="side-nav-dropdown">
                     <li><a href="#" class="comptaButton" data-service="1">Comptabilité</a></li>
                     <li><a href="#" class="juriButton" data-service="2">Juridique</a></li>
@@ -37,7 +37,7 @@
     </aside>
 
     <section id="contents">
- 
+
         <div class="welcome">
             <div class="container-fluid">
                 <div class="row content">
@@ -98,14 +98,14 @@
                 <div class="container-fluid">
                     <div class="row">
                         <!-- humeur du jour - bar -->
-                        <div class="col-md-6">
+                        <div id="graph-jour" class="col-md-12 mon-d-none">
                             <div class="chart-container">
                                 <h3>Humeur du jour <span class="nom-service"></span></h3>
                                 <canvas id="myChart3"></canvas>
                             </div>
                         </div>
 
-                        <div class="col-md-6">
+                        <div id="graph-mois" class="col-md-12">
                             <div class="chart-container">
                                 <h3>Humeur du mois</h3>
                                 <canvas id="myChart"></canvas>
@@ -113,9 +113,9 @@
                         </div>
 
                         <!-- humeur par jour dans le mois / crise cardiaque -->
-                        <div class="col-md-6">
+                        <div id="graph-cardio" class="col-md-12">
                             <div class="chart-container">
-                                <h3>Humeur du jour <span class=""></span></h3>
+                                <h3>Humeur par jour du mois <span class="nom-service"></span></h3>
                                 <canvas id="myChart2"></canvas>
                             </div>
                         </div>
@@ -123,14 +123,16 @@
                 </div>
             </section>
         </div>
-   
-        <script src='http://code.jquery.com/jquery-latest.js'></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-            crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
-        <!-- <script src="/views/adminajax.js"></script> -->
-        <script src="/views/admin.js"></script>
+
+    </section>
+
+    <script src='http://code.jquery.com/jquery-latest.js'></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
+    <!-- <script src="/views/adminajax.js"></script> -->
+    <script src="/views/admin.js"></script>
 
 
 

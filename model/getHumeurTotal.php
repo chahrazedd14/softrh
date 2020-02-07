@@ -22,7 +22,7 @@ function humeurMoisParJourTotal($service = 1, $mois = "01", $annee = "2020")
     global $pdo;
     // $sql = "SELECT * FROM Employe WHERE utilisateur =:id";
     $sql = "SELECT nom_humeur, count(nom_humeur) AS vote_total, vote_date FROM Vote INNER JOIN Humeur ON Vote.id_humeur = Humeur.id_humeur INNER JOIN Service ON Vote.id_service = Service.id_service WHERE Service.id_service = :serviceNum AND vote_date LIKE :date GROUP BY nom_humeur, vote_date ORDER BY `Vote`.`vote_date` ASC";
-    // $sql = "SELECT nom_humeur, count(nom_humeur) AS vote_total FROM Vote INNER JOIN Humeur ON Vote.id_humeur = Humeur.id_humeur WHERE vote_date LIKE '%-%1-%' GROUP BY nom_humeur";
+    // SELECT nom_humeur, count(nom_humeur) AS vote_total, vote_date FROM Vote INNER JOIN Humeur ON Vote.id_humeur = Humeur.id_humeur INNER JOIN Service ON Vote.id_service = Service.id_service WHERE vote_date LIKE '%-02-%' GROUP BY nom_humeur, vote_date ORDER BY `Vote`.`vote_date` ASC
 
     $selectedDate = "" . $annee . "-" . $mois . "-%";
     $sth = $pdo->prepare($sql);
@@ -133,4 +133,18 @@ function goodHumeursJourService($service = 1, $jour = "01", $mois = "01", $annee
     $sth->bindParam(':id_service', $service, PDO::PARAM_INT);
     $sth->execute();
     return $sth->fetch(pdo::FETCH_ASSOC);
+}
+
+function humeurMoisParJourTotalAllService($mois = "01", $annee = "2020")
+{
+    global $pdo;
+    // $sql = "SELECT * FROM Employe WHERE utilisateur =:id";
+    $sql = "SELECT nom_humeur, count(nom_humeur) AS vote_total, vote_date FROM Vote INNER JOIN Humeur ON Vote.id_humeur = Humeur.id_humeur INNER JOIN Service ON Vote.id_service = Service.id_service WHERE vote_date LIKE :date GROUP BY nom_humeur, vote_date ORDER BY `Vote`.`vote_date` ASC";
+    // SELECT nom_humeur, count(nom_humeur) AS vote_total, vote_date FROM Vote INNER JOIN Humeur ON Vote.id_humeur = Humeur.id_humeur INNER JOIN Service ON Vote.id_service = Service.id_service WHERE vote_date LIKE '%-02-%' GROUP BY nom_humeur, vote_date ORDER BY `Vote`.`vote_date` ASC
+
+    $selectedDate = "" . $annee . "-" . $mois . "-%";
+    $sth = $pdo->prepare($sql);
+    $sth->bindParam(':date', $selectedDate, PDO::PARAM_STR);
+    $sth->execute();
+    return $sth->fetchAll(pdo::FETCH_ASSOC);
 }

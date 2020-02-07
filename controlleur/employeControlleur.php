@@ -42,18 +42,29 @@ switch ($action) {
         $uri = $_SERVER['REQUEST_URI'];
         $expUri = explode("/", $uri);
         // print_r($_SESSION);
-        $selectedHumeur = $expUri[3];
-        $selectedService = $_SESSION['id_service'];
-        $idEmploye = $_SESSION['id_employe'];
-        require_once 'model/insertHumeur.php';
-        require_once 'model/insertHasVoted.php';
-        // require_once 'views/hasVoted.html';
-        $loader = new \Twig\Loader\FilesystemLoader('views');
-        $twig = new \Twig\Environment($loader);
-        // $template = $twig->load('admin-test.html.twig');
-        echo $twig->render('message.html', ['hasVoted' => "Merci d'avoir voté!"]);
-        // require_once 'controlleur/logoutControlleur.php';
-        // echo 'employe humeur';
+        //si le chiffre du vote est entre 1 et 3 compris :
+        if ($expUri[3] < 1 || $expUri[3] > 4) {
+            
+            $loader = new \Twig\Loader\FilesystemLoader('views');
+            $twig = new \Twig\Environment($loader);
+            echo $twig->render('employe.html', ['emoticons' => "emoticons"]);
+        }
+         else {
+
+            $selectedHumeur = $expUri[3];
+            $selectedService = $_SESSION['id_service'];
+            $idEmploye = $_SESSION['id_employe'];
+            require_once 'model/insertHumeur.php';
+            require_once 'model/insertHasVoted.php';
+            // require_once 'views/hasVoted.html';
+            $loader = new \Twig\Loader\FilesystemLoader('views');
+            $twig = new \Twig\Environment($loader);
+            // $template = $twig->load('admin-test.html.twig');
+            echo $twig->render('message.html', ['hasVoted' => "Merci d'avoir voté!"]);
+            // require_once 'controlleur/logoutControlleur.php';
+            // echo 'employe humeur';
+        }
+
         break;
 
     case 'has voted':
