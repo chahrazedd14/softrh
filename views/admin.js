@@ -29,6 +29,8 @@ function ajaxCallAsynch(service_id) {
     console.log("jsonDataJours : ", jsonDataJours);
     let jsonDataMois = data['dataMois'];
     console.log("jsonDataMois : ", jsonDataMois);
+    let jsonDataJourGood = data['goodDataJour'];
+    console.log("jsonDataJourGood : ", jsonDataJourGood);
 
     //génère jour du mois en cours a partir des jours reçu par php
     let jourArray = [];
@@ -161,6 +163,15 @@ function ajaxCallAsynch(service_id) {
     // });
 
 
+    // startChart humeur que de 1 jour d'un service "GOOD";
+    //chart ( jour )
+    myChart3.data.datasets[0].data = jsonDataJourGood['data']['datasets'][0]['data'];
+    // myChart3.data.datasets[1].data = jsonDataJourGood['data']['datasets'][1]['data'];
+    // myChart3.data.datasets[2].data = jsonDataJourGood['data']['datasets'][2]['data'];
+    myChart3.data.labels = jsonDataJourGood['data']['labels'];
+    myChart3.update();
+
+
 
   });
 
@@ -239,18 +250,6 @@ var myChart = new Chart(chart, {
       borderWidth: 2,
       showLine: true,
     }, {
-      label: "Stressé",
-      fill: false,
-      lineTension: 0,
-      startAngle: 2,
-      data: [],
-      // , '#ff6384', '#4bc0c0', '#ffcd56', '#457ba1'
-      backgroundColor: "transparent",
-      pointBorderColor: "#ff6384",
-      borderColor: '#ff6384',
-      borderWidth: 2,
-      showLine: true,
-    }, {
       label: "Fatigué",
       fill: false,
       lineTension: 0,
@@ -260,6 +259,18 @@ var myChart = new Chart(chart, {
       backgroundColor: "transparent",
       pointBorderColor: "#ffcd56",
       borderColor: '#ffcd56',
+      borderWidth: 2,
+      showLine: true,
+    }, {
+      label: "Stressé",
+      fill: false,
+      lineTension: 0,
+      startAngle: 2,
+      data: [],
+      // , '#ff6384', '#4bc0c0', '#ffcd56', '#457ba1'
+      backgroundColor: "transparent",
+      pointBorderColor: "#ff6384",
+      borderColor: '#ff6384',
       borderWidth: 2,
       showLine: true,
     }]
@@ -317,6 +328,26 @@ var chart = new Chart(Chart2, {
       display: false
     }
   }
+});
+
+
+// //  Chart ( jours ) GOOD seulement aujourd'hui
+var chart3 = document.getElementById('myChart3');
+var myChart3 = new Chart(chart3, {
+  type: 'bar',
+  data: {
+    labels: [],
+    datasets: [{
+      label: "Votes",
+      fill: false,
+      lineTension: 0,
+      data: [],
+      pointBorderColor: ["#4bc0c0", "#ffcd56", "#ff6384"],
+      borderColor: ['#4bc0c0', "#ffcd56", '#ff6384'],
+      borderWidth: 2,
+      showLine: true,
+    }]
+  },
 });
 
 
