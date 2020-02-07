@@ -219,7 +219,7 @@ switch ($action) {
         }
 
         $humeurMoisParJourTotal = [];
-        $humeurMoisParJourTotal = humeurMoisParJourTotal($service_id);
+        $humeurMoisParJourTotal = humeurMoisParJourTotal($service_id, $mois, $annee);
         //!!!alternative ALTERNATIVE recherche humeurs JOUR par service C EST LA BONNE ?!!!
         $humeurJourService = goodHumeursJourService($service_id, $jour, $mois, $annee);
         $voteHeureuxJour = array();
