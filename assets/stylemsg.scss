@@ -176,48 +176,6 @@ color: #FDFCFD;
 
 }
 
-.position-button{
-padding-right: 122px;
-}
-&__submit {
-position: relative;
-width: 33%;
-height: 4rem;
-margin: 5rem 0 2.2rem;
-color: rgba(255,255,255,0.8);
-background: #FF3366;
-font-size: 1.5rem;
-border-radius: 3rem;
-cursor: pointer;
-overflow: hidden;
-transition: width 0.3s 0.15s, font-size 0.1s 0.15s;
-width: 200px;
-&:after {
-content: "";
-position: absolute;
-top: 50%;
-left: 50%;
-margin-left: -1.5rem;
-margin-top: -1.5rem;
-width: 3rem;
-height: 3rem;
-border: 2px dotted #FFF;
-border-radius: 50%;
-border-left: none;
-border-bottom: none;
-transition: opacity 0.1s 0.4s;
-opacity: 0;
-}
-
-&.processing {
-width: 4rem;
-font-size: 0;
-
-&:after {
-opacity: 1;
-animation: rotate 0.5s 0.4s infinite linear;
-}
-}
 
 &.success {
 transition: transform 0.3s 0.1s ease-out, opacity 0.1s 0.3s, background-color 0.1s 0.3s;
@@ -231,7 +189,7 @@ opacity: 0;
 animation: none;
 }
 }
-}
+
 
 &__signup {
 font-size: 1.2rem;
@@ -243,7 +201,7 @@ cursor: pointer;
 }
 }
 
-}
+
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
 color: rgb(209, 181, 181);
@@ -276,7 +234,7 @@ transform: scale(1.2);
 
 top: 0;
 left: 0;
-width: 100%;
+// width: 100%;
 height: 100%;
 opacity: 0;
 display: none;
@@ -490,7 +448,7 @@ right: 4.3rem;
 width: 1.6rem;
 height: 1.6rem;
 margin-right: -2.3rem;
-background: #FC3768;
+// background: #FC3768;
 color: #FFF;
 font-size: 1rem;
 border-radius: 50%;
@@ -571,5 +529,5 @@ margin-right: 80px;
 
 }
 
-
+}
 
