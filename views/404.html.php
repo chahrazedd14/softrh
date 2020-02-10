@@ -7,6 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>LOOOOOOOOOOOOOL ERREUR 404</h1>
+    <h1>ERREUR 404</h1>
 </body>
 </html>
