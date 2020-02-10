@@ -27,7 +27,7 @@ switch ($controlleur) {
             require_once 'controlleur/adminControlleur.php';
         } else {
             // require_once 'controlleur/defaultControlleur.php';
-            header('Location: /');
+            header('Location: /softrh');
             exit();
         }
         // echo 'applle de controlleur film';
@@ -38,7 +38,7 @@ switch ($controlleur) {
             require_once 'controlleur/employeControlleur.php';
         } else {
             // require_once 'controlleur/defaultControlleur.php';
-            header('Location: /');
+            header('Location: /softrh');
             exit();
         }
         // require_once 'controlleur/employeControlleur.php';
