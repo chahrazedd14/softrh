@@ -68,6 +68,7 @@ if (strpos($uri, '/', 1) !== false) {
 }
 switch ($action) {
     case 'default':
+    case '/':
     case "";
         // defaultAction();
         // require_once 'views/login-test.html.twig';
@@ -105,5 +106,6 @@ switch ($action) {
         echo $twig->render('index.html.twig', ['erreurMsg' => 'Votre username et/ou votre mot de passe ne correspondent pas.']);
         break;
     default:
+        echo 'ceci est action : '.$action;
         require_once 'views/404.html.php';
 }
