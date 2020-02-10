@@ -42,6 +42,23 @@ body {
   margin-left: 250px;
 }
 
+.fa {
+  font-size: 40px;
+}
+
+.fa-off {
+  display: none;
+  position: fixed;
+  top: 50px;
+  right: 50px;
+  z-index: 10000000000000;
+}
+
+.a-fa a {
+  color: #c2cfda;
+  text-decoration: none;
+}
+
 /* Start side navigation bar  */
 .side-nav {
   float: left;
@@ -240,9 +257,21 @@ body {
   .side-nav .search {
     padding: 10px 0 10px 30px;
   }
+
+  .fa-off {
+    display: block;
+    position: fixed;
+    top: 50px;
+    right: 50px;
+    z-index: 10000000000000;
+  }
 }
 /* End side navigation bar  */
 /* Start welcome */
+.mon-d-none {
+  display: none;
+}
+
 .welcome {
   color: #CCC;
 }
@@ -416,6 +445,10 @@ body {
   padding: 15px;
 }
 
+a {
+  color: rgba(255, 255, 255, 0.767);
+}
+
 .main-color {
   color: #ffc107;
 }
@@ -556,6 +589,12 @@ body {
     background-color: transparent !important;
   }
 }
+.stick {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
 @media (max-width: 1600px) and (min-width: 1200px) {
   .margin-monlogoadmin {
     margin-left: 74px;
@@ -577,12 +616,12 @@ body {
 }
 @media (min-width: 768px) and (max-width: 991.98px) {
   .margin-monlogoadmin {
-    margin-left: 380px;
+    margin-left: 150px;
   }
 
   .butoon_logout {
     width: 130px;
-    margin-left: 200px;
+    margin-left: 60px;
   }
 }
 

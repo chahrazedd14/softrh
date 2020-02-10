@@ -24,9 +24,9 @@
         </div>
 
         <ul class="categories">
-            <li><i class="fa fa-home " aria-hidden="true"></i><a href="/"> Home</a>
+            <li><i class="fa fa-home fa-fw" aria-hidden="true"></i><a href="/admin"> Home</a>
             </li>
-            <li><i class="fa fa-support fa-fw"></i><a href="#"> Services</a>
+            <li class="service-menu-button"><i class="fa fa-support fa-fw"></i><a href="#"> Services</a>
                 <ul class="side-nav-dropdown">
                     <li><a href="#" class="comptaButton" data-service="1">Comptabilité</a></li>
                     <li><a href="#" class="juriButton" data-service="2">Juridique</a></li>
@@ -35,7 +35,9 @@
                 </ul>
             </li>
     </aside>
-
+    <p class="fa-off"><a class="" href="#"><i data-show="show-side-navigation1 "
+                class="fa fa-bars show-side-btn"></i></a>
+            </p>
     <section id="contents">
 
         <div class="welcome">
@@ -58,9 +60,9 @@
             </div>
         </div>
 
-        <section class="statistics">
-            <div class="container-fluid">
-                <div class="row">
+        <section class="statistics  ">
+            <div class="container-fluid ">
+                <div class=" row ">
                     <div class=" col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
                         <div class="box">
                             <img class="mon_logoadmin margin-monlogoadmin" src="/media/heureuxadmin.png" alt=""
@@ -99,24 +101,59 @@
                 <div class="container-fluid">
                     <div class="row">
                         <!-- humeur du jour - bar -->
-                        <div class="col-md-12">
+                        <div id="graph-jour" class="col-md-12 mon-d-none">
                             <div class="chart-container">
                                 <h3>Humeur du jour <span class="nom-service"></span></h3>
                                 <canvas id="myChart3"></canvas>
                             </div>
                         </div>
 
-                        <div class="col-md-12">
+                        <div id="graph-mois" class="col-md-12">
                             <div class="chart-container">
                                 <h3>Humeur du mois</h3>
                                 <canvas id="myChart"></canvas>
                             </div>
                         </div>
+                        <section class="statistics ">
+                            <div class="container-fluid ">
+                                <div class=" row ">
+                                    <div class=" col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                                        <div class="box">
+                                            <img class="mon_logoadmin margin-monlogoadmin" src="/media/heureuxadmin.png"
+                                                alt="" width="80" height="80">
+                                            <div class="info">
+                                                <h3 class="margin-textmonlogo">Heureux</h3>
+                                            </div>
 
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                                        <div class="box">
+                                            <img class="mon_logoadmin margin-monlogoadmin" src="/media/fatiguéadmin.png"
+                                                alt="" width="80" height="80">
+
+                                            <div class="info ">
+                                                <h3 class="margin-textmonlogo">Fatigué</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class=" col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                                        <div class="box">
+                                            <img class="mon_logoadmin margin-monlogoadmin" src="/media/stresséadmin.png"
+                                                alt="" width="80" height="80">
+                                            <div class="info">
+                                                <h3 class="margin-textmonlogo">Stressé</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
                         <!-- humeur par jour dans le mois / crise cardiaque -->
-                        <div class="col-md-12">
+                        <div id="graph-cardio" class="col-md-12">
                             <div class="chart-container">
-                                <h3>Humeur du jour <span class=""></span></h3>
+                                <h3>Humeur par jour du mois <span class="nom-service"></span></h3>
                                 <canvas id="myChart2"></canvas>
                             </div>
                         </div>
@@ -124,7 +161,9 @@
                 </div>
             </section>
         </div>
+
     </section>
+
     <script src='http://code.jquery.com/jquery-latest.js'></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"

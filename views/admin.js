@@ -8,7 +8,7 @@ function ajaxCallAsynch(service_id) {
   var formData = new FormData();
   if (service_id === undefined) {
     console.log("coucou ajax default ", service_id);
-    var id = 1;
+    var id = 0;
   }
   else {
     console.log("coucou ajax SPECIFIK");
@@ -50,10 +50,13 @@ function ajaxCallAsynch(service_id) {
 
 
     //change nom service affiché à coté de "Humeur du jour"
-    let nomsServiceArr = ["- Comptabilité", "- Juridique", "- Secrétariat", "- Logistique"];
-    let currentIdService = data['id_service'] - 1;
-    let serviceSpan = document.querySelector('.nom-service');
-    serviceSpan.innerText = nomsServiceArr[currentIdService];
+    let nomsServiceArr = ["- Tous Services", "- Comptabilité", "- Juridique", "- Secrétariat", "- Logistique"];
+    let currentIdService = data['id_service'];
+    let serviceSpan = document.querySelectorAll('.nom-service');
+    serviceSpan.forEach(element => {
+      element.innerText = nomsServiceArr[currentIdService];
+    });
+
 
     // startChart(jourArray, jsonDataJours);
     //chart ( mois )
@@ -188,21 +191,45 @@ console.log(buttonService1.dataset['service'], buttonService2.dataset['service']
 
 buttonService1.addEventListener("click", function (event) {
   event.preventDefault();
+  console.log("buttonService1");
+
+  let graphMois = document.querySelector('#graph-mois');
+  let graphJour = document.querySelector('#graph-jour');
+  graphMois.classList.add('mon-d-none');
+  graphJour.classList.remove('mon-d-none');
   ajaxCallAsynch(1);
 });
 
 buttonService2.addEventListener("click", function (event) {
   event.preventDefault();
+  console.log("buttonService2");
+
+  let graphMois = document.querySelector('#graph-mois');
+  let graphJour = document.querySelector('#graph-jour');
+  graphMois.classList.add('mon-d-none');
+  graphJour.classList.remove('mon-d-none');
   ajaxCallAsynch(2);
 });
 
 buttonService3.addEventListener("click", function (event) {
   event.preventDefault();
+  console.log("buttonService3");
+
+  let graphMois = document.querySelector('#graph-mois');
+  let graphJour = document.querySelector('#graph-jour');
+  graphMois.classList.add('mon-d-none');
+  graphJour.classList.remove('mon-d-none');
   ajaxCallAsynch(3);
 });
 
 buttonService4.addEventListener("click", function (event) {
   event.preventDefault();
+  console.log("buttonService4");
+
+  let graphMois = document.querySelector('#graph-mois');
+  let graphJour = document.querySelector('#graph-jour');
+  graphMois.classList.add('mon-d-none');
+  graphJour.classList.remove('mon-d-none');
   ajaxCallAsynch(4);
 });
 //au chargement de la page, charger l' ajax pour afficher au moins des infos par defaut
@@ -405,22 +432,36 @@ $(function () {
 
     // dropdown menu in the side nav
     var slideNavDropdown = $('.side-nav-dropdown');
+    // document.addEventListener('click', (e) => {
 
-    $('.side-nav .categories li').on('click', function () {
+    // });
 
-      $(this).toggleClass('opend').siblings().removeClass('opend');
+    $('.side-nav .categories li.service-menu-button').on('click', function (e) {
+      e.stopPropagation();
+      // console.log(e.target);
+      const element = e.target;
+      if ($(element).hasClass('service-menu-button') || $(element).parent().hasClass('service-menu-button')) {
+        $(this).toggleClass('opend').siblings().removeClass('opend');
 
-      if ($(this).hasClass('opend')) {
+        if ($(this).hasClass('opend')) {
 
-        $(this).find('.side-nav-dropdown').slideToggle('fast');
+          $(this).find('.side-nav-dropdown').slideToggle('fast');
 
-        $(this).siblings().find('.side-nav-dropdown').slideUp('fast');
+          // $(this).siblings().find('.side-nav-dropdown');
+          $(this).siblings().find('.side-nav-dropdown').slideUp('fast');
 
-      } else {
+        } else {
 
-        $(this).find('.side-nav-dropdown').slideUp('fast');
+          // $(this).find('.side-nav-dropdown');
+          $(this).find('.side-nav-dropdown').slideUp('fast');
 
+        }
       }
+      else{
+        console.log(element);
+      }
+
+
 
     });
 
