@@ -91,12 +91,13 @@ function getServiceIndex2()
 
     if (count($matches) === 0) {
         require_once 'views/404.html.php';
-        return 1;
+        return 0;
     }
 
     if (count($expUri) === 4) {
         return $expUri[3];
     } else {
+        
         return 0;
     }
 }
@@ -105,6 +106,7 @@ function getServiceIndex2()
 
 switch ($action) {
     case 'default':
+    case '':
         // echo json_encode($humeurMoisParJourTotal);
         // require_once 'views/admin.html';
         $loader = new \Twig\Loader\FilesystemLoader('views');
@@ -128,7 +130,7 @@ switch ($action) {
         // }
         $service_id = getServiceIndex2();
 
-
+        
         $today = getdate();
         $annee = $today['year'];
         if ($today['mon'] < 10) {
@@ -409,6 +411,7 @@ switch ($action) {
         echo json_encode($jsonify);
         break;
     default:
+        echo "action est : ".$action;
         require_once 'views/404.html.php';
         break;
 }
