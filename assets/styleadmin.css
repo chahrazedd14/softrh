@@ -624,5 +624,25 @@ a {
     margin-left: 60px;
   }
 }
+@media (max-width: 575.98px) {
+  .margin-monlogoadmin {
+    margin-left: 150px;
+  }
+
+  a:focus, a:hover {
+    color: #eef2f5;
+  }
+
+  .fa-off {
+    position: fixed;
+    top: 7px;
+    right: 19px;
+  }
+}
+@media (max-width: 375.98px) {
+  .margin-monlogoadmin {
+    margin-left: 40px;
+  }
+}
 
 /*# sourceMappingURL=styleadmin.css.map */
