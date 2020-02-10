@@ -6,30 +6,15 @@ require_once 'model/getHumeurTotal.php';
 // print_r($_POST);
 // print_r($_SESSION);
 
-// $loader = new \Twig\Loader\FilesystemLoader('views');
-// $twig = new \Twig\Environment($loader);
-// // $template = $twig->load('admin-test.html.twig');
-// echo $twig->render('admin-test.html.twig', ['var1' => 'variables', 'var2' => 'here']);
+
 $currDate = explode("-", date("Y-m-d"));
 // print_r($currDate);
 
-$allyeardata = humeurAnneeTotal("2020");
-$allMonthData = humeurMoisTotal("1", "2020");
-$allJourData = humeurJourTotal($currDate[2], $currDate[1], $currDate[0]);
-// $janvComptaTotalHumeur = humeurMoisTotalService("1","2020", "comptabilite");
-// $janvsecretariatTotalHumeur = humeurMoisTotalService("1","2020", "secretariat");
-// $janvlogistiqueTotalHumeur = humeurMoisTotalService("1","2020", "logistique");
-// $janvjuridiqueTotalHumeur = humeurMoisTotalService("1","2020", "juridique");
-// $allMonthDataParService = humeurMoisTotalParService();
-// $humeurMoisParJourTotal = humeurMoisParJourTotal();
+
 
 $action = "default";
 
-// if (!isset($_POST['selectedService'])) {
-//     $action = "default";
-// } else {
-//     $action = "service" . $humeurMoisParJourTotal;
-// }
+
 
 if (strpos($uri, '/', 1) !== false) {
 
@@ -56,11 +41,7 @@ function getServiceIndex()
     }
 
     if (count($expUri) === 4) {
-        // echo "SERVICE INDEX IS : " . $expUri[3];
-        // $humeurMoisParJourTotal = humeurMoisParJourTotal($expUri[3]);
-        // print json_encode($humeurMoisParJourTotal);
-        // require_once 'controlleur/showServiceContoller.php';
-        // require_once 'views/admin.html';
+
         $loader = new \Twig\Loader\FilesystemLoader('views');
         $twig = new \Twig\Environment($loader);
         // $template = $twig->load('admin-test.html.twig');
@@ -97,7 +78,7 @@ function getServiceIndex2()
     if (count($expUri) === 4) {
         return $expUri[3];
     } else {
-        
+
         return 0;
     }
 }
@@ -121,16 +102,10 @@ switch ($action) {
         break;
 
     case 'ajax':
-        // $exploadUri = explode("/", $_SERVER['REQUEST_URI']);
-        // if(count($exploadUri) == 4){
-        //     $service_id = $exploadUri[3];
-        // }
-        // else{
-        //     $service_id = 1;
-        // }
+
         $service_id = getServiceIndex2();
 
-        
+
         $today = getdate();
         $annee = $today['year'];
         if ($today['mon'] < 10) {
@@ -145,15 +120,7 @@ switch ($action) {
             $jour = $today['mday'];
         }
 
-        //section humeur de chaques service du jour 
-        // $nomServices = ["Comptabilité", "Juridique", "Logistique", "Secretariat"];
-        // for ($i=0; $i < 4; $i++) { 
-        //     $humeurJourService = humeurJourTotal("comptabilite", $jour, $mois, $annee);
-        // }
-        // $humeurJourComptabilité = humeurJourTotal("comptabilite", $jour, $mois, $annee);
-        // $humeurJourJuridique = humeurJourTotal("juridique", $jour, $mois, $annee);
-        // $humeurJourLogistique = humeurJourTotal("logistique", $jour, $mois, $annee);
-        // $humeurJourSecretariat = humeurJourTotal("secretariat", $jour, $mois, $annee);
+
 
 
 
@@ -161,49 +128,13 @@ switch ($action) {
 
         // $mois = "01";
         //!!!alternative recherche humeurs MOIS par service!!!
-        // $allMonthDataCompta = humeurMoisTotalService("comptabilite", $mois, $annee);
-        // $allMonthDataJuri = humeurMoisTotalService("juridique", $mois, $annee);
-        // $allMonthDataLogis = humeurMoisTotalService("logistique", $mois, $annee);
-        // $allMonthDataSecret = humeurMoisTotalService("secretariat", $mois, $annee);
-        // $allMonthDataArr = [$allMonthDataCompta, $allMonthDataJuri, $allMonthDataLogis, $allMonthDataSecret];
-        // $lol = in_array("heureux", $allMonthDataArr[0][1]);
-        // $lol = isset($allMonthDataArr[0][1]['vote_total']);
+
         $voteHeureuxMois = [];
         $voteStresseMois = array();
         $voteFatigueMois = array();
 
 
-        // array_push($voteHeureuxMois, $allMonthDataCompta);
-        // array_push($voteHeureuxMois, property_exists($allMonthDataCompta, 'heureux'));
 
-        // for ($j=0; $j < count($allMonthDataArr); $j++) { 
-        //     //si vote fatigue est vide == 0
-        //     if(!isset($allMonthDataArr[$j][0]['vote_total'])){
-        //         array_push($voteFatigueMois, 0);
-        //     }
-        //     else{
-        //         array_push($voteFatigueMois, $allMonthDataArr[$j][0]['vote_total']);
-        //     }
-
-        //     //si vote heureux est vide == 0
-        //     if(!isset($allMonthDataArr[$j][1]['vote_total'])){
-        //         array_push($voteHeureuxMois, 0);
-        //     }
-        //     else{
-        //         array_push($voteHeureuxMois, $allMonthDataArr[$j][1]['vote_total']);
-        //     }
-
-        //     //si vote stresse est vide == 0
-        //     if(!isset($allMonthDataArr[$j][2]['vote_total'])){
-        //         array_push($voteStresseMois, 0);
-        //     }
-        //     else{
-        //         array_push($voteStresseMois, $allMonthDataArr[$j][2]['vote_total']);
-        //     }
-
-
-
-        // }
 
 
 
@@ -223,15 +154,14 @@ switch ($action) {
         $humeurMoisParJourTotal = [];
 
         //si page $service_id == 0 c'est la page admin, donc :
-        if($service_id == 0){
+        if ($service_id == 0) {
             $humeurMoisParJourTotal = humeurMoisParJourTotalAllService($mois, $annee);
-        }
-        else{
+        } else {
             //sinon c'est une page service, donc :
             $humeurMoisParJourTotal = humeurMoisParJourTotal($service_id, $mois, $annee);
         }
-        
-        
+
+
         //!!!alternative ALTERNATIVE recherche humeurs JOUR par service C EST LA BONNE ?!!!
         $humeurJourService = goodHumeursJourService($service_id, $jour, $mois, $annee);
         $voteHeureuxJour = array();
@@ -386,7 +316,7 @@ switch ($action) {
                 ],
 
             ],
-            "id_service" => $service_id, 
+            "id_service" => $service_id,
             "goodDataJour" => [
                 "type" => 'bar',
                 "data" => [
@@ -397,7 +327,7 @@ switch ($action) {
                             "fill" => false,
                             "lineTension" => 0,
                             "data" => $voteHeureuxJour,
-                            "pointBorderColor" => ["#4bc0c0","#ffcd56","#ff6384"],
+                            "pointBorderColor" => ["#4bc0c0", "#ffcd56", "#ff6384"],
                             "borderColor" => ['#4bc0c0', "#ffcd56", '#ff6384'],
                             "borderWidth" => 2,
                             "showLine" => true,
@@ -411,7 +341,7 @@ switch ($action) {
         echo json_encode($jsonify);
         break;
     default:
-        echo "action est : ".$action;
+        echo "action est : " . $action;
         require_once 'views/404.html.php';
         break;
 }
