@@ -16,7 +16,7 @@ function ajaxCallAsynch(service_id) {
 
 
   // `/admin/show/${service_id}`
-  fetch(`/admin/ajax/${id}`).then(function (response) {
+  fetch(`/softrh/admin/ajax/${id}`).then(function (response) {
 
     console.dir(response);
     return response.json();
