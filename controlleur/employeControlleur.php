@@ -4,6 +4,8 @@ require_once 'vendor/autoload.php';
 require_once 'core/db.php';
 require_once 'model/getUser.php';
 require_once 'model/checkHasVoted.php';
+
+
 $userHasVoted = checkHasVoted($_SESSION["id_employe"]);
 if ($userHasVoted == "") {
     $action = 'default';
@@ -16,17 +18,8 @@ if ($userHasVoted == "") {
     $action = 'has voted';
 }
 
-// require_once 'model/insertHumeur.php';
 
-// echo "default login";
-// print_r($_POST);
 
-// $loader = new \Twig\Loader\FilesystemLoader('views');
-// $twig = new \Twig\Environment($loader);
-// // $template = $twig->load('admin-test.html.twig');
-// echo $twig->render('employe-test.html.twig', ['bonjour' => 'sa marche employe', 'var2' => 'here']);
-// echo 'ENTER PAPGE Employe';
-// echo "ceci est l'action : ".$action;
 switch ($action) {
     case 'default':
         // require_once 'views/employe.html';

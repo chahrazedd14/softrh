@@ -1,12 +1,7 @@
 
 <?php
 session_start();
-// $_SESSION['employe_logged'] = true;
-// if (count($_SESSION) !== 0) {
-//     echo 'session : ';
-//     print_r($_SESSION);
-//     // print_r($_SESSION['admin_logged']);
-// }
+
 
 
 $uri = $_SERVER['REQUEST_URI'];

@@ -2,8 +2,7 @@
 function ajaxCallAsynch(service_id) {
   // console.dir(myForm);
   console.log('myForm');
-  // var buttonService = lol;
-  // var service_id = lol.dataset.service;
+  
   console.log(service_id);
   var formData = new FormData();
   if (service_id === undefined) {
@@ -65,47 +64,7 @@ function ajaxCallAsynch(service_id) {
     myChart.data.datasets[2].data = jsonDataMois['data']['datasets'][2]['data'];
     myChart.data.labels = jsonDataMois['data']['labels'];
     myChart.update();
-    // var chart = document.getElementById('myChart');
-    // var myChart = new Chart(chart, {
-    //   type: 'bar',
-    //   data: {
-    //     labels: jsonDataMois['data']['labels'],
-    //     datasets: [{
-    //       label: "Heureux",
-    //       fill: false,
-    //       lineTension: 0,
-    //       data: jsonDataMois['data']['datasets'][0]['data'],
-    //       pointBorderColor: "#4bc0c0",
-    //       borderColor: '#4bc0c0',
-    //       borderWidth: 2,
-    //       showLine: true,
-    //     }, {
-    //       label: "Stressé",
-    //       fill: false,
-    //       lineTension: 0,
-    //       startAngle: 2,
-    //       data: jsonDataMois['data']['datasets'][1]['data'],
-    //       // , '#ff6384', '#4bc0c0', '#ffcd56', '#457ba1'
-    //       backgroundColor: "transparent",
-    //       pointBorderColor: "#ff6384",
-    //       borderColor: '#ff6384',
-    //       borderWidth: 2,
-    //       showLine: true,
-    //     }, {
-    //       label: "Fatigué",
-    //       fill: false,
-    //       lineTension: 0,
-    //       startAngle: 2,
-    //       data: jsonDataMois['data']['datasets'][2]['data'],
-    //       // , '#ff6384', '#4bc0c0', '#ffcd56', '#457ba1'
-    //       backgroundColor: "transparent",
-    //       pointBorderColor: "#ffcd56",
-    //       borderColor: '#ffcd56',
-    //       borderWidth: 2,
-    //       showLine: true,
-    //     }]
-    //   },
-    // });
+    
 
 
 
@@ -116,54 +75,7 @@ function ajaxCallAsynch(service_id) {
     chart.data.datasets[2].data = jsonDataJours['datasets'][2]['data'];
     chart.data.labels = jourArray;
     chart.update();
-    // var Chart2 = document.getElementById('myChart2').getContext('2d');
-    // var chart = new Chart(Chart2, {
-    //   type: 'line',
-    //   data: {
-    //     labels: jourArray,
-    //     datasets: [{
-    //       label: "Stressé",
-    //       backgroundColor: jsonDataJours['datasets'][0]['backgroundColor'],
-    //       borderColor: jsonDataJours['datasets'][0]['borderColor'],
-    //       borderWidth: jsonDataJours['datasets'][0]['borderWidth'],
-    //       pointBorderColor: jsonDataJours['datasets'][0]['pointBorderColor'],
-    //       data: jsonDataJours['datasets'][0]['data'],
-    //       fill: jsonDataJours['datasets'][0]['fill'],
-    //       lineTension: jsonDataJours['datasets'][0]['lineTension'],
-    //     }, {
-    //       label: "Heureux",
-    //       fill: false,
-    //       lineTension: .4,
-    //       startAngle: 2,
-    //       data: jsonDataJours['datasets'][1]['data'],
-    //       // , '#ff6384', '#4bc0c0', '#ffcd56', '#457ba1'
-    //       backgroundColor: "transparent",
-    //       pointBorderColor: "#4bc0c0",
-    //       borderColor: '#4bc0c0',
-    //       borderWidth: 2,
-    //       showLine: true,
-    //     }, {
-    //       label: "Fatigué",
-    //       fill: false,
-    //       lineTension: .4,
-    //       startAngle: 2,
-    //       data: jsonDataJours['datasets'][2]['data'],
-    //       // , '#ff6384', '#4bc0c0', '#ffcd56', '#457ba1'
-    //       backgroundColor: "transparent",
-    //       pointBorderColor: "#ffcd56",
-    //       borderColor: '#ffcd56',
-    //       borderWidth: 2,
-    //       showLine: true,
-    //     }]
-    //   },
-
-    //   // Configuration options
-    //   options: {
-    //     title: {
-    //       display: false
-    //     }
-    //   }
-    // });
+    
 
 
     // startChart humeur que de 1 jour d'un service "GOOD";
@@ -182,6 +94,7 @@ function ajaxCallAsynch(service_id) {
 }
 
 
+//SECTION ADDEVENTLISTENER FOR SERVICES GRAPH IN NAV
 var buttonService1 = document.querySelector('.comptabutton');
 var buttonService2 = document.querySelector('.juributton');
 var buttonService3 = document.querySelector('.secretbutton');
@@ -379,21 +292,8 @@ var myChart3 = new Chart(chart3, {
 
 
 
-// function addData(chart, label, data) {
-//   chart.data.labels.push(label);
-//   chart.data.datasets.forEach((dataset) => {
-//     dataset.data.push(data);
-//   });
-//   chart.update();
-// }
 
-// function removeData(chart) {
-//   chart.data.labels.pop();
-//   chart.data.datasets.forEach((dataset) => {
-//     dataset.data.pop();
-//   });
-//   chart.update();
-// }
+
 
 $(function () {
 
