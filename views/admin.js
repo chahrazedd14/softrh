@@ -8,7 +8,7 @@ function ajaxCallAsynch(service_id) {
   var formData = new FormData();
   if (service_id === undefined) {
     console.log("coucou ajax default ", service_id);
-    var id = 1;
+    var id = 0;
   }
   else {
     console.log("coucou ajax SPECIFIK");
@@ -50,8 +50,8 @@ function ajaxCallAsynch(service_id) {
 
 
     //change nom service affiché à coté de "Humeur du jour"
-    let nomsServiceArr = ["- Comptabilité", "- Juridique", "- Secrétariat", "- Logistique"];
-    let currentIdService = data['id_service'] - 1;
+    let nomsServiceArr = ["- Tous Services", "- Comptabilité", "- Juridique", "- Secrétariat", "- Logistique"];
+    let currentIdService = data['id_service'];
     let serviceSpan = document.querySelectorAll('.nom-service');
     serviceSpan.forEach(element => {
       element.innerText = nomsServiceArr[currentIdService];
