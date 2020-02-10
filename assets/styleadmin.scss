@@ -31,7 +31,29 @@
   .margin-monlogoadmin{
     margin-left: 250px;
   }
+  .fa{
+    
+    font-size: 40px;
+    
+  }
+  .fa-off{
+    display: none;
+    position: fixed;
+    top: 50px;
+    right: 50px;
+    z-index: 10000000000000;  
+  }
+
+  .a-fa{
+    a {
+      color: #c2cfda;
+      text-decoration: none;
+  }
   
+  
+  
+  
+  }
   /* Start side navigation bar  */
   
   .side-nav {
@@ -201,6 +223,13 @@
     .side-nav .search {
       padding: 10px 0 10px 30px
     }
+    .fa-off{
+      display: block;
+      position: fixed;
+      top: 50px;
+      right: 50px;
+      z-index: 10000000000000;  
+    }
   }
   
   /* End side navigation bar  */
@@ -264,15 +293,17 @@
     margin-top: 25px;
     color: #BBB
   }
+  
   .charts .chart-container {
     background-color: #313348;
     padding: 15px;
-    margin-top: 100px;
+    margin-top: 50px;
   }
   .charts .chart-container h3 {
     margin: 0 0 10px;
     font-size: 17px;
   }
+
   
   /* Start users */
   
@@ -363,7 +394,9 @@
   }
   
   
-  
+  a{
+    color:rgba(255, 255, 255, 0.767);
+  }
   
   .main-color {
     color: #ffc107
@@ -466,12 +499,18 @@
     .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {background-color: transparent !important
     }
   }
+  .stick {
+   position: absolute;
+   right: 0;
+   top: 0;
+  }
 
 
   @media(max-width:1600px)and (min-width:1200px){
     .margin-monlogoadmin {
       margin-left: 74px;
      }
+ 
   }
   @media (max-width: 1200px) {
     .margin-monlogoadmin {
@@ -479,24 +518,26 @@
      }
    }
 
+
   @media (min-width: 992px) and (max-width: 1199.98px) { 
 
     .margin-monlogoadmin {
            margin-left: 50px;
           }
            .statistics .box .info h3{
-                margin-left: 38px;
-           
+                margin-left: 38px;   
     }
    }
    @media (min-width: 768px) and (max-width: 991.98px) {
     .margin-monlogoadmin {
-            margin-left: 380px;
+           
+    margin-left: 150px;
           }
           .butoon_logout{
            width: 130px;
-           margin-left: 200px;
+           margin-left: 60px;
           }
+       
     }
   
 

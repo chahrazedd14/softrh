@@ -2,6 +2,8 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Admin</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -20,9 +22,7 @@
                 <h3><a href="#">Administrateur </a></h3>
             </div>
         </div>
-        <div class="search">
-            <input type="text" placeholder="Type here"><i class="fa fa-search"></i>
-        </div>
+
         <ul class="categories">
             <li><i class="fa fa-home fa-fw" aria-hidden="true"></i><a href="/admin"> Home</a>
             </li>
@@ -35,7 +35,9 @@
                 </ul>
             </li>
     </aside>
-
+    <p class="fa-off"><a class="" href="#"><i data-show="show-side-navigation1 "
+                class="fa fa-bars show-side-btn"></i></a>
+            </p>
     <section id="contents">
 
         <div class="welcome">
@@ -57,9 +59,10 @@
                 </div>
             </div>
         </div>
-        <section class="statistics">
-            <div class="container-fluid">
-                <div class="row">
+
+        <section class="statistics  ">
+            <div class="container-fluid ">
+                <div class=" row ">
                     <div class=" col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
                         <div class="box">
                             <img class="mon_logoadmin margin-monlogoadmin" src="/media/heureuxadmin.png" alt=""
@@ -111,7 +114,42 @@
                                 <canvas id="myChart"></canvas>
                             </div>
                         </div>
+                        <section class="statistics ">
+                            <div class="container-fluid ">
+                                <div class=" row ">
+                                    <div class=" col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                                        <div class="box">
+                                            <img class="mon_logoadmin margin-monlogoadmin" src="/media/heureuxadmin.png"
+                                                alt="" width="80" height="80">
+                                            <div class="info">
+                                                <h3 class="margin-textmonlogo">Heureux</h3>
+                                            </div>
 
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                                        <div class="box">
+                                            <img class="mon_logoadmin margin-monlogoadmin" src="/media/fatiguéadmin.png"
+                                                alt="" width="80" height="80">
+
+                                            <div class="info ">
+                                                <h3 class="margin-textmonlogo">Fatigué</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class=" col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                                        <div class="box">
+                                            <img class="mon_logoadmin margin-monlogoadmin" src="/media/stresséadmin.png"
+                                                alt="" width="80" height="80">
+                                            <div class="info">
+                                                <h3 class="margin-textmonlogo">Stressé</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
                         <!-- humeur par jour dans le mois / crise cardiaque -->
                         <div id="graph-cardio" class="col-md-12">
                             <div class="chart-container">
