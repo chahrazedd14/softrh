@@ -81,7 +81,7 @@ switch ($action) {
     case 'admin';
         // defaultAction();
         // echo "admin start";
-        header('Location: /softrh/admin');
+        header('Location: '.$subProject.'/admin');
         exit();
 
         // $loader = new \Twig\Loader\FilesystemLoader('views');
@@ -93,7 +93,7 @@ switch ($action) {
     case 'employe';
         // defaultAction();
         // require_once 'views/utilisateur.html.twig';
-        header('Location: /softrh/employe');
+        header('Location: '.$subProject.'/employe');
         exit();
         break;
     case "erreur";
