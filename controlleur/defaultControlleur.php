@@ -11,8 +11,10 @@ require_once 'model/getUser.php';
 
 // session_start();
 // $_SESSION['logged'] = true;
-// print_r($_POST);
-// print_r($_SESSION);
+echo '$_POST : ';
+print_r($_POST);
+echo '$_SESSION : ';
+print_r($_SESSION);
 
 
 
@@ -70,9 +72,7 @@ switch ($action) {
     case 'default':
     case '/':
     case "";
-        // defaultAction();
-        // require_once 'views/login-test.html.twig';
-        // require_once 'views/index.html';
+        echo "default action of defaultController.php";
         $loader = new \Twig\Loader\FilesystemLoader('views');
         $twig = new \Twig\Environment($loader);
         // $template = $twig->load('admin-test.html.twig');
@@ -97,9 +97,8 @@ switch ($action) {
         exit();
         break;
     case "erreur";
-        // defaultAction();
-        // require_once 'views/login-test.html.twig';
-        // require_once 'views/index.html';
+        
+        echo "erreur action of defaultController.php";
         $loader = new \Twig\Loader\FilesystemLoader('views');
         $twig = new \Twig\Environment($loader);
         // $template = $twig->load('admin-test.html.twig');
