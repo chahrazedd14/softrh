@@ -1,7 +1,11 @@
+
+
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Admin</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -20,11 +24,9 @@
                 <h3><a href="#">Administrateur </a></h3>
             </div>
         </div>
-        <div class="search">
-            <input type="text" placeholder="Type here"><i class="fa fa-search"></i>
-        </div>
+
         <ul class="categories">
-            <li><i class="fa fa-home fa-fw" aria-hidden="true"></i><a href="/"> Home</a>
+            <li><i class="fa fa-home " aria-hidden="true"></i><a href="/"> Home</a>
             </li>
             <li><i class="fa fa-support fa-fw"></i><a href="#"> Services</a>
                 <ul class="side-nav-dropdown">
@@ -37,7 +39,7 @@
     </aside>
 
     <section id="contents">
- 
+
         <div class="welcome">
             <div class="container-fluid">
                 <div class="row content">
@@ -98,14 +100,14 @@
                 <div class="container-fluid">
                     <div class="row">
                         <!-- humeur du jour - bar -->
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="chart-container">
                                 <h3>Humeur du jour <span class="nom-service"></span></h3>
                                 <canvas id="myChart3"></canvas>
                             </div>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="chart-container">
                                 <h3>Humeur du mois</h3>
                                 <canvas id="myChart"></canvas>
@@ -113,7 +115,7 @@
                         </div>
 
                         <!-- humeur par jour dans le mois / crise cardiaque -->
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="chart-container">
                                 <h3>Humeur du jour <span class=""></span></h3>
                                 <canvas id="myChart2"></canvas>
@@ -123,7 +125,7 @@
                 </div>
             </section>
         </div>
-   
+
         <script src='http://code.jquery.com/jquery-latest.js'></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
