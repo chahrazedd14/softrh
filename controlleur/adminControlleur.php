@@ -75,8 +75,8 @@ function getServiceIndex2()
         return 0;
     }
 
-    if (count($expUri) === 4) {
-        return $expUri[3];
+    if (count($expUri) === 5) {
+        return $expUri[4];
     } else {
 
         return 0;
