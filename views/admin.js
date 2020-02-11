@@ -1,7 +1,7 @@
 //ajax
 function ajaxCallAsynch(service_id) {
   // console.dir(myForm);
-  console.log('myForm');
+  console.log('subProject : ', subProject);
 
   console.log(service_id);
   var formData = new FormData();
@@ -16,7 +16,7 @@ function ajaxCallAsynch(service_id) {
 
 
   // `/admin/show/${service_id}`
-  fetch(`/softrh/admin/ajax/${id}`).then(function (response) {
+  fetch(`${subProject}/admin/ajax/${id}`).then(function (response) {
 
     console.dir(response);
     return response.json();
