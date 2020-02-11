@@ -26,13 +26,12 @@ switch ($action) {
         $loader = new \Twig\Loader\FilesystemLoader('views');
         $twig = new \Twig\Environment($loader);
         // $template = $twig->load('admin-test.html.twig');
-        echo $twig->render('employe.html', ['emoticons' => "emoticons"]);
+        echo $twig->render('employe.html.twig', ['emoticons' => "emoticons", 'subProject' => $subProject]);
         break;
 
     case 'humeur':
         $today = getdate();
-        // print_r($today);
-        $uri = $_SERVER['REQUEST_URI'];
+        // $uri = $_SERVER['REQUEST_URI'];
         $expUri = explode("/", $uri);
 
         if(!isset($expUri[3])){
@@ -45,7 +44,7 @@ switch ($action) {
 
             $loader = new \Twig\Loader\FilesystemLoader('views');
             $twig = new \Twig\Environment($loader);
-            echo $twig->render('employe.html', ['emoticons' => "emoticons"]);
+            echo $twig->render('employe.html.twig', ['emoticons' => "emoticons", 'subProject' => $subProject]);
         } else {
 
             $selectedHumeur = $expUri[3];
@@ -53,30 +52,25 @@ switch ($action) {
             $idEmploye = $_SESSION['id_employe'];
             require_once 'model/insertHumeur.php';
             require_once 'model/insertHasVoted.php';
-            // require_once 'views/hasVoted.html';
+            
             $loader = new \Twig\Loader\FilesystemLoader('views');
             $twig = new \Twig\Environment($loader);
-            // $template = $twig->load('admin-test.html.twig');
-            echo $twig->render('message.html', ['hasVoted' => "Merci d'avoir voté!"]);
-            // require_once 'controlleur/logoutControlleur.php';
-            // echo 'employe humeur';
+            echo $twig->render('message.html.twig', ['hasVoted' => "Merci d'avoir voté!", 'subProject' => $subProject]);
+            echo 'employe humeur';
         }
 
         break;
 
     case 'has voted':
-        // require_once 'views/hasVoted.html';
+        
         $loader = new \Twig\Loader\FilesystemLoader('views');
         $twig = new \Twig\Environment($loader);
-        // $template = $twig->load('admin-test.html.twig');
-        echo $twig->render('message.html', ['hasVoted' => "Merci d'avoir voté!"]);
+        echo $twig->render('message.html.twig', ['hasVoted' => "Merci d'avoir voté!", 'subProject' => $subProject]);
         break;
 
     default:
-        // require_once 'views/404.html.php';
         $loader = new \Twig\Loader\FilesystemLoader('views');
         $twig = new \Twig\Environment($loader);
-        // $template = $twig->load('admin-test.html.twig');
         echo $twig->render('404.html.php', ['message' => "404"]);
         break;
 }

@@ -60,7 +60,7 @@ function getServiceIndex()
 
 function getServiceIndex2()
 {
-    $uri = $_SERVER['REQUEST_URI'];
+    global $uri;
     $expUri = explode("/", $uri);
 
     $exprReg = "#/[0-9]+#";
@@ -75,8 +75,8 @@ function getServiceIndex2()
         return 0;
     }
 
-    if (count($expUri) === 5) {
-        return $expUri[4];
+    if (count($expUri) === 4) {
+        return $expUri[3];
     } else {
 
         return 0;
