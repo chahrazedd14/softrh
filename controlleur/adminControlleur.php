@@ -93,7 +93,7 @@ switch ($action) {
         $loader = new \Twig\Loader\FilesystemLoader('views');
         $twig = new \Twig\Environment($loader);
         // $template = $twig->load('admin-test.html.twig');
-        echo $twig->render('admin.html', ['subProject' => $subProject]);
+        echo $twig->render('admin.html.twig', ['subProject' => $subProject]);
         break;
 
 
