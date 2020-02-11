@@ -19,7 +19,7 @@ if ($uri !== "/") {
 switch ($controlleur) {
     case "/";
         require_once 'controlleur/defaultControlleur.php';
-        echo 'applle controlleur home';
+        // echo 'applle controlleur home';
         break;
 
     case "/admin";
