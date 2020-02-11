@@ -11,10 +11,10 @@ require_once 'model/getUser.php';
 
 // session_start();
 // $_SESSION['logged'] = true;
-echo '$_POST : ';
-print_r($_POST);
-echo '$_SESSION : ';
-print_r($_SESSION);
+// echo '$_POST : ';
+// print_r($_POST);
+// echo '$_SESSION : ';
+// print_r($_SESSION);
 
 
 
@@ -72,7 +72,7 @@ switch ($action) {
     case 'default':
     case '/':
     case "";
-        echo "default action of defaultController.php";
+        // echo "default action of defaultController.php";
         $loader = new \Twig\Loader\FilesystemLoader('views');
         $twig = new \Twig\Environment($loader);
         // $template = $twig->load('admin-test.html.twig');
@@ -98,13 +98,13 @@ switch ($action) {
         break;
     case "erreur";
         
-        echo "erreur action of defaultController.php";
+        // echo "erreur action of defaultController.php";
         $loader = new \Twig\Loader\FilesystemLoader('views');
         $twig = new \Twig\Environment($loader);
         // $template = $twig->load('admin-test.html.twig');
         echo $twig->render('index.html.twig', ['erreurMsg' => 'Votre username et/ou votre mot de passe ne correspondent pas.']);
         break;
     default:
-        echo 'ceci est action : '.$action;
+        // echo 'ceci est action : '.$action;
         require_once 'views/404.html.php';
 }

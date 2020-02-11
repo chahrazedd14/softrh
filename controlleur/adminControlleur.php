@@ -341,7 +341,7 @@ switch ($action) {
         echo json_encode($jsonify);
         break;
     default:
-        echo "action est : " . $action;
+        // echo "action est : " . $action;
         require_once 'views/404.html.php';
         break;
 }
