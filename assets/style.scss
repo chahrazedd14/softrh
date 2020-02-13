@@ -536,9 +536,9 @@ button:focus {
 
 /*******************************media*****************************************/
 @media (max-width: 575.98px) {
-  .login__ligne {
-    width: 250px;
-  }
+  // .login__ligne {
+  //   width: 320px;
+  // }
   .logo-softrh {
     margin-left: 0px;
     margin-right: 0px;
@@ -553,5 +553,10 @@ button:focus {
   .login__icon {
     margin-right: 0px;
     margin-left: 25px;
+  }
+}
+@media (max-width: 320.98px) {
+  .login__ligne {
+    width: 250px;
   }
 }
