@@ -56,7 +56,7 @@ switch ($action) {
             $loader = new \Twig\Loader\FilesystemLoader('views');
             $twig = new \Twig\Environment($loader);
             echo $twig->render('message.html.twig', ['hasVoted' => "Merci d'avoir voté!", 'subProject' => $subProject]);
-            echo 'employe humeur';
+            // echo 'employe humeur';
         }
 
         break;
