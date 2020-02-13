@@ -17,6 +17,6 @@
     //     print_r($_SESSION);
     //     print_r($_SESSION['admin_logged']);
     // }
-    header('Location: '.$subProject);
+    header('Location: '.$subProject.'/');
     exit();
 ?>

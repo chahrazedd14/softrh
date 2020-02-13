@@ -76,7 +76,7 @@ switch ($action) {
         $loader = new \Twig\Loader\FilesystemLoader('views');
         $twig = new \Twig\Environment($loader);
         // $template = $twig->load('admin-test.html.twig');
-        echo $twig->render('index.html.twig', ['var1' => 'variables', 'var2' => 'here']);
+        echo $twig->render('index.html.twig', ['var1' => 'variables', 'subProject' => $subProject]);
         break;
     case 'admin';
         // defaultAction();
@@ -102,7 +102,8 @@ switch ($action) {
         $loader = new \Twig\Loader\FilesystemLoader('views');
         $twig = new \Twig\Environment($loader);
         // $template = $twig->load('admin-test.html.twig');
-        echo $twig->render('index.html.twig', ['erreurMsg' => 'Votre username et/ou votre mot de passe ne correspondent pas.']);
+        echo $twig->render('index.html.twig', ['erreurMsg' => 'Votre username et/ou votre mot de passe ne correspondent pas.',
+        'subProject' => $subProject]);
         break;
     default:
         // echo 'ceci est action : '.$action;

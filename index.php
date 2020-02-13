@@ -3,9 +3,11 @@
 session_start();
 
 
-$subProject = '/softrh';
+$subProject = '';
 $uri = $_SERVER['REQUEST_URI'];
+// echo $uri;
 $uri = str_replace($subProject, '', $uri);
+// echo $uri;
 
 $controlleur = $uri;
 
