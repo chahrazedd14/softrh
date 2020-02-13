@@ -7,3 +7,4 @@ assets/style.css.map
 assets/test-sass.scss
 controlleur/generateHumeurs.php
 model/sendGenerated.php
+core/db.php
