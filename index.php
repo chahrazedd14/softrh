@@ -3,8 +3,11 @@
 session_start();
 
 
-
+$subProject = '';
 $uri = $_SERVER['REQUEST_URI'];
+// echo $uri;
+$uri = str_replace($subProject, '', $uri);
+// echo $uri;
 
 $controlleur = $uri;
 
@@ -26,7 +29,7 @@ switch ($controlleur) {
             require_once 'controlleur/adminControlleur.php';
         } else {
             // require_once 'controlleur/defaultControlleur.php';
-            header('Location: /');
+            header('Location: '.$subProject);
             exit();
         }
         // echo 'applle de controlleur film';
@@ -37,7 +40,7 @@ switch ($controlleur) {
             require_once 'controlleur/employeControlleur.php';
         } else {
             // require_once 'controlleur/defaultControlleur.php';
-            header('Location: /');
+            header('Location: '.$subProject);
             exit();
         }
         // require_once 'controlleur/employeControlleur.php';

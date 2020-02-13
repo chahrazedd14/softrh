@@ -60,7 +60,7 @@ function getServiceIndex()
 
 function getServiceIndex2()
 {
-    $uri = $_SERVER['REQUEST_URI'];
+    global $uri;
     $expUri = explode("/", $uri);
 
     $exprReg = "#/[0-9]+#";
@@ -93,7 +93,7 @@ switch ($action) {
         $loader = new \Twig\Loader\FilesystemLoader('views');
         $twig = new \Twig\Environment($loader);
         // $template = $twig->load('admin-test.html.twig');
-        echo $twig->render('admin.html', ['var1' => 'variables', 'var2' => 'here']);
+        echo $twig->render('admin.html.twig', ['subProject' => $subProject]);
         break;
 
 
@@ -341,7 +341,7 @@ switch ($action) {
         echo json_encode($jsonify);
         break;
     default:
-        echo "action est : " . $action;
+        // echo "action est : " . $action;
         require_once 'views/404.html.php';
         break;
 }

@@ -1,8 +1,8 @@
 //ajax
 function ajaxCallAsynch(service_id) {
   // console.dir(myForm);
-  console.log('myForm');
-  
+  console.log('subProject : ', subProject);
+
   console.log(service_id);
   var formData = new FormData();
   if (service_id === undefined) {
@@ -16,7 +16,7 @@ function ajaxCallAsynch(service_id) {
 
 
   // `/admin/show/${service_id}`
-  fetch(`/admin/ajax/${id}`).then(function (response) {
+  fetch(`${subProject}/admin/ajax/${id}`).then(function (response) {
 
     console.dir(response);
     return response.json();
@@ -64,7 +64,7 @@ function ajaxCallAsynch(service_id) {
     myChart.data.datasets[2].data = jsonDataMois['data']['datasets'][2]['data'];
     myChart.data.labels = jsonDataMois['data']['labels'];
     myChart.update();
-    
+
 
 
 
@@ -75,7 +75,7 @@ function ajaxCallAsynch(service_id) {
     chart.data.datasets[2].data = jsonDataJours['datasets'][2]['data'];
     chart.data.labels = jourArray;
     chart.update();
-    
+
 
 
     // startChart humeur que de 1 jour d'un service "GOOD";
@@ -94,64 +94,65 @@ function ajaxCallAsynch(service_id) {
 }
 
 
-//SECTION ADDEVENTLISTENER FOR SERVICES GRAPH IN NAV
-var buttonService1 = document.querySelector('.comptabutton');
-var buttonService2 = document.querySelector('.juributton');
-var buttonService3 = document.querySelector('.secretbutton');
-var buttonService4 = document.querySelector('.logibutton');
 
-console.log(buttonService1.dataset['service'], buttonService2.dataset['service'], buttonService3.dataset['service'], buttonService4.dataset['service'])
-
-buttonService1.addEventListener("click", function (event) {
-  event.preventDefault();
-  console.log("buttonService1");
-
-  let graphMois = document.querySelector('#graph-mois');
-  let graphJour = document.querySelector('#graph-jour');
-  graphMois.classList.add('mon-d-none');
-  graphJour.classList.remove('mon-d-none');
-  ajaxCallAsynch(1);
-});
-
-buttonService2.addEventListener("click", function (event) {
-  event.preventDefault();
-  console.log("buttonService2");
-
-  let graphMois = document.querySelector('#graph-mois');
-  let graphJour = document.querySelector('#graph-jour');
-  graphMois.classList.add('mon-d-none');
-  graphJour.classList.remove('mon-d-none');
-  ajaxCallAsynch(2);
-});
-
-buttonService3.addEventListener("click", function (event) {
-  event.preventDefault();
-  console.log("buttonService3");
-
-  let graphMois = document.querySelector('#graph-mois');
-  let graphJour = document.querySelector('#graph-jour');
-  graphMois.classList.add('mon-d-none');
-  graphJour.classList.remove('mon-d-none');
-  ajaxCallAsynch(3);
-});
-
-buttonService4.addEventListener("click", function (event) {
-  event.preventDefault();
-  console.log("buttonService4");
-
-  let graphMois = document.querySelector('#graph-mois');
-  let graphJour = document.querySelector('#graph-jour');
-  graphMois.classList.add('mon-d-none');
-  graphJour.classList.remove('mon-d-none');
-  ajaxCallAsynch(4);
-});
 //au chargement de la page, charger l' ajax pour afficher au moins des infos par defaut
 window.addEventListener('load', () => {
   ajaxCallAsynch();
+
+
+  //SECTION ADDEVENTLISTENER FOR SERVICES GRAPH IN NAV
+  var buttonService1 = document.querySelector('.comptaButton');
+  var buttonService2 = document.querySelector('.juriButton');
+  var buttonService3 = document.querySelector('.secretButton');
+  var buttonService4 = document.querySelector('.logiButton');
+
+
+  buttonService1.addEventListener("click", function (event) {
+    event.preventDefault();
+    console.log("buttonService1");
+
+    let graphMois = document.querySelector('#graph-mois');
+    let graphJour = document.querySelector('#graph-jour');
+    graphMois.classList.add('mon-d-none');
+    graphJour.classList.remove('mon-d-none');
+    ajaxCallAsynch(1);
+  });
+
+  buttonService2.addEventListener("click", function (event) {
+    event.preventDefault();
+    console.log("buttonService2");
+
+    let graphMois = document.querySelector('#graph-mois');
+    let graphJour = document.querySelector('#graph-jour');
+    graphMois.classList.add('mon-d-none');
+    graphJour.classList.remove('mon-d-none');
+    ajaxCallAsynch(2);
+  });
+
+  buttonService3.addEventListener("click", function (event) {
+    event.preventDefault();
+    console.log("buttonService3");
+
+    let graphMois = document.querySelector('#graph-mois');
+    let graphJour = document.querySelector('#graph-jour');
+    graphMois.classList.add('mon-d-none');
+    graphJour.classList.remove('mon-d-none');
+    ajaxCallAsynch(3);
+  });
+
+  buttonService4.addEventListener("click", function (event) {
+    event.preventDefault();
+    console.log("buttonService4");
+
+    let graphMois = document.querySelector('#graph-mois');
+    let graphJour = document.querySelector('#graph-jour');
+    graphMois.classList.add('mon-d-none');
+    graphJour.classList.remove('mon-d-none');
+    ajaxCallAsynch(4);
+  });
   // console.log("jsonDataJours : ", jsonDataJours);
 });
 //END AJAX!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// console.log("jsonDataJours : ", jsonDataJours);
 //END AJAX!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 //END AJAX!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -357,7 +358,7 @@ $(function () {
 
         }
       }
-      else{
+      else {
         console.log(element);
       }
 

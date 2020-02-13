@@ -11,7 +11,9 @@ require_once 'model/getUser.php';
 
 // session_start();
 // $_SESSION['logged'] = true;
+// echo '$_POST : ';
 // print_r($_POST);
+// echo '$_SESSION : ';
 // print_r($_SESSION);
 
 
@@ -68,19 +70,18 @@ if (strpos($uri, '/', 1) !== false) {
 }
 switch ($action) {
     case 'default':
+    case '/':
     case "";
-        // defaultAction();
-        // require_once 'views/login-test.html.twig';
-        // require_once 'views/index.html';
+        // echo "default action of defaultController.php";
         $loader = new \Twig\Loader\FilesystemLoader('views');
         $twig = new \Twig\Environment($loader);
         // $template = $twig->load('admin-test.html.twig');
-        echo $twig->render('index.html.twig', ['var1' => 'variables', 'var2' => 'here']);
+        echo $twig->render('index.html.twig', ['var1' => 'variables', 'subProject' => $subProject]);
         break;
     case 'admin';
         // defaultAction();
         // echo "admin start";
-        header('Location: /admin');
+        header('Location: '.$subProject.'/admin');
         exit();
 
         // $loader = new \Twig\Loader\FilesystemLoader('views');
@@ -92,18 +93,19 @@ switch ($action) {
     case 'employe';
         // defaultAction();
         // require_once 'views/utilisateur.html.twig';
-        header('Location: /employe');
+        header('Location: '.$subProject.'/employe');
         exit();
         break;
     case "erreur";
-        // defaultAction();
-        // require_once 'views/login-test.html.twig';
-        // require_once 'views/index.html';
+        
+        // echo "erreur action of defaultController.php";
         $loader = new \Twig\Loader\FilesystemLoader('views');
         $twig = new \Twig\Environment($loader);
         // $template = $twig->load('admin-test.html.twig');
-        echo $twig->render('index.html.twig', ['erreurMsg' => 'Votre username et/ou votre mot de passe ne correspondent pas.']);
+        echo $twig->render('index.html.twig', ['erreurMsg' => 'Votre username et/ou votre mot de passe ne correspondent pas.',
+        'subProject' => $subProject]);
         break;
     default:
+        // echo 'ceci est action : '.$action;
         require_once 'views/404.html.php';
 }
