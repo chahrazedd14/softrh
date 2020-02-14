@@ -116,6 +116,11 @@ window.addEventListener('load', () => {
     graphMois.classList.add('mon-d-none');
     graphJour.classList.remove('mon-d-none');
     ajaxCallAsynch(1);
+
+    if (window.innerWidth < 768) {
+      var slideNav = document.querySelector('.side-nav');
+      slideNav.classList.toggle('show-side-nav');
+    }
   });
 
   buttonService2.addEventListener("click", function (event) {
@@ -127,6 +132,12 @@ window.addEventListener('load', () => {
     graphMois.classList.add('mon-d-none');
     graphJour.classList.remove('mon-d-none');
     ajaxCallAsynch(2);
+
+    if (window.innerWidth < 768) {
+      var slideNav = document.querySelector('.side-nav');
+      slideNav.classList.toggle('show-side-nav');
+      console.log(window.innerWidth);
+    }
   });
 
   buttonService3.addEventListener("click", function (event) {
@@ -138,6 +149,11 @@ window.addEventListener('load', () => {
     graphMois.classList.add('mon-d-none');
     graphJour.classList.remove('mon-d-none');
     ajaxCallAsynch(3);
+
+    if (window.innerWidth < 768) {
+      var slideNav = document.querySelector('.side-nav');
+      slideNav.classList.toggle('show-side-nav');
+    }
   });
 
   buttonService4.addEventListener("click", function (event) {
@@ -149,8 +165,21 @@ window.addEventListener('load', () => {
     graphMois.classList.add('mon-d-none');
     graphJour.classList.remove('mon-d-none');
     ajaxCallAsynch(4);
+
+    if (window.innerWidth < 768) {
+      var slideNav = document.querySelector('.side-nav');
+      slideNav.classList.toggle('show-side-nav');
+    }
   });
   // console.log("jsonDataJours : ", jsonDataJours);
+  if (window.innerWidth < 768) {
+    document.querySelector('#contents').addEventListener('click', (event) => {
+      var slideNav = document.querySelector('.side-nav');
+      slideNav.classList.add('show-side-nav');
+    });
+
+  }
+
 });
 //END AJAX!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 //END AJAX!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -333,9 +362,7 @@ $(function () {
 
     // dropdown menu in the side nav
     var slideNavDropdown = $('.side-nav-dropdown');
-    // document.addEventListener('click', (e) => {
 
-    // });
 
     $('.side-nav .categories li.service-menu-button').on('click', function (e) {
       e.stopPropagation();
@@ -350,6 +377,7 @@ $(function () {
 
           // $(this).siblings().find('.side-nav-dropdown');
           $(this).siblings().find('.side-nav-dropdown').slideUp('fast');
+
 
         } else {
 
